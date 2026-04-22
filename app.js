@@ -1,3 +1,11 @@
+/* ═══════════════════════════════════════════════════════════════════
+   app.js · Prode Mundialista 2026
+   ═════════════════════════════════
+   Incluye: nav, modal, toast, live predictions, counters animados,
+   pricing toggle, FAQ, form 4 pasos, submit al GAS,
+   countdown al Mundial, switchCountry (selector de país en precios).
+═══════════════════════════════════════════════════════════════════ */
+
 AOS.init({once:true,offset:60,duration:700,easing:'ease-out-cubic'});
 
 /* ── NAV ── */
@@ -40,15 +48,15 @@ function addPrediction(){
   const p=PREDICTIONS[predIdx%PREDICTIONS.length];predIdx++;
   const d=document.createElement('div');
   d.className='flex items-center justify-between text-xs rounded px-3 py-2.5';
-  d.style.cssText='background:rgba(244,237,217,.04);border:1px solid rgba(212,168,75,.15);animation:slideUp .35s ease';
-  d.innerHTML=`<span style="color:var(--on-dark-dim)">${p.n}</span><span style="color:var(--ink-300);font-size:.72rem">${p.g}</span><span style="font-weight:700;color:var(--g-400)">${p.r}</span>`;
+  d.style.cssText='background:rgba(255,255,255,.06);border:1px solid rgba(235,195,43,.2);animation:slideUp .35s ease';
+  d.innerHTML=`<span style="color:var(--on-dark-dim)">${p.n}</span><span style="color:var(--ink-300);font-size:.72rem">${p.g}</span><span style="font-weight:700;color:var(--gold)">${p.r}</span>`;
   if(c.children.length>=3)c.removeChild(c.firstChild);
   c.appendChild(d);
 }
 addPrediction();addPrediction();addPrediction();
 setInterval(addPrediction,2800);
 
-/* ── COUNTERS ── */
+/* ── COUNTERS (para cualquier elemento con data-to) ── */
 function animateCounters(){
   document.querySelectorAll('[data-to]').forEach(el=>{
     const T=+el.dataset.to,dur=+el.dataset.dur||1000;
@@ -58,9 +66,107 @@ function animateCounters(){
 }
 setTimeout(animateCounters,500);
 
-/* ── PRICING TOGGLE ── */
+/* ── COUNTDOWN AL MUNDIAL ──
+   Inicio: Jueves 11 de junio de 2026 · 16:00 hs Argentina (UTC-3) = 19:00 UTC */
+(function(){
+  const target = new Date('2026-06-11T19:00:00Z').getTime();
+  const $d = document.getElementById('cd-d');
+  const $h = document.getElementById('cd-h');
+  const $m = document.getElementById('cd-m');
+  const $s = document.getElementById('cd-s');
+  if(!$d || !$h || !$m || !$s) return;
+  const pad = n => String(n).padStart(2,'0');
+  function tick(){
+    const diff = target - Date.now();
+    if(diff <= 0){
+      $d.textContent='00'; $h.textContent='00'; $m.textContent='00'; $s.textContent='00';
+      return;
+    }
+    const days = Math.floor(diff / 86400000);
+    const hrs  = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    $d.textContent=pad(days); $h.textContent=pad(hrs); $m.textContent=pad(mins); $s.textContent=pad(secs);
+  }
+  tick();
+  setInterval(tick,1000);
+})();
+
+/* ── SELECTOR DE PAÍS EN PRECIOS ── */
+let selectedCountry = 'argentina';
+
+window.switchCountry = function(country){
+  selectedCountry = country;
+
+  document.querySelectorAll('.country-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.country === country);
+  });
+
+  const PRICES = {
+    argentina: {
+      basic:    { main: '$160.000',  unit: 'ARS', sub: '≈ USD 113' },
+      standard: { main: '$280.000',  unit: 'ARS', sub: '≈ USD 199' },
+      full:     { main: '$400.000',  unit: 'ARS', sub: '≈ USD 284' },
+      info: '🇦🇷 Precios en <strong>pesos argentinos (ARS)</strong>. Tipo de cambio referencial: 1&nbsp;USD&nbsp;=&nbsp;$1.410&nbsp;ARS.',
+      sindicato: true
+    },
+    bolivia: {
+      basic:    { main: 'Bs. 900',   unit: 'BOB', sub: '≈ USD 130' },
+      standard: { main: 'Bs. 1.600', unit: 'BOB', sub: '≈ USD 231' },
+      full:     { main: 'Bs. 2.300', unit: 'BOB', sub: '≈ USD 333' },
+      info: '🇧🇴 Precios en <strong>bolivianos (BOB)</strong>.',
+      sindicato: false
+    },
+    mexico: {
+      basic:    { main: '$865',   unit: 'MXN', sub: '≈ USD 43' },
+      standard: { main: '$1.557', unit: 'MXN', sub: '≈ USD 78' },
+      full:     { main: '$2.249', unit: 'MXN', sub: '≈ USD 112' },
+      info: '🇲🇽 Precios en <strong>pesos mexicanos (MXN)</strong>.',
+      sindicato: false
+    },
+    peru: {
+      basic:    { main: 'S/ 240', unit: 'PEN', sub: '≈ USD 64' },
+      standard: { main: 'S/ 430', unit: 'PEN', sub: '≈ USD 115' },
+      full:     { main: 'S/ 620', unit: 'PEN', sub: '≈ USD 165' },
+      info: '🇵🇪 Precios en <strong>soles peruanos (PEN)</strong>.',
+      sindicato: false
+    },
+    otro: {
+      basic:    { main: 'USD 113', unit: '', sub: 'Precio internacional' },
+      standard: { main: 'USD 199', unit: '', sub: 'Precio internacional' },
+      full:     { main: 'USD 284', unit: '', sub: 'Precio internacional' },
+      info: '🌎 Precios en <strong>dólares estadounidenses (USD)</strong>.',
+      sindicato: false
+    }
+  };
+
+  const p = PRICES[country] || PRICES['otro'];
+
+  // Actualizar info contextual
+  const info = document.getElementById('country-info');
+  if(info) info.innerHTML = p.info;
+
+  // Actualizar las tres tarjetas de precio
+  ['basic','standard','full'].forEach(id => {
+    const main = document.getElementById('price-'+id+'-main');
+    const unit = document.getElementById('price-'+id+'-unit');
+    const sub  = document.getElementById('price-'+id+'-sub');
+    if(main) main.textContent = p[id].main;
+    if(unit) unit.textContent = p[id].unit;
+    if(sub)  sub.textContent  = p[id].sub;
+  });
+
+  // Mostrar/ocultar tabs de sindicatos
+  const tabsWrap = document.getElementById('tabs-pricing-wrap');
+  if(tabsWrap){
+    tabsWrap.style.display = p.sindicato ? '' : 'none';
+    if(!p.sindicato) switchPricing('e');
+  }
+};
+
+/* ── PRICING TOGGLE (Empresas / Sindicatos) ── */
 function switchPricing(type){
-  const isE=type==='e';
+  const isE = type === 'e';
   document.getElementById('pricing-empresa').classList.toggle('hidden',!isE);
   document.getElementById('pricing-sindicato').classList.toggle('hidden',isE);
   document.getElementById('tab-empresa').classList.toggle('active',isE);
@@ -192,7 +298,7 @@ function buildSummary(){
     ['Cuándo',document.getElementById('fwhn').selectedOptions?.[0]?.text||'-']
   ];
   document.getElementById('summary-box').innerHTML=rows.map(([k,v])=>`
-    <div class="flex items-center justify-between gap-4 py-1.5" style="border-bottom:1px dashed var(--cr-200)">
+    <div class="flex items-center justify-between gap-4 py-1.5" style="border-bottom:1px dashed var(--cream-2)">
       <span style="color:var(--ink-500);font-size:.8rem;flex-shrink:0">${k}</span>
       <span style="font-size:.88rem;text-align:right;color:var(--ink-900);font-weight:500">${v}</span>
     </div>
@@ -229,19 +335,21 @@ function doSubmit(){
     Precio_USD:   info?fmtUSD(info.ars):'-'
   };
 
+  // Columnas A→M del sheet
   const fila=[
-    new Date().toLocaleString('es-AR',{timeZone:'America/Argentina/Buenos_Aires'}),
-    displayData.Nombre,
-    displayData.Email,
-    document.getElementById('ftel').value.trim(),
-    displayData.Organizacion,
-    ORG_LABEL[orgValue]||orgValue,
-    document.getElementById('fqty').value,
-    displayData.Plan,
-    displayData.Precio_ARS,
-    displayData.Precio_USD,
-    document.getElementById('fwhn').selectedOptions?.[0]?.text||'',
-    document.getElementById('fcmt').value.trim()
+    new Date().toLocaleString('es-AR',{timeZone:'America/Argentina/Buenos_Aires'}), // A - Fecha
+    displayData.Nombre,                                                               // B - Nombre
+    displayData.Email,                                                                // C - Email
+    document.getElementById('ftel').value.trim(),                                    // D - Teléfono
+    displayData.Organizacion,                                                         // E - Organización
+    ORG_LABEL[orgValue]||orgValue,                                                    // F - Tipo
+    document.getElementById('fqty').value,                                            // G - Rango participantes
+    displayData.Plan,                                                                 // H - Plan
+    displayData.Precio_ARS,                                                           // I - Precio ARS
+    displayData.Precio_USD,                                                           // J - Precio USD
+    document.getElementById('fwhn').selectedOptions?.[0]?.text||'',                  // K - Cuándo
+    document.getElementById('fcmt').value.trim(),                                     // L - Comentarios
+    selectedCountry                                                                   // M - País
   ];
 
   document.getElementById('submit-text').classList.add('hidden');
@@ -270,14 +378,14 @@ function showSuccess(data){
   for(let i=1;i<=4;i++)setDot(i,'done');
 
   document.getElementById('success-summary').innerHTML=`
-    <p class="mono-label mb-3" style="color:var(--v-700)">Resumen</p>
+    <p class="mono-label mb-3" style="color:var(--navy)">Resumen</p>
     <div class="grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
       <span style="color:var(--ink-500)">Nombre</span><span style="color:var(--ink-900)">${data.Nombre}</span>
       <span style="color:var(--ink-500)">Email</span><span style="color:var(--ink-900)">${data.Email}</span>
       <span style="color:var(--ink-500)">Organización</span><span style="color:var(--ink-900)">${data.Organizacion}</span>
-      <span style="color:var(--ink-500)">Plan</span><span style="color:var(--v-700);font-weight:700">${data.Plan}</span>
+      <span style="color:var(--ink-500)">Plan</span><span style="color:var(--navy);font-weight:700">${data.Plan}</span>
       <span style="color:var(--ink-500)">Precio ARS</span><span style="color:var(--ink-900);font-weight:600">${data.Precio_ARS}</span>
-      <span style="color:var(--ink-500)">Precio USD</span><span style="color:var(--g-600)">${data.Precio_USD}</span>
+      <span style="color:var(--ink-500)">Precio USD</span><span style="color:var(--gold-dark)">${data.Precio_USD}</span>
     </div>
   `;
   showToast('✅','¡Solicitud enviada!','Te contactaremos por email a la brevedad.');

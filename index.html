@@ -5,391 +5,211 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Prode Mundialista 2026 · Escencial Consultora</title>
 <meta name="description" content="Plataforma de pronósticos deportivos para empresas y sindicatos. Clima laboral, integración y entusiasmo para el Mundial 2026."/>
-<link rel="icon" type="image/png" href="./img/favicon.png"/>
-<link href="https://cdn.tailwindcss.com" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="./imgprode/one-prode-dorado.png"/>
+
+<!-- Tailwind CDN con config de paleta Prode Talento -->
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'navy-deep':'#05090f','navy':'#0c182b','navy-soft':'#18243f',
+        'blue-med':'#425b8b','blue-soft':'#6e83ad',
+        'gold':'#ebc32b','gold-light':'#f5d75a','gold-dark':'#c99f16',
+        'brown':'#795436','brown-light':'#9a7248',
+        'cream':'#faf7f0','cream-2':'#f0eadb'
+      },
+      fontFamily: {
+        'display':['"Bebas Neue"','sans-serif'],
+        'serif-ed':['"Fraunces"','Georgia','serif'],
+        'sans-ed':['"DM Sans"','system-ui','sans-serif']
+      },
+      boxShadow: {
+        'glow-gold':'0 0 60px rgba(235,195,43,.25)',
+        'glow-blue':'0 0 80px rgba(66,91,139,.35)',
+        'card-hero':'0 30px 80px rgba(5,9,15,.55)',
+        'card-lift':'0 20px 48px rgba(12,24,43,.18)'
+      }
+    }
+  }
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
 
 <style>
-/* ─────────────────────────────────────────────
-   PALETA ESCENCIAL ARGENTINA · Violeta + Dorado
-   ───────────────────────────────────────────── */
 :root{
-  /* Violetas (oscuros → claros) */
-  --v-950:#0b0618;
-  --v-900:#000000;
-  --v-800:#241844;
-  --v-700:#1a1233;
-  --v-600:#1b1330;
-  --v-500:#06040a;
-  --v-400:#1b1525;
-  --v-300:#a795c2;
-
-  /* Dorado Escencial */
-  --g-600:#b8902f;
-  --g-500:#d4a84b;
-  --g-400:#e8c575;
-  --g-200:#f3dfa7;
-
-  /* Verde cancha (CTAs positivos) */
-  --gr-700:#146a46;
-  --gr-600:#1b8a5a;
-  --gr-500:#2ca36d;
-
-  /* Cremas (fondos claros) */
-  --cr-50:#faf7f0;
-  --cr-100:#f4edd9;
-  --cr-200:#e8deb8;
-  --cr-300:#d4c695;
-
-  /* Terracota urgencia */
-  --rd-700:#8a3220;
-  --rd-600:#b8452e;
-  --rd-500:#d56347;
-
-  /* Inks */
-  --ink-900:#15102a;
-  --ink-700:#3d2b6e;
-  --ink-500:#6b5d8a;
-  --ink-300:#b5a8c9;
-  --on-dark:#f4edd9;
-  --on-dark-dim:#b5a8c9;
+  --navy-deep:#05090f;--navy:#0c182b;--navy-soft:#18243f;
+  --blue-med:#425b8b;--blue-soft:#6e83ad;
+  --gold:#ebc32b;--gold-light:#f5d75a;--gold-dark:#c99f16;
+  --brown:#795436;--brown-light:#9a7248;
+  --cream:#faf7f0;--cream-2:#f0eadb;
+  --ink-900:#0c182b;--ink-700:#2b3a5a;--ink-500:#5f6e8a;--ink-300:#a8b2c4;
+  --on-dark:#ffffff;--on-dark-dim:#c2ccdc;
+  --rd-600:#b8452e;--gr-600:#1b8a5a;--gr-500:#2ca36d;--gr-700:#146a46;
 }
-
-*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{
-  font-family:'DM Sans',system-ui,sans-serif;
-  background:var(--cr-50);
-  color:var(--ink-900);
-  overflow-x:hidden;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-}
-::selection{background:var(--g-500);color:var(--v-900)}
+body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-900);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:var(--navy-deep)}
 ::-webkit-scrollbar{width:10px}
-::-webkit-scrollbar-track{background:var(--cr-100)}
-::-webkit-scrollbar-thumb{background:var(--v-600);border-radius:10px;border:2px solid var(--cr-100)}
-::-webkit-scrollbar-thumb:hover{background:var(--v-500)}
+::-webkit-scrollbar-track{background:var(--cream-2)}
+::-webkit-scrollbar-thumb{background:var(--navy);border-radius:10px;border:2px solid var(--cream-2)}
 
-/* ─── TIPOGRAFÍA ─── */
-.display{font-family:'Bebas Neue',sans-serif;letter-spacing:.01em;line-height:.92}
+.display{font-family:'Bebas Neue',sans-serif;letter-spacing:.01em;line-height:.9}
 .serif{font-family:'Fraunces',Georgia,serif;font-optical-sizing:auto}
 .serif-it{font-family:'Fraunces',Georgia,serif;font-style:italic}
 .mono-label{font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.72rem}
 
-.wrap{max-width:1200px;margin:0 auto;padding:0 1.5rem}
-@media(min-width:640px){.wrap{padding:0 2rem}}
+.hero-bg{
+  background-image:
+    linear-gradient(180deg,rgba(5,9,15,.55) 0%,rgba(12,24,43,.75) 50%,rgba(12,24,43,.95) 100%),
+    url('./imgprode/fondo-banner.png');
+  background-size:cover;background-position:center 30%;background-repeat:no-repeat;
+}
+.hero-radial{
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 20%,rgba(235,195,43,.18),transparent 55%),
+    radial-gradient(ellipse 50% 60% at 15% 90%,rgba(66,91,139,.35),transparent 60%);
+}
+.stadium-dots{background-image:radial-gradient(circle,rgba(235,195,43,.25) 1px,transparent 1px);background-size:20px 20px}
+.gold-glow{text-shadow:0 0 40px rgba(235,195,43,.4),0 2px 0 rgba(0,0,0,.2)}
+
+.wave-divider{position:absolute;bottom:-1px;left:0;right:0;width:100%;height:80px;fill:#fff}
+@media(min-width:768px){.wave-divider{height:120px}}
+
+.hero-medal-glow{background:radial-gradient(circle,rgba(235,195,43,.35),transparent 60%);filter:blur(30px)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+.animate-float{animation:float 5s ease-in-out infinite}
+
+.marquee{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-track{display:flex;gap:2.5rem;animation:marquee 36s linear infinite;width:max-content;align-items:center}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+.pulse-dot{animation:pulse 1.6s ease infinite}
+@keyframes bounce-y{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.scroll-hint{animation:bounce-y 1.8s ease-in-out infinite}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
 .sec{padding:6rem 0;position:relative}
 @media(max-width:768px){.sec{padding:4rem 0}}
+.wrap{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+@media(min-width:640px){.wrap{padding:0 2rem}}
+.sec-dark{background:var(--navy);color:#fff}
+.sec-darker{background:var(--navy-deep);color:#fff}
+.sec-cream{background:var(--cream);color:var(--ink-900)}
+.sec-cream-2{background:var(--cream-2);color:var(--ink-900)}
 
-/* ─── SECCIONES OSCURAS vs CLARAS ─── */
-.sec-dark{background:var(--v-900);color:var(--on-dark)}
-.sec-darker{background:var(--v-950);color:var(--on-dark)}
-.sec-cream{background:var(--cr-50);color:var(--ink-900)}
-.sec-cream-2{background:var(--cr-100);color:var(--ink-900)}
+.rule-gold{height:1px;background:linear-gradient(90deg,transparent,var(--gold) 20%,var(--gold) 80%,transparent)}
+.rule-violet{height:1px;background:linear-gradient(90deg,transparent,rgba(66,91,139,.35) 20%,rgba(66,91,139,.35) 80%,transparent)}
+.rule-on-dark{height:1px;background:linear-gradient(90deg,transparent,rgba(235,195,43,.35) 20%,rgba(235,195,43,.35) 80%,transparent)}
 
-/* ─── DIVIDERS ─── */
-.rule-gold{height:1px;background:linear-gradient(90deg,transparent,var(--g-500) 20%,var(--g-500) 80%,transparent)}
-.rule-violet{height:1px;background:linear-gradient(90deg,transparent,rgba(107,75,168,.35) 20%,rgba(107,75,168,.35) 80%,transparent)}
-.rule-on-dark{height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,75,.35) 20%,rgba(212,168,75,.35) 80%,transparent)}
+.tag{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;padding:.4rem .9rem;border-radius:999px;border:1px solid var(--gold);color:var(--gold-dark);background:rgba(235,195,43,.08)}
+.tag-on-dark{border-color:var(--gold);color:var(--gold);background:rgba(235,195,43,.12)}
 
-/* ─── TAG / BADGE (editorial) ─── */
-.tag{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-family:'DM Sans',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
-  padding:.4rem .9rem;border-radius:2px;
-  border:1px solid var(--g-500);color:var(--g-600);background:rgba(212,168,75,.08);
-}
-.tag-on-dark{border-color:var(--g-400);color:var(--g-400);background:rgba(212,168,75,.1)}
-.tag-violet{border-color:var(--v-600);color:var(--v-600);background:rgba(107,75,168,.06)}
-.tag-green{border-color:var(--gr-500);color:var(--gr-700);background:rgba(44,163,109,.08)}
-.tag-red{border-color:var(--rd-500);color:var(--rd-700);background:rgba(213,99,71,.08)}
+.card-cream{background:#fff;border:1px solid var(--cream-2);border-radius:10px;transition:all .3s ease;box-shadow:0 1px 0 rgba(12,24,43,.03)}
+.card-cream:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 12px 32px rgba(12,24,43,.08)}
+.card-dark{background:linear-gradient(155deg,rgba(66,91,139,.25),rgba(66,91,139,.05));border:1px solid rgba(235,195,43,.2);border-radius:10px;transition:all .3s ease}
+.card-dark:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 20px 48px rgba(0,0,0,.4)}
 
-/* ─── FONDO TEXTURIZADO SUTIL (cancha de fútbol muy delicada) ─── */
-.bg-pitch-dark{
-  background:
-    radial-gradient(ellipse 80% 50% at 50% 0%,rgba(107,75,168,.25),transparent 60%),
-    repeating-linear-gradient(90deg,transparent,transparent 120px,rgba(212,168,75,.02) 120px,rgba(212,168,75,.02) 121px),
-    var(--v-900);
-}
-.bg-pitch-cream{
-  background:
-    radial-gradient(ellipse 70% 40% at 50% 0%,rgba(212,168,75,.12),transparent 60%),
-    repeating-linear-gradient(90deg,transparent,transparent 140px,rgba(26,18,53,.025) 140px,rgba(26,18,53,.025) 141px),
-    var(--cr-50);
-}
-.paper-texture{
-  position:absolute;inset:0;pointer-events:none;opacity:.35;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.2 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* ─── NAV ─── */
-#nav{position:fixed;top:0;left:0;right:0;z-index:90;padding:1.1rem 0;transition:all .35s ease;background:transparent}
-#nav.scrolled{background:rgba(26,18,53,.95);backdrop-filter:blur(20px);padding:.7rem 0;box-shadow:0 1px 0 rgba(212,168,75,.2),0 8px 28px rgba(0,0,0,.18)}
-.navlink{font-size:.88rem;font-weight:500;color:var(--on-dark);transition:color .2s;text-decoration:none;position:relative}
-.navlink::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--g-500);transition:width .25s}
-.navlink:hover{color:var(--g-400)}
-.navlink:hover::after{width:100%}
-
-.logo-img{height:4.2rem;width:auto;transition:all .3s}
-@media(max-width:640px){.logo-img{height:1.8rem}}
-.logo-fallback{display:none;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.1em;color:var(--g-400)}
-
-/* ─── BOTONES ─── */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  font-family:'DM Sans',sans-serif;font-weight:600;font-size:.9rem;letter-spacing:.02em;
-  text-decoration:none;padding:.85rem 1.8rem;border-radius:4px;cursor:pointer;
-  transition:all .28s ease;border:none;position:relative;overflow:hidden;white-space:nowrap;
-}
-.btn-gold{background:var(--g-500);color:var(--v-900);box-shadow:0 4px 16px rgba(184,144,47,.28)}
-.btn-gold:hover{background:var(--g-400);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,144,47,.42)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-weight:600;font-size:.92rem;letter-spacing:.02em;text-decoration:none;padding:.95rem 1.9rem;border-radius:999px;cursor:pointer;transition:all .28s ease;border:none;position:relative;overflow:hidden;white-space:nowrap}
+.btn-gold{background:var(--gold);color:var(--navy-deep);box-shadow:0 8px 24px rgba(235,195,43,.3)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 12px 32px rgba(235,195,43,.45)}
 .btn-green{background:var(--gr-600);color:#fff;box-shadow:0 4px 16px rgba(27,138,90,.28)}
-.btn-green:hover{background:var(--gr-500);transform:translateY(-2px);box-shadow:0 8px 24px rgba(27,138,90,.42)}
-.btn-violet{background:var(--v-700);color:#fff}
-.btn-violet:hover{background:var(--v-600);transform:translateY(-2px)}
-.btn-outline-gold{background:transparent;color:var(--g-500);border:1.5px solid var(--g-500)}
-.btn-outline-gold:hover{background:var(--g-500);color:var(--v-900)}
-.btn-outline-violet{background:transparent;color:var(--v-700);border:1.5px solid var(--v-500)}
-.btn-outline-violet:hover{background:var(--v-700);color:#fff}
-.btn-outline-light{background:transparent;color:var(--on-dark);border:1.5px solid rgba(244,237,217,.3)}
-.btn-outline-light:hover{border-color:var(--g-400);color:var(--g-400)}
-.btn-lg{padding:1.05rem 2.4rem;font-size:.95rem}
+.btn-green:hover{background:var(--gr-500);transform:translateY(-2px)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-soft);transform:translateY(-2px)}
+.btn-outline-gold{background:transparent;color:var(--gold);border:1.5px solid var(--gold)}
+.btn-outline-gold:hover{background:var(--gold);color:var(--navy-deep)}
+.btn-outline-navy{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+.btn-outline-navy:hover{background:var(--navy);color:#fff}
+.btn-outline-light{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);backdrop-filter:blur(8px)}
+.btn-outline-light:hover{border-color:var(--gold);color:var(--gold);background:rgba(235,195,43,.08)}
+.btn-lg{padding:1.1rem 2.4rem;font-size:.98rem}
 .btn svg{transition:transform .25s}
 .btn:hover svg{transform:translateX(3px)}
 
-/* ─── CARDS (sobre crema) ─── */
-.card-cream{
-  background:#fff;border:1px solid var(--cr-200);border-radius:6px;
-  transition:all .3s ease;box-shadow:0 1px 0 rgba(26,18,53,.03);
-}
-.card-cream:hover{border-color:var(--g-500);transform:translateY(-3px);box-shadow:0 12px 32px rgba(26,18,53,.08)}
+.price-card{background:#fff;border:1px solid var(--cream-2);border-radius:12px;padding:2.5rem 1.75rem;transition:all .35s ease;position:relative;display:flex;flex-direction:column}
+.price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--cream-2);transition:background .3s;border-radius:12px 12px 0 0}
+.price-card:hover{border-color:var(--blue-med);transform:translateY(-8px);box-shadow:0 20px 48px rgba(12,24,43,.1)}
+.price-card:hover::before{background:var(--blue-med)}
+.price-card-featured{background:linear-gradient(170deg,var(--navy),var(--navy-deep));color:#fff;border:2px solid var(--gold);box-shadow:0 24px 60px rgba(12,24,43,.25)}
+.price-card-featured::before{background:var(--gold)}
+.price-card-featured:hover{transform:translateY(-4px);box-shadow:0 32px 72px rgba(12,24,43,.35)}
 
-/* ─── CARDS (sobre oscuro) ─── */
-.card-dark{
-  background:linear-gradient(155deg,rgba(107,75,168,.18),rgba(107,75,168,.05));
-  border:1px solid rgba(212,168,75,.18);border-radius:6px;transition:all .3s ease;
-}
-.card-dark:hover{border-color:var(--g-400);transform:translateY(-3px);box-shadow:0 20px 48px rgba(0,0,0,.35)}
-
-/* ─── HERO STAT CARD ─── */
-.hero-card{
-  background:linear-gradient(160deg,rgba(244,237,217,.06),rgba(244,237,217,.02));
-  border:1px solid rgba(212,168,75,.3);
-  border-radius:8px;backdrop-filter:blur(6px);
-  box-shadow:0 24px 60px rgba(0,0,0,.35),inset 0 1px 0 rgba(244,237,217,.07);
-}
-
-/* ─── PRICING CARDS ─── */
-.price-card {
-  background: #fff;
-  border: 1px solid var(--cr-200);
-  border-radius: 12px; /* Un poco más redondeado queda mejor */
-  padding: 2.5rem 1.75rem;
-  transition: all .35s ease;
-  position: relative;
-  /* overflow: hidden;  <-- ELIMINADO para que el badge no se corte */
-  display: flex;
-  flex-direction: column;
-}
-.price-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: var(--cr-200);
-  transition: background .3s;
-  border-radius: 12px 12px 0 0;
-}
-.price-card:hover {
-  border-color: var(--v-500);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 48px rgba(26,18,53,0.1);
-}
-.price-card:hover::before{background:var(--v-500)}
-
-.price-card-featured {
-  background: linear-gradient(170deg, var(--v-800), var(--v-900));
-  color: var(--on-dark);
-  border: 2px solid var(--g-500); /* Un poco más de grosor para destacar */
-  box-shadow: 0 24px 60px rgba(26,18,53,0.25);
-}
-/* ─── AJUSTE DEL BADGE "MÁS ELEGIDO" ─── */
-.price-card-featured .absolute {
-  top: -16px !important; /* Lo subimos más para que sobresalga bien */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10; /* Asegura que esté por encima de todo */
-}
-
-.price-card-featured .absolute span {
-  background: var(--g-500) !important;
-  color: var(--v-900) !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Sombra para dar profundidad */
-  padding: 6px 16px; /* Más presencia */
-  display: inline-block;
-}
-
-.price-card-featured::before{background:var(--g-500)}
-.price-card-featured:hover{transform:translateY(-4px);box-shadow:0 32px 72px rgba(26,18,53,.35)}
-
-/* ─── FORMS ─── */
 .fstep{display:none}
 .fstep.active{display:block;animation:slideUp .4s ease}
-@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-
-.finput{
-  width:100%;background:#fff;border:1.5px solid var(--cr-200);border-radius:4px;
-  padding:.9rem 1.1rem;color:var(--ink-900);font-family:'DM Sans',sans-serif;font-size:.95rem;
-  outline:none;transition:all .2s;
-}
-.finput:focus{border-color:var(--v-500);box-shadow:0 0 0 3px rgba(107,75,168,.12)}
+.finput{width:100%;background:#fff;border:1.5px solid var(--cream-2);border-radius:8px;padding:.9rem 1.1rem;color:var(--ink-900);font-family:'DM Sans',sans-serif;font-size:.95rem;outline:none;transition:all .2s}
+.finput:focus{border-color:var(--blue-med);box-shadow:0 0 0 3px rgba(66,91,139,.15)}
 .finput::placeholder{color:var(--ink-500);opacity:.7}
 .finput option{background:#fff}
-
-.flabel{display:block;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-700);margin-bottom:.5rem}
+.flabel{display:block;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-700);margin-bottom:.5rem}
 .ferror{font-size:.78rem;color:var(--rd-600);margin-top:.4rem;display:none;font-weight:500}
 .ferror.active{display:block}
+.opt-box{cursor:pointer;border:1.5px solid var(--cream-2);border-radius:10px;padding:1.5rem 1rem;background:#fff;transition:all .25s;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.opt-box:hover{border-color:var(--blue-med);background:#fcfaf5;transform:translateY(-2px)}
+.opt-box.selected{border-color:var(--gold);background:rgba(235,195,43,.08);box-shadow:0 4px 14px rgba(235,195,43,.2)}
 
-.opt-box{
-  cursor:pointer;border:1.5px solid var(--cr-200);border-radius:6px;
-  padding:1.5rem 1rem;background:#fff;transition:all .25s;
-  text-align:center;display:flex;flex-direction:column;align-items:center;gap:.5rem;
-}
-.opt-box:hover{border-color:var(--v-500);background:#fcfaf5;transform:translateY(-2px)}
-.opt-box.selected{border-color:var(--g-500);background:rgba(212,168,75,.08);box-shadow:0 4px 14px rgba(212,168,75,.2)}
-
-/* ─── STEPPER ─── */
-.step-dot{
-  width:2rem;height:2rem;border-radius:50%;border:2px solid var(--cr-200);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:700;
-  color:var(--ink-500);background:#fff;transition:all .35s;flex-shrink:0;
-}
-.step-dot.active{border-color:var(--v-600);background:var(--v-600);color:#fff;box-shadow:0 0 0 4px rgba(107,75,168,.15)}
+.step-dot{width:2rem;height:2rem;border-radius:50%;border:2px solid var(--cream-2);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;color:var(--ink-500);background:#fff;transition:all .35s;flex-shrink:0}
+.step-dot.active{border-color:var(--navy);background:var(--navy);color:var(--gold);box-shadow:0 0 0 4px rgba(12,24,43,.12)}
 .step-dot.done{border-color:var(--gr-600);background:var(--gr-600);color:#fff}
-.step-line{flex:1;height:2px;background:var(--cr-200);transition:background .4s;border-radius:2px}
+.step-line{flex:1;height:2px;background:var(--cream-2);transition:background .4s;border-radius:2px}
 .step-line.done{background:var(--gr-500)}
-.pbar{height:4px;background:var(--cr-200);border-radius:999px;overflow:hidden}
-.pbar-fill{height:100%;background:linear-gradient(90deg,var(--v-600),var(--g-500));border-radius:999px;transition:width .5s ease}
+.pbar{height:4px;background:var(--cream-2);border-radius:999px;overflow:hidden}
+.pbar-fill{height:100%;background:linear-gradient(90deg,var(--navy),var(--gold));border-radius:999px;transition:width .5s ease}
 
-/* ─── PLAN BADGE en formulario ─── */
-.plan-preview{
-  background:linear-gradient(135deg,rgba(107,75,168,.06),rgba(212,168,75,.06));
-  border:1px dashed var(--v-500);border-radius:6px;padding:1.2rem;
-}
+.plan-preview{background:linear-gradient(135deg,rgba(66,91,139,.08),rgba(235,195,43,.08));border:1px dashed var(--blue-med);border-radius:10px;padding:1.2rem}
 
-/* ─── TABS ─── */
-.tabs-wrap{display:inline-flex;padding:.3rem;background:#fff;border:1px solid var(--cr-200);border-radius:6px;box-shadow:0 2px 8px rgba(26,18,53,.04)}
-.tab-btn{padding:.6rem 1.6rem;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--ink-500);transition:all .25s}
-.tab-btn.active{background:var(--v-700);color:#fff;box-shadow:0 4px 12px rgba(26,18,53,.2)}
+.tabs-wrap{display:inline-flex;padding:.3rem;background:#fff;border:1px solid var(--cream-2);border-radius:999px;box-shadow:0 2px 8px rgba(12,24,43,.04)}
+.tab-btn{padding:.6rem 1.6rem;border-radius:999px;font-size:.85rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--ink-500);transition:all .25s}
+.tab-btn.active{background:var(--navy);color:#fff;box-shadow:0 4px 12px rgba(12,24,43,.2)}
 
-/* ─── FAQ ─── */
 .faq-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
 .faq-body.open{max-height:400px}
 .faq-arrow{transition:transform .35s}
 .faq-arrow.rotated{transform:rotate(180deg)}
 
-/* ─── MODAL T&C ─── */
-#tc-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(26,18,53,.75);backdrop-filter:blur(10px);padding:1rem}
+#tc-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(5,9,15,.8);backdrop-filter:blur(10px);padding:1rem}
 #tc-modal.open{display:flex}
-.modal-body{background:var(--cr-50);border:1px solid var(--g-500);border-radius:8px;max-width:720px;width:100%;max-height:88vh;overflow-y:auto;padding:2.5rem;box-shadow:0 32px 80px rgba(0,0,0,.4)}
-.modal-body h2{font-family:'Bebas Neue',sans-serif;letter-spacing:.03em;font-size:2.2rem;margin-bottom:1.5rem;color:var(--v-800)}
-.modal-body h3{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem;color:var(--v-700)}
+.modal-body{background:var(--cream);border:1px solid var(--gold);border-radius:12px;max-width:720px;width:100%;max-height:88vh;overflow-y:auto;padding:2.5rem;box-shadow:0 32px 80px rgba(0,0,0,.5)}
+.modal-body h2{font-family:'Bebas Neue',sans-serif;letter-spacing:.03em;font-size:2.2rem;margin-bottom:1.5rem;color:var(--navy)}
+.modal-body h3{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem;color:var(--navy)}
 .modal-body p,.modal-body li{font-size:.92rem;color:var(--ink-700);line-height:1.75}
 .modal-body ul{padding-left:1.2rem;list-style:disc;margin-top:.5rem}
 .modal-body li{margin-bottom:.4rem}
 
-/* ─── TOAST ─── */
-#toast{
-  position:fixed;bottom:2rem;right:2rem;z-index:300;
-  background:var(--v-800);color:var(--on-dark);
-  border:1px solid var(--g-500);border-left:4px solid var(--g-500);
-  border-radius:6px;padding:1.1rem 1.4rem;
-  display:flex;align-items:center;gap:1rem;min-width:280px;max-width:360px;
-  transform:translateX(140%);transition:transform .4s cubic-bezier(.175,.885,.32,1.275);
-  box-shadow:0 24px 60px rgba(0,0,0,.4);
-}
+#toast{position:fixed;bottom:2rem;right:2rem;z-index:300;background:var(--navy);color:#fff;border:1px solid var(--gold);border-left:4px solid var(--gold);border-radius:8px;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1rem;min-width:280px;max-width:360px;transform:translateX(140%);transition:transform .4s cubic-bezier(.175,.885,.32,1.275);box-shadow:0 24px 60px rgba(0,0,0,.4)}
 #toast.visible{transform:translateX(0)}
 
-/* ─── HERO ─── */
-.hero-headline{
-  font-family:'Bebas Neue',sans-serif;
-  letter-spacing:.005em;line-height:.9;
-  font-size:clamp(3.2rem,10vw,7rem);
-}
-.hero-headline .accent{color:var(--g-500);font-family:'Fraunces',serif;font-style:italic;font-weight:500;letter-spacing:-.015em}
+.big-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1;color:var(--gold)}
 
-/* ─── MARQUEE ─── */
-.marquee{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.marquee-track{display:flex;gap:2.5rem;animation:marquee 38s linear infinite;width:max-content;align-items:center}
-@keyframes marquee{to{transform:translateX(-50%)}}
-.marquee-item{font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;color:var(--v-800);display:flex;align-items:center;gap:2.5rem}
-.marquee-dot{width:6px;height:6px;border-radius:50%;background:var(--g-500);flex-shrink:0}
-
-/* ─── BIG NUMBER COUNTER ─── */
-.big-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,6.5vw,4.4rem);line-height:1;color:var(--g-500)}
-
-/* ─── SUCCESS RING ─── */
-.success-ring{
-  width:6.5rem;height:6.5rem;border-radius:50%;
-  background:linear-gradient(135deg,var(--gr-600),var(--gr-500));
-  display:flex;align-items:center;justify-content:center;color:#fff;
-  font-size:2.8rem;animation:ringPop .7s cubic-bezier(.175,.885,.32,1.275) both;
-  box-shadow:0 0 0 6px rgba(27,138,90,.15),0 12px 36px rgba(27,138,90,.3);
-}
+.success-ring{width:6.5rem;height:6.5rem;border-radius:50%;background:linear-gradient(135deg,var(--gr-600),var(--gr-500));display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.8rem;animation:ringPop .7s cubic-bezier(.175,.885,.32,1.275) both;box-shadow:0 0 0 6px rgba(27,138,90,.15),0 12px 36px rgba(27,138,90,.3)}
 @keyframes ringPop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
 
-/* ─── SPINNER ─── */
-.spin{width:1.1rem;height:1.1rem;border:2.5px solid rgba(26,18,53,.25);border-top-color:var(--v-900);border-radius:50%;animation:rot .7s linear infinite}
+.spin{width:1.1rem;height:1.1rem;border:2.5px solid rgba(12,24,43,.25);border-top-color:var(--navy);border-radius:50%;animation:rot .7s linear infinite}
 @keyframes rot{to{transform:rotate(360deg)}}
 
-/* ─── STEP NUMBERS ─── */
-.step-big-num{font-family:'Bebas Neue',sans-serif;font-size:6rem;line-height:1;color:var(--g-500);opacity:.35}
-
-/* ─── FEATURE ICON ─── */
-.feat-icon{
-  width:3rem;height:3rem;border-radius:6px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,var(--v-700),var(--v-600));
-  color:var(--g-400);
-}
+.step-big-num{font-family:'Bebas Neue',sans-serif;font-size:6rem;line-height:1;color:var(--gold);opacity:.35}
+.feat-icon{width:3rem;height:3rem;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy),var(--blue-med));color:var(--gold)}
 .feat-icon svg{width:1.4rem;height:1.4rem}
 
-/* ─── LIVE PULSE ─── */
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.85)}}
-.pulse-dot{animation:pulse 1.6s ease infinite}
-
-/* ─── SCROLL HINT ─── */
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
-.scroll-hint{animation:bounce 1.8s ease-in-out infinite}
-
-/* ─── MOBILE MENU ─── */
-#mobile-menu{display:none}
-#mobile-menu.open{display:block}
-
-/* ─── URGENCY BOX ─── */
-.urgency-box{
-  background:linear-gradient(135deg,rgba(213,99,71,.1),rgba(213,99,71,.05));
-  border:1px solid rgba(213,99,71,.35);border-left:3px solid var(--rd-600);
-  border-radius:4px;
-}
-
-/* ─── ICON WRAPPER (iconos SVG circulares pequeños) ─── */
-.icon-circle{
-  width:2.4rem;height:2.4rem;border-radius:50%;
-  display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;
-  background:rgba(212,168,75,.12);border:1px solid rgba(212,168,75,.3);
-  color:var(--g-500);
-}
+.icon-circle{width:2.4rem;height:2.4rem;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(235,195,43,.12);border:1px solid rgba(235,195,43,.3);color:var(--gold)}
 .icon-circle svg{width:1.1rem;height:1.1rem}
 
-/* ─── REFINEMENTS ─── */
+.urgency-box{background:linear-gradient(135deg,rgba(184,69,46,.12),rgba(184,69,46,.05));border:1px solid rgba(184,69,46,.35);border-left:3px solid var(--rd-600);border-radius:8px}
+
+/* ── Country selector buttons ── */
+.country-btn{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:.8rem .5rem;border-radius:10px;background:#fff;border:1.5px solid var(--cream-2);cursor:pointer;transition:all .25s ease;font-family:'DM Sans',sans-serif}
+.country-btn:hover{border-color:var(--blue-med);transform:translateY(-2px);box-shadow:0 6px 16px rgba(12,24,43,.06)}
+.country-btn.active{border-color:var(--gold);background:rgba(235,195,43,.08);box-shadow:0 6px 16px rgba(235,195,43,.22)}
+.country-btn .cb-flag{font-size:1.6rem;line-height:1}
+.country-btn .cb-label{font-size:.7rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--navy)}
+@media(max-width:480px){.country-btn{padding:.6rem .3rem}.country-btn .cb-flag{font-size:1.3rem}.country-btn .cb-label{font-size:.62rem}}
+
 @media(max-width:640px){
   .sec{padding:3.5rem 0}
   .btn{padding:.85rem 1.4rem;font-size:.88rem}
@@ -398,25 +218,34 @@ body{
   .tab-btn{flex:1;padding:.6rem .8rem;font-size:.8rem}
 }
 
-/* Hide "text-cyan" classes legacy — ya no las usamos */
+#mobile-menu{display:none}
+#mobile-menu.open{display:block}
+
+.navlink{position:relative;font-size:.9rem;font-weight:500;color:#fff;transition:color .2s;text-decoration:none}
+.navlink::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:2px;background:var(--gold);transition:width .25s}
+.navlink:hover{color:var(--gold)}
+.navlink:hover::after{width:100%}
+.navlink.is-active{color:var(--gold)}
+.navlink.is-active::after{width:100%}
 </style>
 </head>
-<body>
 
-<!-- ═══════════════ T&C MODAL ═══════════════ -->
+<body class="bg-white">
+
+<!-- T&C MODAL -->
 <div id="tc-modal" role="dialog">
   <div class="modal-body">
     <div class="flex items-center justify-between mb-5">
       <h2>TÉRMINOS Y CONDICIONES</h2>
-      <button onclick="closeTc()" class="btn btn-violet" style="padding:.5rem 1rem;font-size:.82rem">✕ Cerrar</button>
+      <button onclick="closeTc()" class="btn btn-navy" style="padding:.5rem 1rem;font-size:.82rem">✕ Cerrar</button>
     </div>
     <h3>1. Naturaleza del Servicio</h3>
     <p>La plataforma de Prode de Escencial es una herramienta tecnológica de pronósticos deportivos con fines exclusivamente recreativos y de integración laboral. El servicio está diseñado para fomentar el clima interno, la comunicación y el sentido de pertenencia dentro de las organizaciones.</p>
     <h3>2. Exención de Responsabilidad por Uso Indebido</h3>
     <p>Escencial actúa únicamente como proveedor de la plataforma tecnológica.</p>
     <ul>
-      <li><strong>Uso Ético:</strong> El usuario y la empresa contratante se comprometen a utilizar la herramienta bajo principios de buena fe y respeto. Escencial no se hace responsable por conductas inapropiadas realizadas por los participantes dentro de la plataforma.</li>
-      <li><strong>Prohibición de Apuestas Ilegales:</strong> La plataforma no constituye ni habilita apuestas económicas reguladas ni juegos de azar. Queda estrictamente prohibido utilizarla para organizar o facilitar apuestas de dinero en efectivo.</li>
+      <li><strong>Uso Ético:</strong> El usuario y la empresa contratante se comprometen a utilizar la herramienta bajo principios de buena fe y respeto.</li>
+      <li><strong>Prohibición de Apuestas Ilegales:</strong> La plataforma no constituye ni habilita apuestas económicas reguladas ni juegos de azar.</li>
     </ul>
     <h3>3. Gestión de Premios e Incentivos</h3>
     <ul>
@@ -434,244 +263,308 @@ body{
     <p>Escencial no será responsable por daños indirectos, lucro cesante o cualquier conflicto derivado de la interpretación de los resultados deportivos. La plataforma incluye avisos de juego responsable conforme a las recomendaciones vigentes.</p>
     <h3>6. Versatilidad Post-Mundial</h3>
     <p>Tras el torneo, la plataforma habilita un apartado para que las organizaciones carguen sus propias actividades: sorteos internos, dinámicas de integración y otras acciones de RRHH a largo plazo.</p>
-    <div class="mt-6 pt-4" style="border-top:1px solid var(--cr-200)">
+    <div class="mt-6 pt-4" style="border-top:1px solid var(--cream-2)">
       <p style="font-size:.78rem;color:var(--ink-500)">Escencial Consultora · mferreyra@escencialconsult.com.ar · escencialconsultora.com.ar · +54 9 11 5358-8062</p>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════ TOAST ═══════════════ -->
+<!-- TOAST -->
 <div id="toast">
   <span id="toast-icon" class="text-2xl flex-shrink-0"></span>
   <div>
-    <p id="toast-title" class="font-semibold text-sm" style="color:var(--on-dark)"></p>
+    <p id="toast-title" class="font-semibold text-sm"></p>
     <p id="toast-msg" class="text-xs mt-0.5" style="color:var(--on-dark-dim)"></p>
   </div>
 </div>
 
-<!-- ═══════════════ NAV ═══════════════ -->
-<nav id="nav">
+<!-- NAV -->
+<nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
   <div class="wrap">
     <div class="flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3" aria-label="Escencial Consultora">
-        <img src="./img/one-logocolor.png" alt="one" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"/>
-        <span class="logo-fallback">ESCENCIAL</span>
+      <a href="#" class="flex items-center gap-3 shrink-0" aria-label="Prode Talento">
+        <img src="./imgprode/one-prode-talento-new3.png" alt="Prode Talento" class="h-12 md:h-14 w-auto drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/>
+        <span style="display:none;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.1em;color:var(--gold)">PRODE TALENTO</span>
       </a>
-      <div class="hidden md:flex items-center gap-8">
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#hero" class="navlink is-active">Inicio</a>
+        <a href="#como-funciona" class="navlink">¿Cómo funciona?</a>
         <a href="#beneficios" class="navlink">Beneficios</a>
-        <a href="#como-funciona" class="navlink">Cómo funciona</a>
-        <a href="#precios" class="navlink">Precios</a>
+        <a href="#precios" class="navlink">Planes</a>
         <a href="#faq" class="navlink">FAQ</a>
-        <a href="#contacto" class="btn btn-gold" style="padding:.55rem 1.4rem;font-size:.82rem">Activar PRODE</a>
+        <a href="#contacto" class="btn btn-gold" style="padding:.6rem 1.5rem;font-size:.82rem">ACTIVÁ TU PRODE</a>
       </div>
-      <button id="hamburger" class="md:hidden p-2 flex flex-col gap-1.5" aria-label="Abrir menú">
-        <span class="block w-6 h-0.5 rounded" style="background:var(--on-dark);transition:transform .3s"></span>
-        <span class="block w-6 h-0.5 rounded" style="background:var(--on-dark);transition:opacity .3s"></span>
-        <span class="block w-6 h-0.5 rounded" style="background:var(--on-dark);transition:transform .3s"></span>
+      <button id="hamburger" class="lg:hidden p-2 flex flex-col gap-1.5 rounded" aria-label="Abrir menú">
+        <span class="block w-6 h-0.5 rounded bg-white"></span>
+        <span class="block w-6 h-0.5 rounded bg-white"></span>
+        <span class="block w-6 h-0.5 rounded bg-white"></span>
       </button>
     </div>
-    <div id="mobile-menu" class="md:hidden mt-4">
-      <div class="rounded-lg p-3 space-y-1" style="background:var(--v-800);border:1px solid var(--g-500)">
-        <a href="#beneficios" class="block py-3 px-4 rounded text-sm navlink" onclick="closeMobile()">Beneficios</a>
-        <a href="#como-funciona" class="block py-3 px-4 rounded text-sm navlink" onclick="closeMobile()">Cómo funciona</a>
-        <a href="#precios" class="block py-3 px-4 rounded text-sm navlink" onclick="closeMobile()">Precios</a>
-        <a href="#faq" class="block py-3 px-4 rounded text-sm navlink" onclick="closeMobile()">FAQ</a>
-        <a href="#contacto" class="btn btn-gold w-full mt-3" onclick="closeMobile()">Activar PRODE</a>
+    <div id="mobile-menu" class="lg:hidden mt-4">
+      <div class="rounded-xl p-3 space-y-1" style="background:rgba(12,24,43,.95);backdrop-filter:blur(16px);border:1px solid rgba(235,195,43,.4)">
+        <a href="#hero" class="block py-3 px-4 rounded text-sm text-white" onclick="closeMobile()">Inicio</a>
+        <a href="#como-funciona" class="block py-3 px-4 rounded text-sm text-white" onclick="closeMobile()">¿Cómo funciona?</a>
+        <a href="#beneficios" class="block py-3 px-4 rounded text-sm text-white" onclick="closeMobile()">Beneficios</a>
+        <a href="#precios" class="block py-3 px-4 rounded text-sm text-white" onclick="closeMobile()">Planes</a>
+        <a href="#faq" class="block py-3 px-4 rounded text-sm text-white" onclick="closeMobile()">FAQ</a>
+        <a href="#contacto" class="btn btn-gold w-full mt-3" onclick="closeMobile()">ACTIVÁ TU PRODE</a>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- ═══════════════ HERO ═══════════════ -->
-<section class="bg-pitch-dark relative sec-dark" style="min-height:100vh;display:flex;align-items:center;padding-top:7rem;padding-bottom:5rem">
-  <div class="paper-texture" style="opacity:.18"></div>
+<!-- HERO -->
+<section id="hero" class="relative min-h-screen hero-bg text-white overflow-hidden">
+  <div class="absolute inset-0 hero-radial pointer-events-none"></div>
+  <div class="absolute top-0 right-0 w-[40%] h-[50%] opacity-40 stadium-dots pointer-events-none hidden md:block"></div>
 
-  <!-- Glowing atmospheric elements -->
-  <div class="absolute pointer-events-none" style="top:10%;right:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(212,168,75,.12),transparent 65%);border-radius:50%"></div>
-  <div class="absolute pointer-events-none" style="bottom:5%;left:-5%;width:420px;height:420px;background:radial-gradient(circle,rgba(107,75,168,.2),transparent 65%);border-radius:50%"></div>
-
-  <div class="wrap relative z-10 w-full">
-    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+  <div class="relative z-10 wrap pt-28 pb-16 lg:pt-36 lg:pb-28 min-h-screen flex items-center">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
 
       <!-- COPY -->
       <div class="lg:col-span-7">
-        <div class="flex items-center gap-3 mb-7 flex-wrap" data-aos="fade-up">
+        <div class="flex items-center gap-3 mb-6 flex-wrap" data-aos="fade-up">
           <span class="tag tag-on-dark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:.9rem;height:.9rem"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-            Mundial 2026
+            <span class="w-2 h-2 rounded-full bg-green-400 pulse-dot"></span>
+            Prode corporativo 2026
           </span>
-          <span class="tag tag-on-dark" style="color:var(--g-200);border-color:var(--g-400)">Herramienta para RRHH</span>
+          <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white/70">
+            <span class="h-px w-6 bg-gold/60"></span>
+            Herramienta para RRHH
+          </span>
         </div>
 
-        <h1 class="hero-headline" data-aos="fade-up" data-aos-delay="80">
-          EL MUNDIAL<br/>
-          <span class="accent">se vive</span><span style="font-family:'Bebas Neue',sans-serif;font-style:normal"> EN</span><br/>
-          TU EMPRESA
+        <h1 class="font-display leading-[.88] tracking-tight" data-aos="fade-up" data-aos-delay="80" style="font-size:clamp(3.5rem,10vw,7.8rem)">
+          <span class="block text-white">EL MUNDIAL</span>
+          <span class="block text-gold gold-glow">SE VIVE</span>
+          <span class="block text-white">EN TU EMPRESA</span>
         </h1>
 
-        <p class="serif text-lg lg:text-xl mt-7 mb-9 max-w-xl" style="color:var(--on-dark-dim);line-height:1.6;font-weight:400" data-aos="fade-up" data-aos-delay="150">
-          Plataforma de pronósticos diseñada para que RRHH convierta el Mundial 2026 en una <em style="color:var(--g-400)">oportunidad real de integración</em> — sin esfuerzo operativo y sin riesgo legal.
+        <p class="serif text-lg lg:text-xl mt-8 mb-8 max-w-xl text-white/85 leading-relaxed" data-aos="fade-up" data-aos-delay="150">
+          Activá un <strong class="text-gold font-semibold">PRODE corporativo</strong> y convertí cada partido del Mundial 2026 en una experiencia que <em class="serif-it text-gold">conecta, motiva y hace participar</em> a todo tu equipo.
         </p>
 
-        <!-- CHIPS -->
-        <div class="flex flex-wrap gap-2 mb-8" data-aos="fade-up" data-aos-delay="200">
-          <span class="tag" style="background:rgba(44,163,109,.12);border-color:var(--gr-500);color:#5fd49c">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:.8rem;height:.8rem"><polyline points="20 6 9 17 4 12"/></svg>
-            Sin riesgo legal
-          </span>
-          <span class="tag tag-on-dark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:.8rem;height:.8rem"><polyline points="20 6 9 17 4 12"/></svg>
-            Precio fijo
-          </span>
-          <span class="tag tag-on-dark" style="color:var(--g-200)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:.8rem;height:.8rem"><polyline points="20 6 9 17 4 12"/></svg>
-            Implementación inmediata
-          </span>
-          <span class="tag" style="border-color:rgba(244,237,217,.25);color:var(--on-dark-dim);background:rgba(244,237,217,.04)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:.8rem;height:.8rem"><polyline points="20 6 9 17 4 12"/></svg>
-            Con tu marca
-          </span>
+        <div class="flex flex-wrap gap-3 mb-9" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full pl-1.5 pr-4 py-1.5">
+            <span class="w-9 h-9 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,var(--gold),var(--gold-dark))">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#05090f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+            </span>
+            <div class="leading-tight">
+              <p class="text-sm font-semibold text-white">Competencia sana</p>
+              <p class="text-[11px] text-white/60">Entre equipos y áreas</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full pl-1.5 pr-4 py-1.5">
+            <span class="w-9 h-9 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,var(--blue-soft),var(--blue-med))">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <div class="leading-tight">
+              <p class="text-sm font-semibold text-white">Más participación</p>
+              <p class="text-[11px] text-white/60">Todos suman al clima</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full pl-1.5 pr-4 py-1.5">
+            <span class="w-9 h-9 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,var(--brown-light),var(--brown))">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </span>
+            <div class="leading-tight">
+              <p class="text-sm font-semibold text-white">Energía positiva</p>
+              <p class="text-[11px] text-white/60">Durante todo el torneo</p>
+            </div>
+          </div>
         </div>
 
-        <div class="flex flex-wrap gap-3 mb-8" data-aos="fade-up" data-aos-delay="250">
+        <div class="flex flex-wrap gap-4 mb-8" data-aos="fade-up" data-aos-delay="250">
           <a href="#contacto" class="btn btn-gold btn-lg">
-            Activar mi PRODE
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:1rem;height:1rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            ACTIVÁ TU PRODE
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a href="#precios" class="btn btn-outline-light btn-lg">Ver planes</a>
+          <a href="#como-funciona" class="btn btn-outline-light btn-lg">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            CÓMO FUNCIONA
+          </a>
         </div>
 
-        <!-- URGENCY -->
-        <div class="urgency-box flex items-start gap-3 p-4" data-aos="fade-up" data-aos-delay="300">
-          <svg viewBox="0 0 24 24" fill="var(--rd-500)" stroke="none" style="width:1.3rem;height:1.3rem;flex-shrink:0;margin-top:2px"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
-          <p class="text-sm" style="color:#f0bfb0;line-height:1.6">
-            <strong style="color:var(--on-dark)">El Mundial comienza en junio.</strong> La ventana de contratación es de pocas semanas. Las organizaciones que arrancan antes aprovechan todo el torneo.
+        <div class="urgency-box flex items-start gap-3 p-4 max-w-xl" data-aos="fade-up" data-aos-delay="300">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 shrink-0 mt-0.5" style="color:var(--rd-600)"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
+          <p class="text-sm text-white/90 leading-relaxed">
+            <strong class="text-white">El Mundial comienza en junio.</strong> La ventana de implementación es de pocas semanas — los equipos que arrancan antes aprovechan todo el torneo.
           </p>
         </div>
       </div>
 
-      <!-- HERO CARD -->
-      <div class="lg:col-span-5" data-aos="fade-left" data-aos-delay="180">
-        <div class="hero-card p-6 space-y-5">
+      <!-- HERO CARD · Medalla + Countdown + predicciones -->
+      <div class="lg:col-span-5 relative" data-aos="fade-left" data-aos-delay="200">
 
-          <!-- Header del card -->
-          <div class="flex items-center justify-between">
+        <div class="relative mx-auto mb-6 flex justify-center lg:justify-end">
+          <div class="absolute inset-0 hero-medal-glow"></div>
+          <img src="./imgprode/one-prode-dorado.png" alt="Prode Talento 2026" class="relative w-48 sm:w-56 lg:w-64 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] animate-float" onerror="this.style.display='none'"/>
+        </div>
+
+        <div class="relative rounded-2xl p-6 backdrop-blur-md shadow-card-hero" style="background:linear-gradient(160deg,rgba(12,24,43,.75),rgba(5,9,15,.85));border:1px solid rgba(235,195,43,.3)">
+
+          <div class="flex items-center justify-between mb-5">
             <div class="flex items-center gap-2">
-              <img src="./img/one-logocolor.png" alt="one" style="height:1.4rem;width:auto" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"/>
-              <span style="display:none;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;color:var(--g-400)">ONE</span>
+              <img src="./imgprode/one-prode-blanco.png" alt="" class="h-5 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"/>
+              <span style="display:none;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.1em;color:var(--gold)">PRODE TALENTO</span>
+              <span class="text-[10px] font-semibold uppercase tracking-widest text-white/50">· Mundial 2026</span>
             </div>
-            <span class="tag tag-on-dark" style="font-size:.62rem;padding:.3rem .7rem">
-              <span class="w-1.5 h-1.5 rounded-full pulse-dot" style="background:var(--gr-500)"></span>
+            <span class="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest" style="color:var(--gold)">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-400 pulse-dot"></span>
               En vivo
             </span>
           </div>
 
-          <div class="rule-on-dark"></div>
+          <div class="rule-on-dark mb-5"></div>
 
-          <!-- Stats -->
-          <div class="grid grid-cols-3 text-center gap-2">
-            <div class="py-2">
-              <div class="big-num" data-to="48" data-dur="1200">0</div>
-              <div class="text-xs mt-1" style="color:var(--on-dark-dim)">Partidos</div>
+          <!-- ═══ COUNTDOWN al Mundial ═══ -->
+          <div class="mb-5">
+            <p class="mono-label mb-3 text-center" style="color:var(--gold)">Falta para el inicio del Mundial</p>
+            <div class="grid grid-cols-4 gap-1.5 sm:gap-2">
+              <div class="py-3 text-center rounded-lg" style="background:rgba(235,195,43,.06);border:1px solid rgba(235,195,43,.2)">
+                <div class="display" id="cd-d" style="font-size:clamp(1.6rem,4.5vw,2.4rem);line-height:1;color:var(--gold)">--</div>
+                <div class="text-[9px] sm:text-[10px] uppercase tracking-wider text-white/60 mt-1">Días</div>
+              </div>
+              <div class="py-3 text-center rounded-lg" style="background:rgba(235,195,43,.06);border:1px solid rgba(235,195,43,.2)">
+                <div class="display" id="cd-h" style="font-size:clamp(1.6rem,4.5vw,2.4rem);line-height:1;color:var(--gold)">--</div>
+                <div class="text-[9px] sm:text-[10px] uppercase tracking-wider text-white/60 mt-1">Horas</div>
+              </div>
+              <div class="py-3 text-center rounded-lg" style="background:rgba(235,195,43,.06);border:1px solid rgba(235,195,43,.2)">
+                <div class="display" id="cd-m" style="font-size:clamp(1.6rem,4.5vw,2.4rem);line-height:1;color:var(--gold)">--</div>
+                <div class="text-[9px] sm:text-[10px] uppercase tracking-wider text-white/60 mt-1">Min</div>
+              </div>
+              <div class="py-3 text-center rounded-lg" style="background:rgba(235,195,43,.06);border:1px solid rgba(235,195,43,.2)">
+                <div class="display" id="cd-s" style="font-size:clamp(1.6rem,4.5vw,2.4rem);line-height:1;color:var(--gold)">--</div>
+                <div class="text-[9px] sm:text-[10px] uppercase tracking-wider text-white/60 mt-1">Seg</div>
+              </div>
             </div>
-            <div class="py-2" style="border-left:1px solid rgba(212,168,75,.2);border-right:1px solid rgba(212,168,75,.2)">
-              <div class="big-num" data-to="32" data-dur="1000">0</div>
-              <div class="text-xs mt-1" style="color:var(--on-dark-dim)">Selecciones</div>
-            </div>
-            <div class="py-2">
-              <div class="big-num" data-to="100" data-dur="1500">0</div>
-              <div class="text-xs mt-1" style="color:var(--on-dark-dim)">% Digital</div>
-            </div>
-          </div>
-
-          <div class="rule-on-dark"></div>
-
-          <!-- Live predictions -->
-          <div>
-            <p class="mono-label mb-3" style="color:var(--g-400)">Predicciones recientes</p>
-            <div id="predictions" class="space-y-2"></div>
-          </div>
-
-          <div class="rule-on-dark"></div>
-
-          <div class="rounded p-3.5" style="background:rgba(212,168,75,.08);border-left:3px solid var(--g-500)">
-            <p class="text-sm leading-snug" style="color:var(--on-dark)">
-              Convertí cada partido en una <span style="color:var(--g-400);font-weight:600">oportunidad de integración</span> para tu equipo.
+            <p class="text-[10px] text-center text-white/50 mt-3">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline w-3 h-3 mr-0.5 -mt-0.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Jueves 11 de junio · 16:00 hs Argentina
             </p>
           </div>
 
-          <a href="#contacto" class="btn btn-gold w-full">Activar PRODE ahora</a>
+          <div class="rule-on-dark mb-5"></div>
+
+          <p class="mono-label mb-3" style="color:var(--gold)">Predicciones recientes</p>
+          <div id="predictions" class="space-y-2 mb-5"></div>
+
+          <a href="#contacto" class="btn btn-gold w-full text-sm">
+            Activar PRODE ahora
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 scroll-hint" style="opacity:.55">
-    <span class="mono-label" style="color:var(--on-dark-dim);font-size:.62rem">Scroll</span>
-    <div class="w-px h-10 rounded" style="background:linear-gradient(180deg,var(--g-400),transparent)"></div>
+  <div class="absolute bottom-[110px] md:bottom-[140px] left-1/2 -translate-x-1/2 flex-col items-center gap-2 scroll-hint opacity-60 z-10 hidden sm:flex">
+    <span class="text-[10px] tracking-widest uppercase text-white/70">Scroll</span>
+    <div class="w-px h-10 rounded" style="background:linear-gradient(180deg,var(--gold),transparent)"></div>
+  </div>
+
+  <svg class="wave-divider" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,80 C240,120 480,20 720,40 C960,60 1200,120 1440,80 L1440,120 L0,120 Z"/>
+  </svg>
+</section>
+
+<!-- STRIP DE 4 FEATURES -->
+<section class="bg-white py-12 md:py-16 relative">
+  <div class="wrap">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style="background:rgba(66,91,139,.12)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#425b8b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-base text-navy mb-1">Integra equipos</h3>
+          <p class="text-sm text-gray-600 leading-snug">Fomenta la interacción y el trabajo en equipo.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style="background:rgba(27,138,90,.12)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1b8a5a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-base text-navy mb-1">Aumenta la participación</h3>
+          <p class="text-sm text-gray-600 leading-snug">Una dinámica simple y divertida que engancha a todos.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style="background:rgba(235,195,43,.18)">
+          <svg viewBox="0 0 24 24" fill="#ebc32b" stroke="#c99f16" stroke-width="1.5" stroke-linejoin="round" class="w-6 h-6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-base text-navy mb-1">Motiva y genera entusiasmo</h3>
+          <p class="text-sm text-gray-600 leading-snug">Cada partido se convierte en una oportunidad para conectarse.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style="background:rgba(121,84,54,.14)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#795436" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-base text-navy mb-1">Fácil de usar</h3>
+          <p class="text-sm text-gray-600 leading-snug">Lo activás en minutos, sin sistemas ni complicaciones.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ═══════════════ MARQUEE ═══════════════ -->
-<div class="marquee py-5" style="background:var(--cr-100);border-top:3px solid var(--g-500);border-bottom:1px solid var(--cr-200)">
-  <div class="marquee-track">
-    <span class="marquee-item">
-      Competencia sana <span class="marquee-dot"></span>
-      Más participación <span class="marquee-dot"></span>
-      Clima laboral positivo <span class="marquee-dot"></span>
-      Plataforma lista <span class="marquee-dot"></span>
-      Personalizada con tu marca <span class="marquee-dot"></span>
-      Sin riesgo legal <span class="marquee-dot"></span>
-      Precio fijo <span class="marquee-dot"></span>
+<!-- MARQUEE -->
+<div class="marquee py-5" style="background:var(--cream);border-top:1px solid rgba(235,195,43,.3);border-bottom:1px solid rgba(235,195,43,.3)">
+  <div class="marquee-track text-xs font-semibold uppercase tracking-widest" style="color:var(--navy)">
+    <span class="flex items-center gap-10">
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Competencia sana</span>
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Más participación</span>
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Clima laboral positivo</span>
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Plataforma lista</span>
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Personalizada con tu marca</span>
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Sin riesgo legal</span>
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Precio fijo</span>
     </span>
-    <span class="marquee-item" aria-hidden="true">
-      Competencia sana <span class="marquee-dot"></span>
-      Más participación <span class="marquee-dot"></span>
-      Clima laboral positivo <span class="marquee-dot"></span>
-      Plataforma lista <span class="marquee-dot"></span>
-      Personalizada con tu marca <span class="marquee-dot"></span>
-      Sin riesgo legal <span class="marquee-dot"></span>
-      Precio fijo <span class="marquee-dot"></span>
+    <span class="flex items-center gap-10" aria-hidden="true">
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Competencia sana</span>
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Más participación</span>
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Clima laboral positivo</span>
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Plataforma lista</span>
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Personalizada con tu marca</span>
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Sin riesgo legal</span>
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--gold)"></span>Precio fijo</span>
     </span>
   </div>
 </div>
 
-<!-- ═══════════════ BENEFICIOS (CREMA) ═══════════════ -->
+<!-- BENEFICIOS -->
 <section class="sec sec-cream" id="beneficios">
   <div class="wrap">
     <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
       <div data-aos="fade-right">
-        <span class="tag mb-5 inline-flex">Por qué elegir Escencial</span>
-        <h2 class="display mb-5" style="font-size:clamp(2.4rem,6vw,4.8rem);color:var(--v-900)">
+        <span class="tag mb-5 inline-flex">Por qué elegir Prode Talento</span>
+        <h2 class="display mb-5" style="font-size:clamp(2.4rem,6vw,4.8rem);color:var(--navy)">
           UNA HERRAMIENTA<br/>
-          <span class="serif-it" style="color:var(--v-600);font-size:.9em;font-weight:500;letter-spacing:-.02em">pensada</span><br/>
+          <span class="serif-it" style="color:var(--blue-med);font-size:.9em;font-weight:500;letter-spacing:-.02em">pensada</span><br/>
           PARA RRHH
         </h2>
         <p class="serif text-lg" style="color:var(--ink-700);max-width:36rem;line-height:1.7">
-          No es una apuesta, no es un juego de azar. Es una plataforma de <em style="color:var(--v-700)">integración laboral</em> que usa el Mundial como catalizador de energía positiva dentro de tu organización.
+          No es una apuesta, no es un juego de azar. Es una plataforma de <em style="color:var(--navy)">integración laboral</em> que usa el Mundial como catalizador de energía positiva dentro de tu organización.
         </p>
 
         <div class="mt-12 flex items-end gap-8 flex-wrap">
           <div>
-            <div class="display" style="font-size:5.5rem;line-height:.9;color:var(--g-500)">4</div>
+            <div class="display" style="font-size:5.5rem;line-height:.9;color:var(--gold)">4</div>
             <p class="text-xs mt-1" style="color:var(--ink-500);max-width:14rem">Años entre cada oportunidad como esta</p>
           </div>
-          <div style="width:1px;height:4rem;background:linear-gradient(180deg,transparent,var(--g-500),transparent);align-self:center"></div>
+          <div style="width:1px;height:4rem;background:linear-gradient(180deg,transparent,var(--gold),transparent);align-self:center"></div>
           <div>
-            <p class="text-sm font-semibold mb-3" style="color:var(--ink-900)">Las empresas que lo aprovechan logran mejoras en</p>
+            <p class="text-sm font-semibold mb-3" style="color:var(--navy)">Las empresas que lo aprovechan logran mejoras en</p>
             <div class="space-y-1.5">
-              <p class="text-sm font-semibold flex items-center gap-2" style="color:var(--v-700)">
-                <span style="width:.5rem;height:.5rem;border-radius:50%;background:var(--g-500)"></span>Clima laboral
-              </p>
-              <p class="text-sm font-semibold flex items-center gap-2" style="color:var(--v-700)">
-                <span style="width:.5rem;height:.5rem;border-radius:50%;background:var(--g-500)"></span>Comunicación interna
-              </p>
-              <p class="text-sm font-semibold flex items-center gap-2" style="color:var(--v-700)">
-                <span style="width:.5rem;height:.5rem;border-radius:50%;background:var(--g-500)"></span>Sentido de pertenencia
-              </p>
+              <p class="text-sm font-semibold flex items-center gap-2" style="color:var(--blue-med)"><span style="width:.5rem;height:.5rem;border-radius:50%;background:var(--gold)"></span>Clima laboral</p>
+              <p class="text-sm font-semibold flex items-center gap-2" style="color:var(--blue-med)"><span style="width:.5rem;height:.5rem;border-radius:50%;background:var(--gold)"></span>Comunicación interna</p>
+              <p class="text-sm font-semibold flex items-center gap-2" style="color:var(--blue-med)"><span style="width:.5rem;height:.5rem;border-radius:50%;background:var(--gold)"></span>Sentido de pertenencia</p>
             </div>
           </div>
         </div>
@@ -680,41 +573,25 @@ body{
       <div class="space-y-3" data-aos="fade-left" data-aos-delay="100">
 
         <div class="card-cream p-5 flex gap-4 items-start">
-          <div class="feat-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
           <div>
-            <p class="font-semibold text-base mb-1" style="color:var(--ink-900)">Implementación inmediata</p>
+            <p class="font-semibold text-base mb-1" style="color:var(--navy)">Implementación inmediata</p>
             <p class="text-sm" style="color:var(--ink-500);line-height:1.6">Plataforma lista con QR y materiales. RRHH solo comparte el acceso y ya están jugando.</p>
           </div>
         </div>
 
         <div class="card-cream p-5 flex gap-4 items-start">
-          <div class="feat-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
-          </div>
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
           <div>
-            <p class="font-semibold text-base mb-1" style="color:var(--ink-900)">Personalizado con tu identidad</p>
+            <p class="font-semibold text-base mb-1" style="color:var(--navy)">Personalizado con tu identidad</p>
             <p class="text-sm" style="color:var(--ink-500);line-height:1.6">Logo y colores corporativos integrados en toda la experiencia de usuario.</p>
           </div>
         </div>
 
         <div class="card-cream p-5 flex gap-4 items-start">
-          <div class="feat-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
           <div>
-            <p class="font-semibold text-base mb-1" style="color:var(--ink-900)">Precio fijo, sin sorpresas</p>
-            <p class="text-sm" style="color:var(--ink-500);line-height:1.6">Sin costos por usuario. Un único pago por tramo. Simple, claro y predecible.</p>
-          </div>
-        </div>
-
-        <div class="card-cream p-5 flex gap-4 items-start">
-          <div class="feat-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-          </div>
-          <div>
-            <p class="font-semibold text-base mb-1" style="color:var(--ink-900)">Premios flexibles en especie</p>
+            <p class="font-semibold text-base mb-1" style="color:var(--navy)">Premios flexibles en especie</p>
             <p class="text-sm" style="color:var(--ink-500);line-height:1.6">La empresa define: días de vacaciones, electrodomésticos, gift cards. Sin efectivo.</p>
           </div>
         </div>
@@ -729,36 +606,34 @@ body{
           </div>
         </div>
 
-        <div class="card-cream p-5 flex gap-4 items-start" style="border-color:var(--g-500);background:rgba(212,168,75,.05)">
-          <div class="feat-icon" style="background:linear-gradient(135deg,var(--g-600),var(--g-500));color:#fff">
+        <div class="card-cream p-5 flex gap-4 items-start" style="border-color:var(--gold);background:rgba(235,195,43,.05)">
+          <div class="feat-icon" style="background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy-deep)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
           </div>
           <div>
-            <p class="font-semibold text-base mb-1" style="color:var(--g-600)">Herramienta permanente post-Mundial</p>
+            <p class="font-semibold text-base mb-1" style="color:var(--gold-dark)">Herramienta permanente post-Mundial</p>
             <p class="text-sm" style="color:var(--ink-500);line-height:1.6">Tras el torneo queda habilitada para sorteos internos y dinámicas de integración.</p>
           </div>
         </div>
 
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ CÓMO FUNCIONA (OSCURO) ═══════════════ -->
-<section class="sec sec-dark bg-pitch-dark" id="como-funciona">
-  <div class="paper-texture" style="opacity:.15"></div>
+<!-- CÓMO FUNCIONA -->
+<section class="sec sec-dark" id="como-funciona" style="background:linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%)">
+  <div class="absolute inset-0 opacity-30 pointer-events-none stadium-dots"></div>
   <div class="wrap relative z-10">
     <div class="text-center mb-14" data-aos="fade-up">
       <span class="tag tag-on-dark mb-5 inline-flex">3 pasos</span>
-      <h2 class="display" style="font-size:clamp(2.4rem,6vw,4.8rem);color:var(--on-dark)">
+      <h2 class="display" style="font-size:clamp(2.4rem,6vw,4.8rem);color:#fff">
         IMPLEMENTACIÓN<br/>
-        <span class="serif-it" style="color:var(--g-500);font-size:.88em;font-weight:500;letter-spacing:-.02em">sin fricciones</span>
+        <span class="serif-it" style="color:var(--gold);font-size:.88em;font-weight:500;letter-spacing:-.02em">sin fricciones</span>
       </h2>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6">
-
       <div class="card-dark p-8 relative" data-aos="fade-up" data-aos-delay="0">
         <div class="flex items-start justify-between mb-4">
           <div class="step-big-num">01</div>
@@ -766,21 +641,21 @@ body{
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
           </div>
         </div>
-        <div class="w-10 h-0.5 mb-5 rounded" style="background:var(--g-500)"></div>
-        <h3 class="serif font-semibold text-xl mb-3" style="color:var(--on-dark)">Contratás el plan</h3>
-        <p class="text-sm" style="color:var(--on-dark-dim);line-height:1.65">Elegís el tramo según tu cantidad de participantes. Precio fijo, sin costos ocultos.</p>
+        <div class="w-10 h-0.5 mb-5 rounded" style="background:var(--gold)"></div>
+        <h3 class="serif font-semibold text-xl mb-3 text-white">Contratás el plan</h3>
+        <p class="text-sm text-white/70 leading-relaxed">Elegís el tramo según tu cantidad de participantes. Precio fijo, sin costos ocultos.</p>
       </div>
 
       <div class="card-dark p-8 relative" data-aos="fade-up" data-aos-delay="120">
         <div class="flex items-start justify-between mb-4">
           <div class="step-big-num">02</div>
           <div class="icon-circle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
           </div>
         </div>
-        <div class="w-10 h-0.5 mb-5 rounded" style="background:var(--g-500)"></div>
-        <h3 class="serif font-semibold text-xl mb-3" style="color:var(--on-dark)">Activamos la plataforma</h3>
-        <p class="text-sm" style="color:var(--on-dark-dim);line-height:1.65">Configuramos con tu marca. Te entregamos QR y materiales digitales listos para distribuir.</p>
+        <div class="w-10 h-0.5 mb-5 rounded" style="background:var(--gold)"></div>
+        <h3 class="serif font-semibold text-xl mb-3 text-white">Activamos la plataforma</h3>
+        <p class="text-sm text-white/70 leading-relaxed">Configuramos con tu marca. Te entregamos QR y materiales digitales listos para distribuir.</p>
       </div>
 
       <div class="card-dark p-8 relative" data-aos="fade-up" data-aos-delay="240">
@@ -790,54 +665,91 @@ body{
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
         </div>
-        <div class="w-10 h-0.5 mb-5 rounded" style="background:var(--g-500)"></div>
-        <h3 class="serif font-semibold text-xl mb-3" style="color:var(--on-dark)">RRHH lo comunica</h3>
-        <p class="text-sm" style="color:var(--on-dark-dim);line-height:1.65">Compartís el acceso. Los colaboradores se registran y pronostican desde cualquier dispositivo.</p>
+        <div class="w-10 h-0.5 mb-5 rounded" style="background:var(--gold)"></div>
+        <h3 class="serif font-semibold text-xl mb-3 text-white">RRHH lo comunica</h3>
+        <p class="text-sm text-white/70 leading-relaxed">Compartís el acceso. Los colaboradores se registran y pronostican desde cualquier dispositivo.</p>
       </div>
     </div>
 
     <div class="text-center mt-12" data-aos="fade-up">
       <a href="#contacto" class="btn btn-gold btn-lg">
         Quiero activarlo ahora
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:1rem;height:1rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ PRECIOS (CREMA) ═══════════════ -->
+<!-- ═══════════ PRECIOS con selector de país ═══════════ -->
 <section class="sec sec-cream" id="precios">
   <div class="wrap">
-    <div class="text-center mb-12" data-aos="fade-up">
+    <div class="text-center mb-10" data-aos="fade-up">
       <span class="tag mb-5 inline-flex">Precios transparentes</span>
-      <h2 class="display mb-4" style="font-size:clamp(2.4rem,6vw,4.8rem);color:var(--v-900)">
+      <h2 class="display mb-4" style="font-size:clamp(2.4rem,6vw,4.8rem);color:var(--navy)">
         PRECIO FIJO<br/>
-        <span class="serif-it" style="color:var(--g-600);font-size:.88em;font-weight:500;letter-spacing:-.02em">por tramo</span>
+        <span class="serif-it" style="color:var(--gold-dark);font-size:.88em;font-weight:500;letter-spacing:-.02em">por tramo</span>
       </h2>
-      <p class="serif text-lg mb-7" style="color:var(--ink-700);max-width:38rem;margin:0 auto 1.75rem">
+      <p class="serif text-lg mb-8" style="color:var(--ink-700);max-width:38rem;margin:0 auto">
         Sin costo por usuario. Un solo pago. Elegí según tu tipo de organización.
       </p>
-      <div class="flex justify-center mb-3">
+    </div>
+
+    <!-- SELECTOR DE PAÍS -->
+    <div class="max-w-2xl mx-auto mb-8" data-aos="fade-up">
+      <p class="mono-label text-center mb-4" style="color:var(--ink-500)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline w-3.5 h-3.5 mr-1 -mt-0.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Ver precios según tu país
+      </p>
+      <div class="grid grid-cols-5 gap-2 sm:gap-3">
+        <button type="button" data-country="argentina" class="country-btn active" onclick="switchCountry('argentina')">
+          <span class="cb-flag">🇦🇷</span>
+          <span class="cb-label">Argentina</span>
+        </button>
+        <button type="button" data-country="bolivia" class="country-btn" onclick="switchCountry('bolivia')">
+          <span class="cb-flag">🇧🇴</span>
+          <span class="cb-label">Bolivia</span>
+        </button>
+        <button type="button" data-country="mexico" class="country-btn" onclick="switchCountry('mexico')">
+          <span class="cb-flag">🇲🇽</span>
+          <span class="cb-label">México</span>
+        </button>
+        <button type="button" data-country="peru" class="country-btn" onclick="switchCountry('peru')">
+          <span class="cb-flag">🇵🇪</span>
+          <span class="cb-label">Perú</span>
+        </button>
+        <button type="button" data-country="otro" class="country-btn" onclick="switchCountry('otro')">
+          <span class="cb-flag">🌎</span>
+          <span class="cb-label">Otro</span>
+        </button>
+      </div>
+      <p id="country-info" class="text-xs text-center mt-4 p-3 rounded-lg leading-relaxed" style="background:rgba(66,91,139,.06);color:var(--ink-700);border:1px solid rgba(66,91,139,.15)">
+        🇦🇷 Precios en <strong>pesos argentinos (ARS)</strong>. Tipo de cambio referencial: 1&nbsp;USD&nbsp;=&nbsp;$1.410&nbsp;ARS.
+      </p>
+    </div>
+
+    <!-- Tabs Empresas / Sindicatos — solo visible para Argentina -->
+    <div class="text-center mb-10" id="tabs-pricing-wrap">
+      <div class="inline-flex justify-center">
         <div class="tabs-wrap">
           <button class="tab-btn active" id="tab-empresa" onclick="switchPricing('e')">Empresas</button>
           <button class="tab-btn" id="tab-sindicato" onclick="switchPricing('s')">Sindicatos</button>
         </div>
       </div>
-      <p class="text-xs mt-3" style="color:var(--ink-500)">Tipo de cambio referencial: 1 USD = $1.410 ARS</p>
     </div>
 
     <!-- EMPRESA -->
     <div id="pricing-empresa" class="grid sm:grid-cols-3 gap-5 max-w-5xl mx-auto" data-aos="fade-up">
 
-      <div class="price-card">
+      <!-- Plan Básico -->
+      <div class="price-card" id="pc-basic">
         <p class="mono-label mb-4" style="color:var(--ink-500)">Plan</p>
-        <p class="display text-4xl mb-1" style="color:var(--v-900)">BÁSICO</p>
+        <p class="display text-4xl mb-1" style="color:var(--navy)">BÁSICO</p>
         <p class="text-xs mb-5" style="color:var(--ink-500)">Hasta 30 usuarios</p>
         <div class="mb-1">
-          <span class="display" style="font-size:2.8rem;color:var(--v-900)">$160.000</span>
-          <span class="text-xs ml-1" style="color:var(--ink-500)">ARS</span>
+          <span class="display price-main" id="price-basic-main" style="font-size:2.8rem;color:var(--navy)">$160.000</span>
+          <span class="text-xs ml-1 price-unit" id="price-basic-unit" style="color:var(--ink-500)">ARS</span>
         </div>
-        <p class="text-sm font-semibold mb-6" style="color:var(--g-600)">≈ USD 113</p>
+        <p class="text-sm font-semibold mb-6 price-sub" id="price-basic-sub" style="color:var(--gold-dark)">≈ USD 113</p>
         <div class="rule-violet mb-5"></div>
         <ul class="space-y-2.5 text-sm mb-7" style="color:var(--ink-700)">
           <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Hasta 30 participantes</li>
@@ -845,41 +757,43 @@ body{
           <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>QR + materiales digitales</li>
           <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Premios en especie</li>
         </ul>
-        <a href="#contacto" onclick="preSelectPlan('empresa','1-30')" class="btn btn-outline-violet w-full">Elegir Básico</a>
+        <a href="#contacto" onclick="preSelectPlan('empresa','1-30')" class="btn btn-outline-navy w-full">Elegir Básico</a>
       </div>
 
-      <div class="price-card price-card-featured relative">
-        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap">
-          <span class="text-xs font-bold px-3 py-1 rounded-full" style="background:var(--g-500);color:var(--v-900);letter-spacing:.08em">★ MÁS ELEGIDO</span>
+      <!-- Plan Estándar -->
+      <div class="price-card price-card-featured relative" id="pc-standard">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap z-10">
+          <span class="text-xs font-bold px-3 py-1 rounded-full" style="background:var(--gold);color:var(--navy-deep);letter-spacing:.08em">★ MÁS ELEGIDO</span>
         </div>
-        <p class="mono-label mb-4" style="color:var(--g-400)">Plan</p>
-        <p class="display text-4xl mb-1" style="color:var(--g-400)">ESTÁNDAR</p>
+        <p class="mono-label mb-4" style="color:var(--gold)">Plan</p>
+        <p class="display text-4xl mb-1" style="color:var(--gold)">ESTÁNDAR</p>
         <p class="text-xs mb-5" style="color:var(--on-dark-dim)">31 a 60 usuarios</p>
         <div class="mb-1">
-          <span class="display" style="font-size:2.8rem;color:var(--on-dark)">$280.000</span>
-          <span class="text-xs ml-1" style="color:var(--on-dark-dim)">ARS</span>
+          <span class="display price-main" id="price-standard-main" style="font-size:2.8rem;color:#fff">$280.000</span>
+          <span class="text-xs ml-1 price-unit" id="price-standard-unit" style="color:var(--on-dark-dim)">ARS</span>
         </div>
-        <p class="text-sm font-semibold mb-6" style="color:var(--g-400)">≈ USD 199</p>
+        <p class="text-sm font-semibold mb-6 price-sub" id="price-standard-sub" style="color:var(--gold)">≈ USD 199</p>
         <div class="rule-on-dark mb-5"></div>
         <ul class="space-y-2.5 text-sm mb-7" style="color:var(--on-dark-dim)">
-          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--g-400)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>31 a 60 participantes</li>
-          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--g-400)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Plataforma personalizada</li>
-          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--g-400)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>QR + materiales digitales</li>
-          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--g-400)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Premios en especie</li>
-          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--g-400)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Soporte prioritario</li>
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>31 a 60 participantes</li>
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Plataforma personalizada</li>
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>QR + materiales digitales</li>
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Premios en especie</li>
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Soporte prioritario</li>
         </ul>
         <a href="#contacto" onclick="preSelectPlan('empresa','31-60')" class="btn btn-gold w-full">Elegir Estándar</a>
       </div>
 
-      <div class="price-card">
+      <!-- Plan Full -->
+      <div class="price-card" id="pc-full">
         <p class="mono-label mb-4" style="color:var(--ink-500)">Plan</p>
-        <p class="display text-4xl mb-1" style="color:var(--v-900)">FULL</p>
+        <p class="display text-4xl mb-1" style="color:var(--navy)">FULL</p>
         <p class="text-xs mb-5" style="color:var(--ink-500)">61 o más usuarios</p>
         <div class="mb-1">
-          <span class="display" style="font-size:2.8rem;color:var(--v-900)">$400.000</span>
-          <span class="text-xs ml-1" style="color:var(--ink-500)">ARS</span>
+          <span class="display price-main" id="price-full-main" style="font-size:2.8rem;color:var(--navy)">$400.000</span>
+          <span class="text-xs ml-1 price-unit" id="price-full-unit" style="color:var(--ink-500)">ARS</span>
         </div>
-        <p class="text-sm font-semibold mb-6" style="color:var(--g-600)">≈ USD 284</p>
+        <p class="text-sm font-semibold mb-6 price-sub" id="price-full-sub" style="color:var(--gold-dark)">≈ USD 284</p>
         <div class="rule-violet mb-5"></div>
         <ul class="space-y-2.5 text-sm mb-7" style="color:var(--ink-700)">
           <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Usuarios ilimitados</li>
@@ -888,79 +802,69 @@ body{
           <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Premios en especie</li>
           <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Soporte dedicado</li>
         </ul>
-        <a href="#contacto" onclick="preSelectPlan('empresa','61+')" class="btn btn-outline-violet w-full">Elegir Full</a>
+        <a href="#contacto" onclick="preSelectPlan('empresa','61+')" class="btn btn-outline-navy w-full">Elegir Full</a>
       </div>
     </div>
 
-<div id="pricing-sindicato" class="hidden" data-aos="fade-up">
-      
-      <div class="max-w-4xl mx-auto mb-10 bg-white rounded-lg p-6 sm:p-8 flex flex-col sm:flex-row gap-5 items-start relative overflow-hidden" style="border:1px solid var(--cr-200); box-shadow:0 8px 24px rgba(26,18,53,.04)">
-        <div class="absolute top-0 left-0 w-1.5 h-full" style="background:var(--rd-500)"></div>
-        
-        <div class="icon-circle flex-shrink-0 mt-1" style="background:rgba(213,99,71,.08); border-color:rgba(31, 3, 28, 0.25); color:var(--rd-600);">
+    <!-- SINDICATO — solo visible cuando país = argentina -->
+    <div id="pricing-sindicato" class="hidden" data-aos="fade-up">
+
+      <div class="max-w-4xl mx-auto mb-10 bg-white rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row gap-5 items-start relative overflow-hidden" style="border:1px solid var(--cream-2); box-shadow:0 8px 24px rgba(12,24,43,.04)">
+        <div class="absolute top-0 left-0 w-1.5 h-full" style="background:var(--rd-600)"></div>
+        <div class="icon-circle shrink-0 mt-1" style="background:rgba(184,69,46,.08); border-color:rgba(184,69,46,.25); color:var(--rd-600);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        
         <div>
-          <h4 class="serif font-semibold text-xl mb-2" style="color:var(--v-900)">Paquete Exclusivo para Instituciones Sindicales</h4>
+          <h4 class="serif font-semibold text-xl mb-2" style="color:var(--navy)">Paquete Exclusivo para Instituciones Sindicales</h4>
           <p class="text-sm leading-relaxed" style="color:var(--ink-700)">
-            <strong style="color:var(--v-700)">¿Qué califica como Sindicato?</strong> Este beneficio es exclusivo para asociaciones gremiales, sindicatos, mutuales y federaciones. 
+            <strong style="color:var(--navy)">¿Qué califica como Sindicato?</strong> Este beneficio es exclusivo para asociaciones gremiales, sindicatos, mutuales y federaciones.
             Entendiendo que estas instituciones agrupan a miles de trabajadores, creamos este <strong>plan con precio subsidiado</strong>. Nuestro objetivo es que el presupuesto no sea una barrera y puedan ofrecer este espacio de integración, recreación y pertenencia a <span style="color:var(--rd-600); font-weight:600">todos sus afiliados</span> durante el Mundial.
           </p>
         </div>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto px-4 md:px-0">
-        
-        <div class="price-card opacity-90 transition-all hover:opacity-100 flex flex-col justify-between" style="background:var(--cr-50)">
+
+        <div class="price-card opacity-90 transition-all hover:opacity-100 flex flex-col justify-between" style="background:var(--cream)">
           <div>
             <p class="display text-3xl mb-1" style="color:var(--ink-300)">FULL REGULAR</p>
             <p class="text-xs mb-4" style="color:var(--ink-500)">61 o más usuarios</p>
-            
             <div class="mb-1 mt-4">
               <div class="relative inline-block">
-                <span class="display text-5xl" style="color:var(--ink-300)">$1.000.000</span>
+                <span class="display" style="font-size:3rem;color:var(--ink-300)">$1.000.000</span>
                 <div class="absolute top-1/2 left-[-5%] w-[110%] h-[6px] -rotate-6 rounded-full pointer-events-none" style="background:var(--rd-600); opacity:0.85"></div>
               </div>
               <span class="text-xs ml-1 font-bold" style="color:var(--ink-300)">ARS</span>
             </div>
-            
             <p class="text-sm font-semibold mb-6 mt-2" style="color:var(--ink-500)">Precio de Lista (≈ USD 709)</p>
           </div>
-          
           <div>
             <div class="rule-violet mb-5 opacity-50"></div>
-            <a href="#contacto" onclick="preSelectPlan('sindicato','61+')" class="btn btn-outline-violet w-full text-sm" style="color:var(--ink-500); border-color:var(--cr-200)">Ver plan regular</a>
+            <a href="#contacto" onclick="preSelectPlan('sindicato','61+')" class="btn btn-outline-navy w-full text-sm" style="color:var(--ink-500); border-color:var(--cream-2)">Ver plan regular</a>
           </div>
         </div>
 
-        <div class="price-card price-card-featured relative flex flex-col justify-between" style="border:2px solid var(--rd-500); box-shadow:0 12px 40px rgba(213,99,71,.2)">
-          
+        <div class="price-card price-card-featured relative flex flex-col justify-between" style="border:2px solid var(--rd-600); box-shadow:0 12px 40px rgba(184,69,46,.2)">
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap z-10">
-            <span class="text-[11px] sm:text-xs font-bold px-5 py-1.5 rounded-full text-white uppercase tracking-wider flex items-center gap-1.5" style="background:var(--rd-600); box-shadow:0 6px 16px rgba(213,99,71,.4)">
-              <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" style="width:14px;height:14px"><path d="M12 2c0 0-4.5 3-4.5 7.5 0 2.2 1.5 4.3 3.5 5.2-.2-.6-.3-1.2-.3-1.8 0-2.4 2-3.8 2-3.8s-.5 1.5-.5 2.5c0 1.9 1.5 3.3 3.3 3.3 1.1 0 2.1-.6 2.7-1.5.3-.5.4-1.1.4-1.7 0-3.5-3.5-6.5-6.6-9.7z"/></svg>
+            <span class="text-[11px] sm:text-xs font-bold px-5 py-1.5 rounded-full text-white uppercase tracking-wider flex items-center gap-1.5" style="background:var(--rd-600); box-shadow:0 6px 16px rgba(184,69,46,.4)">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5"><path d="M12 2c0 0-4.5 3-4.5 7.5 0 2.2 1.5 4.3 3.5 5.2-.2-.6-.3-1.2-.3-1.8 0-2.4 2-3.8 2-3.8s-.5 1.5-.5 2.5c0 1.9 1.5 3.3 3.3 3.3 1.1 0 2.1-.6 2.7-1.5.3-.5.4-1.1.4-1.7 0-3.5-3.5-6.5-6.6-9.7z"/></svg>
               Oferta: Primeras 1000 Compras
             </span>
           </div>
-
           <div>
             <div class="mt-4 mb-3">
-              <span class="text-[10px] font-bold px-2.5 py-1 rounded-sm" style="background:rgba(213,99,71,.15); color:var(--rd-500); border:1px solid var(--rd-600); letter-spacing:.08em">
+              <span class="text-[10px] font-bold px-2.5 py-1 rounded" style="background:rgba(235,195,43,.15); color:var(--gold); border:1px solid var(--gold); letter-spacing:.08em">
                 SUBSIDIO SINDICAL
               </span>
             </div>
-            
-            <p class="display text-3xl mb-1" style="color:var(--on-dark)">FULL PROMO</p>
-            <p class="text-xs mb-4" style="color:var(--rd-500)">Capacidad ilimitada de afiliados</p>
-            
+            <p class="display text-3xl mb-1 text-white">FULL PROMO</p>
+            <p class="text-xs mb-4" style="color:var(--gold)">Capacidad ilimitada de afiliados</p>
             <div class="mb-1 mt-4">
-              <span class="display text-5xl" style="color:var(--on-dark)">$400.000</span>
+              <span class="display" style="font-size:3rem;color:#fff">$400.000</span>
               <span class="text-xs ml-1" style="color:var(--on-dark-dim)">ARS</span>
             </div>
-            
-            <p class="text-sm font-semibold mb-6 mt-2" style="color:var(--g-400)">≈ USD 284 <span class="ml-1 text-xs font-normal" style="color:var(--on-dark-dim)">(Pago único)</span></p>
+            <p class="text-sm font-semibold mb-6 mt-2" style="color:var(--gold)">≈ USD 284 <span class="ml-1 text-xs font-normal" style="color:var(--on-dark-dim)">(Pago único)</span></p>
           </div>
-          
           <div>
             <div class="rule-on-dark mb-5"></div>
             <a href="#contacto" onclick="preSelectPlan('institucional','61+')" class="btn w-full text-sm font-bold shadow-lg transition-transform hover:-translate-y-1" style="background:var(--rd-600); color:#fff; border:none;">
@@ -972,24 +876,24 @@ body{
       </div>
     </div>
 
-    <div class="mt-10 rounded p-4 text-center max-w-3xl mx-auto" style="background:rgba(107,75,168,.05);border:1px solid rgba(107,75,168,.2)">
+    <div class="mt-10 rounded-lg p-4 text-center max-w-3xl mx-auto" style="background:rgba(66,91,139,.06);border:1px solid rgba(66,91,139,.2)">
       <p class="text-xs" style="color:var(--ink-500)">
         Plataforma recreativa. No constituye apuesta regulada. Los premios son definidos y entregados por la empresa contratante.
-        <button onclick="openTc()" class="underline ml-1" style="color:var(--v-700);background:none;border:none;cursor:pointer;font-size:inherit;font-weight:600">Ver Términos y Condiciones</button>
+        <button onclick="openTc()" class="underline ml-1" style="color:var(--navy);background:none;border:none;cursor:pointer;font-size:inherit;font-weight:600">Ver Términos y Condiciones</button>
       </p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ FAQ (CREAM-2) ═══════════════ -->
+<!-- FAQ -->
 <section class="sec sec-cream-2" id="faq">
   <div class="wrap">
     <div class="grid lg:grid-cols-3 gap-12">
       <div data-aos="fade-right">
         <span class="tag mb-5 inline-flex">Preguntas frecuentes</span>
-        <h2 class="display mb-5" style="font-size:clamp(2rem,5vw,3.6rem);color:var(--v-900)">
+        <h2 class="display mb-5" style="font-size:clamp(2rem,5vw,3.6rem);color:var(--navy)">
           DUDAS<br/>
-          <span class="serif-it" style="color:var(--v-600);font-weight:500;letter-spacing:-.02em">comunes</span>
+          <span class="serif-it" style="color:var(--blue-med);font-weight:500;letter-spacing:-.02em">comunes</span>
         </h2>
         <p class="serif text-base" style="color:var(--ink-700);line-height:1.7">
           Las preguntas más habituales de equipos de RRHH que se interesan por la plataforma. ¿Tenés otra consulta? Escribinos.
@@ -999,36 +903,36 @@ body{
       <div class="lg:col-span-2 space-y-3" data-aos="fade-left" data-aos-delay="100">
         <div class="card-cream overflow-hidden">
           <button class="w-full text-left px-5 py-4 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-            <span class="font-semibold text-base" style="color:var(--ink-900)">¿Es legal? ¿Hay riesgo para la empresa?</span>
-            <svg class="faq-arrow w-4 h-4 flex-shrink-0" style="color:var(--v-600)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            <span class="font-semibold text-base" style="color:var(--navy)">¿Es legal? ¿Hay riesgo para la empresa?</span>
+            <svg class="faq-arrow w-4 h-4 shrink-0" style="color:var(--blue-med)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body"><p class="px-5 pb-5 text-sm leading-relaxed" style="color:var(--ink-500)">Totalmente legal. El Prode son pronósticos recreativos, no apuestas reguladas. Premios en especie definidos por la empresa. Participación voluntaria. Aviso de juego responsable incluido.</p></div>
         </div>
         <div class="card-cream overflow-hidden">
           <button class="w-full text-left px-5 py-4 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-            <span class="font-semibold text-base" style="color:var(--ink-900)">¿Escencial maneja premios o dinero?</span>
-            <svg class="faq-arrow w-4 h-4 flex-shrink-0" style="color:var(--v-600)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            <span class="font-semibold text-base" style="color:var(--navy)">¿Escencial maneja premios o dinero?</span>
+            <svg class="faq-arrow w-4 h-4 shrink-0" style="color:var(--blue-med)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body"><p class="px-5 pb-5 text-sm leading-relaxed" style="color:var(--ink-500)">No. Los premios son definidos, gestionados y entregados exclusivamente por la empresa contratante. Escencial no interviene ni maneja efectivo.</p></div>
         </div>
         <div class="card-cream overflow-hidden">
           <button class="w-full text-left px-5 py-4 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-            <span class="font-semibold text-base" style="color:var(--ink-900)">¿Cuánto tiempo lleva implementar?</span>
-            <svg class="faq-arrow w-4 h-4 flex-shrink-0" style="color:var(--v-600)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            <span class="font-semibold text-base" style="color:var(--navy)">¿Cuánto tiempo lleva implementar?</span>
+            <svg class="faq-arrow w-4 h-4 shrink-0" style="color:var(--blue-med)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body"><p class="px-5 pb-5 text-sm leading-relaxed" style="color:var(--ink-500)">Una vez contratada, configuramos con tu marca y en pocas horas RRHH tiene el QR y los materiales para compartir. La implementación es inmediata.</p></div>
         </div>
         <div class="card-cream overflow-hidden">
           <button class="w-full text-left px-5 py-4 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-            <span class="font-semibold text-base" style="color:var(--ink-900)">¿Qué pasa después del Mundial?</span>
-            <svg class="faq-arrow w-4 h-4 flex-shrink-0" style="color:var(--v-600)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            <span class="font-semibold text-base" style="color:var(--navy)">¿Qué pasa después del Mundial?</span>
+            <svg class="faq-arrow w-4 h-4 shrink-0" style="color:var(--blue-med)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body"><p class="px-5 pb-5 text-sm leading-relaxed" style="color:var(--ink-500)">La plataforma queda activa para sorteos internos, dinámicas de integración y otras acciones de RRHH a largo plazo.</p></div>
         </div>
         <div class="card-cream overflow-hidden">
           <button class="w-full text-left px-5 py-4 flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-            <span class="font-semibold text-base" style="color:var(--ink-900)">¿Puedo personalizar con el logo de mi empresa?</span>
-            <svg class="faq-arrow w-4 h-4 flex-shrink-0" style="color:var(--v-600)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            <span class="font-semibold text-base" style="color:var(--navy)">¿Puedo personalizar con el logo de mi empresa?</span>
+            <svg class="faq-arrow w-4 h-4 shrink-0" style="color:var(--blue-med)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body"><p class="px-5 pb-5 text-sm leading-relaxed" style="color:var(--ink-500)">Sí. Logo, colores corporativos y nombre de la empresa se integran en toda la experiencia del usuario. La plataforma se vive como propia.</p></div>
         </div>
@@ -1037,38 +941,37 @@ body{
   </div>
 </section>
 
-<!-- ═══════════════ FORMULARIO (OSCURO) ═══════════════ -->
-<section class="sec sec-darker bg-pitch-dark" id="contacto">
-  <div class="paper-texture" style="opacity:.12"></div>
+<!-- FORMULARIO -->
+<section class="sec sec-darker" id="contacto" style="background:linear-gradient(180deg,var(--navy-deep) 0%,var(--navy) 100%)">
+  <div class="absolute inset-0 opacity-25 pointer-events-none stadium-dots"></div>
   <div class="wrap relative z-10">
     <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
-      <!-- Sidebar -->
       <div class="lg:col-span-4" data-aos="fade-right">
         <span class="tag tag-on-dark mb-5 inline-flex">Activar PRODE</span>
-        <h2 class="display mb-5" style="font-size:clamp(2rem,5.2vw,3.8rem);color:var(--on-dark)">
+        <h2 class="display mb-5" style="font-size:clamp(2rem,5.2vw,3.8rem);color:#fff">
           HABLEMOS<br/>
-          <span class="serif-it" style="color:var(--g-500);font-weight:500;letter-spacing:-.02em">de tu</span><br/>
+          <span class="serif-it" style="color:var(--gold);font-weight:500;letter-spacing:-.02em">de tu</span><br/>
           ORGANIZACIÓN
         </h2>
-        <p class="serif text-base mb-8" style="color:var(--on-dark-dim);line-height:1.7">
-          Completá el formulario. Un asesor te contactará dentro de las próximas <strong style="color:var(--g-400)">24 horas hábiles</strong> para coordinar la activación.
+        <p class="serif text-base mb-8 text-white/80 leading-relaxed">
+          Completá el formulario. Un asesor te contactará dentro de las próximas <strong style="color:var(--gold)">24 horas hábiles</strong> para coordinar la activación.
         </p>
 
         <div class="space-y-3 mb-8">
-          <a href="mailto:mferreyra@escencialconsult.com.ar" class="flex items-center gap-3 text-sm" style="color:var(--on-dark);text-decoration:none">
+          <a href="mailto:mferreyra@escencialconsult.com.ar" class="flex items-center gap-3 text-sm text-white no-underline">
             <span class="icon-circle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </span>
             <span>mferreyra@escencialconsult.com.ar</span>
           </a>
-          <a href="https://wa.me/5491153588062" target="_blank" class="flex items-center gap-3 text-sm" style="color:var(--on-dark);text-decoration:none">
+          <a href="https://wa.me/5491153588062" target="_blank" class="flex items-center gap-3 text-sm text-white no-underline">
             <span class="icon-circle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
             </span>
             <span>+54 9 11 5358-8062</span>
           </a>
-          <a href="https://escencialconsultora.com.ar" target="_blank" class="flex items-center gap-3 text-sm" style="color:var(--on-dark);text-decoration:none">
+          <a href="https://escencialconsultora.com.ar" target="_blank" class="flex items-center gap-3 text-sm text-white no-underline">
             <span class="icon-circle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </span>
@@ -1077,17 +980,15 @@ body{
         </div>
 
         <div class="urgency-box p-4">
-          <p class="text-xs leading-relaxed" style="color:#f0bfb0">
-            <strong style="color:var(--on-dark)">Tiempo limitado.</strong> El Mundial comienza en junio. Contratá antes de que cierre la ventana de implementación.
+          <p class="text-xs leading-relaxed" style="color:#f5c4b8">
+            <strong class="text-white">Tiempo limitado.</strong> El Mundial comienza en junio. Contratá antes de que cierre la ventana de implementación.
           </p>
         </div>
       </div>
 
-      <!-- Form card -->
       <div class="lg:col-span-8" data-aos="fade-left" data-aos-delay="100">
-        <div class="rounded-lg p-6 sm:p-8 lg:p-10" style="background:var(--cr-50);box-shadow:0 32px 80px rgba(0,0,0,.35)">
+        <div class="rounded-2xl p-6 sm:p-8 lg:p-10 shadow-card-hero" style="background:var(--cream)">
 
-          <!-- Progress -->
           <div class="mb-8">
             <div class="flex items-center gap-2 mb-4">
               <div class="step-dot active" id="dot1">1</div>
@@ -1100,43 +1001,41 @@ body{
             </div>
             <div class="pbar"><div class="pbar-fill" id="pbfill" style="width:25%"></div></div>
             <div class="flex justify-between mt-2">
-              <span id="step-label" class="text-xs font-semibold" style="color:var(--v-700)">Paso 1 de 4</span>
+              <span id="step-label" class="text-xs font-semibold" style="color:var(--navy)">Paso 1 de 4</span>
               <span id="step-pct" class="text-xs" style="color:var(--ink-500)">25%</span>
             </div>
           </div>
 
           <form id="form-main" novalidate>
 
-            <!-- STEP 1 -->
             <div class="fstep active" id="step1">
-              <h3 class="serif font-semibold text-xl mb-6" style="color:var(--ink-900)">¿Qué tipo de organización sos?</h3>
+              <h3 class="serif font-semibold text-xl mb-6" style="color:var(--navy)">¿Qué tipo de organización sos?</h3>
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
                 <div class="opt-box" id="opt-empresa" onclick="selectOrg('empresa')">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--v-600)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:2rem;height:2rem"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="22" x2="9" y2="18"/><line x1="15" y1="22" x2="15" y2="18"/><line x1="8" y1="6" x2="10" y2="6"/><line x1="14" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/></svg>
-                  <span class="font-semibold text-sm" style="color:var(--ink-900)">Empresa</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-med)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:2rem;height:2rem"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="22" x2="9" y2="18"/><line x1="15" y1="22" x2="15" y2="18"/><line x1="8" y1="6" x2="10" y2="6"/><line x1="14" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/></svg>
+                  <span class="font-semibold text-sm" style="color:var(--navy)">Empresa</span>
                   <span class="text-xs" style="color:var(--ink-500)">Privada o pública</span>
                 </div>
                 <div class="opt-box" id="opt-sindicato" onclick="selectOrg('sindicato')">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--v-600)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:2rem;height:2rem"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                  <span class="font-semibold text-sm" style="color:var(--ink-900)">Sindicato</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-med)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:2rem;height:2rem"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <span class="font-semibold text-sm" style="color:var(--navy)">Sindicato</span>
                   <span class="text-xs" style="color:var(--ink-500)">Organización gremial</span>
                 </div>
                 <div class="opt-box" id="opt-institucional" onclick="selectOrg('institucional')">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--v-600)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:2rem;height:2rem"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg>
-                  <span class="font-semibold text-sm" style="color:var(--ink-900)">Inst. Sindical</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-med)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:2rem;height:2rem"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg>
+                  <span class="font-semibold text-sm" style="color:var(--navy)">Inst. Sindical</span>
                   <span class="text-xs" style="color:var(--ink-500)">Precio especial</span>
                 </div>
               </div>
               <p id="err-org" class="ferror">Seleccioná el tipo de organización para continuar.</p>
-              <button type="button" class="btn btn-violet w-full" onclick="nextStep(1)">
+              <button type="button" class="btn btn-navy w-full" onclick="nextStep(1)">
                 Continuar
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:1rem;height:1rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </button>
             </div>
 
-            <!-- STEP 2 -->
             <div class="fstep" id="step2">
-              <h3 class="serif font-semibold text-xl mb-6" style="color:var(--ink-900)">Tus datos de contacto</h3>
+              <h3 class="serif font-semibold text-xl mb-6" style="color:var(--navy)">Tus datos de contacto</h3>
               <div class="space-y-4 mb-6">
                 <div>
                   <label class="flabel" for="fn">Nombre y apellido *</label>
@@ -1155,17 +1054,16 @@ body{
                 </div>
               </div>
               <div class="flex gap-3">
-                <button type="button" class="btn btn-outline-violet flex-1" onclick="prevStep(2)">← Atrás</button>
-                <button type="button" class="btn btn-violet flex-1" onclick="nextStep(2)">
+                <button type="button" class="btn btn-outline-navy flex-1" onclick="prevStep(2)">← Atrás</button>
+                <button type="button" class="btn btn-navy flex-1" onclick="nextStep(2)">
                   Continuar
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:1rem;height:1rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </button>
               </div>
             </div>
 
-            <!-- STEP 3 -->
             <div class="fstep" id="step3">
-              <h3 class="serif font-semibold text-xl mb-6" style="color:var(--ink-900)">Datos de tu organización</h3>
+              <h3 class="serif font-semibold text-xl mb-6" style="color:var(--navy)">Datos de tu organización</h3>
               <div class="space-y-4 mb-5">
                 <div>
                   <label class="flabel" for="forg">Nombre de la organización *</label>
@@ -1185,16 +1083,16 @@ body{
                 <div id="plan-preview-box" class="hidden plan-preview">
                   <div class="flex items-center justify-between mb-2">
                     <span class="mono-label" style="color:var(--ink-500)">Plan sugerido</span>
-                    <span id="pp-plan" class="display text-lg px-3 py-0.5 rounded" style="background:var(--v-700);color:#fff">BÁSICO</span>
+                    <span id="pp-plan" class="display text-lg px-3 py-0.5 rounded-full" style="background:var(--navy);color:#fff">BÁSICO</span>
                   </div>
                   <div class="flex items-end justify-between">
                     <span class="text-xs" style="color:var(--ink-500)">Precio estimado</span>
                     <div class="text-right">
-                      <div class="display text-2xl" id="pp-ars" style="color:var(--v-900)">$160.000 ARS</div>
-                      <div class="text-xs font-semibold" id="pp-usd" style="color:var(--g-600)">≈ USD 113</div>
+                      <div class="display text-2xl" id="pp-ars" style="color:var(--navy)">$160.000 ARS</div>
+                      <div class="text-xs font-semibold" id="pp-usd" style="color:var(--gold-dark)">≈ USD 113</div>
                     </div>
                   </div>
-                  <p class="text-xs mt-2 pt-2" style="color:var(--ink-500);border-top:1px solid var(--cr-200)">1 USD = $1.410 ARS · referencial</p>
+                  <p class="text-xs mt-2 pt-2" style="color:var(--ink-500);border-top:1px solid var(--cream-2)">Precio referencial</p>
                 </div>
                 <div>
                   <label class="flabel" for="fwhn">¿Cuándo lo necesitás?</label>
@@ -1209,54 +1107,52 @@ body{
                 </div>
               </div>
               <div class="flex gap-3">
-                <button type="button" class="btn btn-outline-violet flex-1" onclick="prevStep(3)">← Atrás</button>
-                <button type="button" class="btn btn-violet flex-1" onclick="nextStep(3)">
+                <button type="button" class="btn btn-outline-navy flex-1" onclick="prevStep(3)">← Atrás</button>
+                <button type="button" class="btn btn-navy flex-1" onclick="nextStep(3)">
                   Continuar
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:1rem;height:1rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </button>
               </div>
             </div>
 
-            <!-- STEP 4 -->
             <div class="fstep" id="step4">
-              <h3 class="serif font-semibold text-xl mb-6" style="color:var(--ink-900)">Confirmá tu solicitud</h3>
-              <div id="summary-box" class="rounded p-4 mb-4 space-y-2 text-sm" style="background:var(--cr-100);border:1px solid var(--cr-200)"></div>
+              <h3 class="serif font-semibold text-xl mb-6" style="color:var(--navy)">Confirmá tu solicitud</h3>
+              <div id="summary-box" class="rounded-lg p-4 mb-4 space-y-2 text-sm" style="background:var(--cream-2);border:1px solid var(--cream-2)"></div>
               <div id="final-plan-box" class="plan-preview mb-4">
                 <div class="flex items-center justify-between mb-2">
                   <span class="mono-label" style="color:var(--ink-500)">Tu plan</span>
-                  <span id="fp-plan" class="display text-lg" style="color:var(--v-700)">-</span>
+                  <span id="fp-plan" class="display text-lg" style="color:var(--navy)">-</span>
                 </div>
                 <div class="flex items-end justify-between">
                   <span class="text-xs" style="color:var(--ink-500)">Precio estimado</span>
                   <div class="text-right">
-                    <div class="display text-2xl" id="fp-ars" style="color:var(--v-900)">-</div>
-                    <div class="text-xs font-semibold" id="fp-usd" style="color:var(--g-600)">-</div>
+                    <div class="display text-2xl" id="fp-ars" style="color:var(--navy)">-</div>
+                    <div class="text-xs font-semibold" id="fp-usd" style="color:var(--gold-dark)">-</div>
                   </div>
                 </div>
-                <p class="text-xs mt-2 pt-2" style="color:var(--ink-500);border-top:1px solid var(--cr-200)">Precio referencial · puede ajustarse según negociación · 1 USD = $1.410 ARS</p>
+                <p class="text-xs mt-2 pt-2" style="color:var(--ink-500);border-top:1px solid var(--cream-2)">Precio referencial · puede ajustarse según negociación</p>
               </div>
               <div class="mb-4">
                 <label class="flabel" for="fcmt">Comentarios adicionales (opcional)</label>
                 <textarea id="fcmt" class="finput" rows="3" placeholder="Ideas para premios, preguntas, requerimientos especiales..."></textarea>
               </div>
               <label class="flex items-start gap-3 mb-1 cursor-pointer">
-                <input type="checkbox" id="fchk" class="mt-0.5" style="accent-color:var(--v-600);width:1.1rem;height:1.1rem"/>
+                <input type="checkbox" id="fchk" class="mt-0.5" style="accent-color:var(--navy);width:1.1rem;height:1.1rem"/>
                 <span class="text-sm leading-relaxed" style="color:var(--ink-700)">Acepto que Escencial Consultora me contacte. He leído los
-                  <button type="button" onclick="openTc()" class="underline" style="color:var(--v-700);background:none;border:none;cursor:pointer;font-size:inherit;font-weight:600">Términos y Condiciones</button>.
+                  <button type="button" onclick="openTc()" class="underline" style="color:var(--navy);background:none;border:none;cursor:pointer;font-size:inherit;font-weight:600">Términos y Condiciones</button>.
                 </span>
               </label>
               <p id="err-chk" class="ferror">Debés aceptar los términos para continuar.</p>
               <div class="flex gap-3 mt-6">
-                <button type="button" class="btn btn-outline-violet flex-1" onclick="prevStep(4)">← Atrás</button>
+                <button type="button" class="btn btn-outline-navy flex-1" onclick="prevStep(4)">← Atrás</button>
                 <button type="button" id="submit-btn" class="btn btn-green flex-1" onclick="doSubmit()">
                   <span id="submit-text">Enviar solicitud</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:1rem;height:1rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                   <div class="spin hidden" id="submit-spin"></div>
                 </button>
               </div>
             </div>
 
-            <!-- SUCCESS -->
             <div class="fstep text-center py-10" id="step-success">
               <div class="flex justify-center mb-6">
                 <div class="success-ring">
@@ -1265,11 +1161,11 @@ body{
               </div>
               <h3 class="display text-5xl mb-3" style="color:var(--gr-600)">SOLICITUD ENVIADA</h3>
               <p class="text-base leading-relaxed max-w-md mx-auto mb-6 serif" style="color:var(--ink-500)">
-                Gracias por contactarte. Un asesor de <strong style="color:var(--v-700)">Escencial</strong> te estará contactando por email dentro de las próximas <strong style="color:var(--gr-600)">24 horas hábiles</strong> para coordinar la activación de tu PRODE Mundialista.
+                Gracias por contactarte. Un asesor de <strong style="color:var(--navy)">Escencial</strong> te estará contactando por email dentro de las próximas <strong style="color:var(--gr-600)">24 horas hábiles</strong> para coordinar la activación de tu PRODE Mundialista.
               </p>
               <div id="success-summary" class="plan-preview text-left mb-6 text-sm"></div>
               <p class="text-xs mb-6" style="color:var(--ink-500)">📧 Revisá tu bandeja de entrada (y la carpeta spam por las dudas).</p>
-              <a href="#" class="btn btn-outline-violet text-sm">← Volver al inicio</a>
+              <a href="#" class="btn btn-outline-navy text-sm">← Volver al inicio</a>
             </div>
 
           </form>
@@ -1280,21 +1176,24 @@ body{
   </div>
 </section>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
-<footer class="sec-darker" style="border-top:3px solid var(--g-500)">
-  <div class="wrap py-14">
+<!-- FOOTER -->
+<footer class="sec-darker relative" style="border-top:3px solid var(--gold);background:var(--navy-deep)">
+  <div class="wrap py-14 relative z-10">
     <div class="grid sm:grid-cols-3 gap-10 mb-10">
       <div>
-        <a href="#" class="flex items-center gap-3 mb-5">
-          <img src="./img/one-logoletra.png" alt="one" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'"/>
-          <span class="logo-fallback">ESCENCIAL</span>
-        </a>
-        <p class="text-sm leading-relaxed mb-4 serif" style="color:var(--on-dark-dim)">Consultora especializada en Recursos Humanos. Clima laboral, evaluación de personas y cultura organizacional.</p>
-        <span class="tag tag-on-dark" style="font-size:.65rem">Prode 2026</span>
+        <div class="flex items-center gap-4 mb-5 flex-wrap">
+          <img src="./img/one-logocolor.png" alt="ONE" class="h-10 w-auto" onerror="this.style.display='none'"/>
+          <span class="h-8 w-px" style="background:rgba(255,255,255,.2)"></span>
+          <img src="./img/escencial-logoblanco.png" alt="Escencial Consultora" class="h-10 w-auto" onerror="this.style.display='none'"/>
+        </div>
+        <p class="text-sm leading-relaxed mb-4 serif text-white/70">
+          Consultora especializada en Recursos Humanos. Clima laboral, evaluación de personas y cultura organizacional.
+        </p>
+        <span class="tag tag-on-dark text-[10px]">Prode Talento · Mundial 2026</span>
       </div>
       <div>
-        <p class="mono-label mb-4" style="color:var(--g-400)">Prode 2026</p>
-        <ul class="space-y-2.5 text-sm" style="color:var(--on-dark-dim)">
+        <p class="mono-label mb-4" style="color:var(--gold)">Prode 2026</p>
+        <ul class="space-y-2.5 text-sm text-white/70">
           <li><a href="#beneficios" class="navlink">Beneficios</a></li>
           <li><a href="#como-funciona" class="navlink">Cómo funciona</a></li>
           <li><a href="#precios" class="navlink">Precios</a></li>
@@ -1303,8 +1202,8 @@ body{
         </ul>
       </div>
       <div>
-        <p class="mono-label mb-4" style="color:var(--g-400)">Contacto</p>
-        <ul class="space-y-2.5 text-sm" style="color:var(--on-dark-dim)">
+        <p class="mono-label mb-4" style="color:var(--gold)">Contacto</p>
+        <ul class="space-y-2.5 text-sm text-white/70">
           <li><a href="mailto:mferreyra@escencialconsult.com.ar" class="navlink">mferreyra@escencialconsult.com.ar</a></li>
           <li><a href="https://wa.me/5491153588062" target="_blank" class="navlink">+54 9 11 5358-8062</a></li>
           <li><a href="https://escencialconsultora.com.ar" target="_blank" class="navlink">escencialconsultora.com.ar</a></li>
@@ -1312,14 +1211,132 @@ body{
       </div>
     </div>
     <div class="rule-on-dark mb-5"></div>
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs" style="color:var(--ink-300)">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
       <span>© 2026 Escencial Consultora. Todos los derechos reservados.</span>
       <button onclick="openTc()" class="navlink" style="background:none;border:none;cursor:pointer;font-size:inherit;padding:0;font-family:inherit">Términos · Juego Responsable</button>
     </div>
   </div>
 </footer>
 
-<!-- ═══════════════ SCRIPTS ═══════════════ -->
+<!-- SCRIPTS -->
+<script>
+/* Nav scroll */
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('nav');
+  if(scrollY>40){
+    nav.style.background='rgba(5,9,15,.95)';
+    nav.style.backdropFilter='blur(16px)';
+    nav.style.boxShadow='0 1px 0 rgba(235,195,43,.2),0 8px 24px rgba(0,0,0,.3)';
+    nav.style.paddingTop='.6rem';
+    nav.style.paddingBottom='.6rem';
+  } else {
+    nav.style.background='transparent';
+    nav.style.backdropFilter='none';
+    nav.style.boxShadow='none';
+    nav.style.paddingTop='1rem';
+    nav.style.paddingBottom='1rem';
+  }
+});
+
+/* ═══════════════════════════════════════════════
+   PRECIOS POR PAÍS
+   ═══════════════════════════════════════════════ */
+const PRICES = {
+  argentina: {
+    basic:    { main: '$160.000',  unit: 'ARS', sub: '≈ USD 113' },
+    standard: { main: '$280.000',  unit: 'ARS', sub: '≈ USD 199' },
+    full:     { main: '$400.000',  unit: 'ARS', sub: '≈ USD 284' },
+    info: '🇦🇷 Precios en <strong>pesos argentinos (ARS)</strong>. Tipo de cambio referencial: 1&nbsp;USD&nbsp;=&nbsp;$1.410&nbsp;ARS.',
+    sindicato: true
+  },
+  bolivia: {
+    basic:    { main: 'Bs. 900',   unit: 'BOB', sub: '≈ USD 130' },
+    standard: { main: 'Bs. 1.600', unit: 'BOB', sub: '≈ USD 231' },
+    full:     { main: 'Bs. 2.300', unit: 'BOB', sub: '≈ USD 333' },
+    info: '🇧🇴 Precios en <strong>bolivianos (BOB)</strong>.',
+    sindicato: false
+  },
+  mexico: {
+    basic:    { main: '$865',   unit: 'MXN', sub: '≈ USD 43' },
+    standard: { main: '$1.557', unit: 'MXN', sub: '≈ USD 78' },
+    full:     { main: '$2.249', unit: 'MXN', sub: '≈ USD 112' },
+    info: '🇲🇽 Precios en <strong>pesos mexicanos (MXN)</strong>.',
+    sindicato: false
+  },
+  peru: {
+    basic:    { main: 'S/ 240', unit: 'PEN', sub: '≈ USD 64' },
+    standard: { main: 'S/ 430', unit: 'PEN', sub: '≈ USD 115' },
+    full:     { main: 'S/ 620', unit: 'PEN', sub: '≈ USD 165' },
+    info: '🇵🇪 Precios en <strong>soles peruanos (PEN)</strong>.',
+    sindicato: false
+  },
+  otro: {
+    basic:    { main: 'USD 113', unit: '', sub: 'Precio internacional' },
+    standard: { main: 'USD 199', unit: '', sub: 'Precio internacional' },
+    full:     { main: 'USD 284', unit: '', sub: 'Precio internacional' },
+    info: '🌎 Precios en <strong>dólares estadounidenses (USD)</strong>.',
+    sindicato: false
+  }
+};
+
+let currentCountry = 'argentina';
+
+function switchCountry(country) {
+  currentCountry = country;
+
+  // Actualizar botones activos
+  document.querySelectorAll('.country-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.country === country);
+  });
+
+  const p = PRICES[country];
+
+  // Actualizar info
+  document.getElementById('country-info').innerHTML = p.info;
+
+  // Actualizar precios en tarjetas
+  document.getElementById('price-basic-main').textContent    = p.basic.main;
+  document.getElementById('price-basic-unit').textContent    = p.basic.unit;
+  document.getElementById('price-basic-sub').textContent     = p.basic.sub;
+
+  document.getElementById('price-standard-main').textContent = p.standard.main;
+  document.getElementById('price-standard-unit').textContent = p.standard.unit;
+  document.getElementById('price-standard-sub').textContent  = p.standard.sub;
+
+  document.getElementById('price-full-main').textContent     = p.full.main;
+  document.getElementById('price-full-unit').textContent     = p.full.unit;
+  document.getElementById('price-full-sub').textContent      = p.full.sub;
+
+  // Mostrar/ocultar tab de sindicatos
+  const tabsWrap = document.getElementById('tabs-pricing-wrap');
+  if (p.sindicato) {
+    tabsWrap.style.display = '';
+  } else {
+    tabsWrap.style.display = 'none';
+    // Forzar vista empresa si se ocultaron los tabs
+    switchPricing('e');
+  }
+}
+
+/* Tabs empresas / sindicatos */
+function switchPricing(t) {
+  const ePanel = document.getElementById('pricing-empresa');
+  const sPanel = document.getElementById('pricing-sindicato');
+  const eBt    = document.getElementById('tab-empresa');
+  const sBt    = document.getElementById('tab-sindicato');
+  if (t === 'e') {
+    ePanel.classList.remove('hidden');
+    sPanel.classList.add('hidden');
+    eBt.classList.add('active');
+    sBt.classList.remove('active');
+  } else {
+    ePanel.classList.add('hidden');
+    sPanel.classList.remove('hidden');
+    eBt.classList.remove('active');
+    sBt.classList.add('active');
+  }
+}
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="app.js"></script>
 </body>
