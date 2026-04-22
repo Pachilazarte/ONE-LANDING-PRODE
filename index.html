@@ -6,6 +6,7 @@
 <title>Prode Mundialista 2026 · Escencial Consultora</title>
 <meta name="description" content="Plataforma de pronósticos deportivos para empresas y sindicatos. Clima laboral, integración y entusiasmo para el Mundial 2026."/>
 <link rel="icon" type="image/png" href="./imgprode/one-prode-dorado.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 
 <!-- Tailwind CDN con config de paleta Prode Talento -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -61,7 +62,11 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
 
 .display{font-family:'Bebas Neue',sans-serif;letter-spacing:.01em;line-height:.9}
 .serif{font-family:'Fraunces',Georgia,serif;font-optical-sizing:auto}
-.serif-it{font-family:'Fraunces',Georgia,serif;font-style:italic}
+.serif-it {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
 .mono-label{font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.72rem}
 
 .hero-bg{
@@ -264,7 +269,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
     <h3>6. Versatilidad Post-Mundial</h3>
     <p>Tras el torneo, la plataforma habilita un apartado para que las organizaciones carguen sus propias actividades: sorteos internos, dinámicas de integración y otras acciones de RRHH a largo plazo.</p>
     <div class="mt-6 pt-4" style="border-top:1px solid var(--cream-2)">
-      <p style="font-size:.78rem;color:var(--ink-500)">Escencial Consultora · mferreyra@escencialconsult.com.ar · escencialconsultora.com.ar · +54 9 11 5358-8062</p>
+      <p style="font-size:.78rem;color:var(--ink-500)">Escencial Consultora · mferreyra@escencialconsult.com.ar · escencialconsultora.com.ar ·  +54 9 11 3358-8062</p>
     </div>
   </div>
 </div>
@@ -396,7 +401,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
       <!-- HERO CARD · Medalla + Countdown + predicciones -->
       <div class="lg:col-span-5 relative" data-aos="fade-left" data-aos-delay="200">
 
-        <div class="relative mx-auto mb-6 flex justify-center lg:justify-end">
+        <div class="relative mx-auto mb-8 flex justify-center lg:justify-center lg:translate-x-2 z-10">
           <div class="absolute inset-0 hero-medal-glow"></div>
           <img src="./imgprode/one-prode-dorado.png" alt="Prode Talento 2026" class="relative w-48 sm:w-56 lg:w-64 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] animate-float" onerror="this.style.display='none'"/>
         </div>
@@ -537,80 +542,89 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
   </div>
 </div>
 
-<!-- BENEFICIOS -->
-<section class="sec sec-cream" id="beneficios">
+<section class="sec sec-cream" id="beneficios" style="overflow: hidden; padding-top: 5rem; padding-bottom: 5rem;">
   <div class="wrap">
-    <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
-      <div data-aos="fade-right">
-        <span class="tag mb-5 inline-flex">Por qué elegir Prode Talento</span>
-        <h2 class="display mb-5" style="font-size:clamp(2.4rem,6vw,4.8rem);color:var(--navy)">
+      <div class="lg:col-span-5" data-aos="fade-right">
+        <span class="tag mb-6 inline-flex" style="font-family: 'DM Sans', sans-serif;">Por qué elegir Prode Talento</span>
+        
+        <h2 class="display mb-6" style="font-size: clamp(2.5rem, 6vw, 4.2rem); color: var(--navy); line-height: 1;">
           UNA HERRAMIENTA<br/>
-          <span class="serif-it" style="color:var(--blue-med);font-size:.9em;font-weight:500;letter-spacing:-.02em">pensada</span><br/>
+          <span style="font-family: 'DM Sans', sans-serif; font-style: normal; font-weight: 700; color: var(--blue-med); text-transform: uppercase; font-size: 0.8em; letter-spacing: -0.01em;">pensada</span><br/>
           PARA RRHH
         </h2>
-        <p class="serif text-lg" style="color:var(--ink-700);max-width:36rem;line-height:1.7">
-          No es una apuesta, no es un juego de azar. Es una plataforma de <em style="color:var(--navy)">integración laboral</em> que usa el Mundial como catalizador de energía positiva dentro de tu organización.
+
+        <p class="text-lg mb-10" style="color: var(--ink-700); max-width: 32rem; line-height: 1.6; font-family: 'DM Sans', sans-serif;">
+          No es una apuesta, no es un juego de azar. Es una plataforma de <strong style="color: var(--navy)">integración laboral</strong> que usa el Mundial como catalizador de energía positiva dentro de tu organización.
         </p>
 
-        <div class="mt-12 flex items-end gap-8 flex-wrap">
-          <div>
-            <div class="display" style="font-size:5.5rem;line-height:.9;color:var(--gold)">4</div>
-            <p class="text-xs mt-1" style="color:var(--ink-500);max-width:14rem">Años entre cada oportunidad como esta</p>
-          </div>
-          <div style="width:1px;height:4rem;background:linear-gradient(180deg,transparent,var(--gold),transparent);align-self:center"></div>
-          <div>
-            <p class="text-sm font-semibold mb-3" style="color:var(--navy)">Las empresas que lo aprovechan logran mejoras en</p>
-            <div class="space-y-1.5">
-              <p class="text-sm font-semibold flex items-center gap-2" style="color:var(--blue-med)"><span style="width:.5rem;height:.5rem;border-radius:50%;background:var(--gold)"></span>Clima laboral</p>
-              <p class="text-sm font-semibold flex items-center gap-2" style="color:var(--blue-med)"><span style="width:.5rem;height:.5rem;border-radius:50%;background:var(--gold)"></span>Comunicación interna</p>
-              <p class="text-sm font-semibold flex items-center gap-2" style="color:var(--blue-med)"><span style="width:.5rem;height:.5rem;border-radius:50%;background:var(--gold)"></span>Sentido de pertenencia</p>
-            </div>
+        <div class="flex items-center gap-6 p-6 rounded-2xl bg-white/60 border border-cream-2 shadow-sm mb-8 transition-transform hover:-translate-y-1">
+          <div class="display" style="font-size: 5rem; line-height: 1; color: var(--gold)">4</div>
+          <div class="h-10 w-px bg-gold/30"></div>
+          <p class="text-xs font-bold uppercase tracking-widest" style="color: var(--ink-500); max-width: 140px; line-height: 1.4; font-family: 'DM Sans', sans-serif;">
+            Años entre cada oportunidad como esta
+          </p>
+        </div>
+
+        <div class="space-y-3" style="font-family: 'DM Sans', sans-serif;">
+          <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color: var(--navy); opacity: 0.8;">Las empresas logran mejoras en:</p>
+          <div class="flex flex-wrap gap-3">
+            <span class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white text-blue-med text-xs font-bold border border-blue-med/20 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold"></span> CLIMA LABORAL
+            </span>
+            <span class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white text-blue-med text-xs font-bold border border-blue-med/20 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold"></span> COMUNICACIÓN
+            </span>
+            <span class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white text-blue-med text-xs font-bold border border-blue-med/20 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold"></span> PERTENENCIA
+            </span>
           </div>
         </div>
       </div>
 
-      <div class="space-y-3" data-aos="fade-left" data-aos-delay="100">
+      <div class="lg:col-span-7 space-y-4" data-aos="fade-left" data-aos-delay="100">
 
-        <div class="card-cream p-5 flex gap-4 items-start">
-          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <div>
+        <div class="card-cream p-5 flex gap-4 items-start shadow-sm hover:shadow-md transition-all duration-300 hover:translate-x-1" style="border-radius: 16px;">
+          <div class="feat-icon" style="border-radius: 12px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div style="font-family: 'DM Sans', sans-serif;">
             <p class="font-semibold text-base mb-1" style="color:var(--navy)">Implementación inmediata</p>
             <p class="text-sm" style="color:var(--ink-500);line-height:1.6">Plataforma lista con QR y materiales. RRHH solo comparte el acceso y ya están jugando.</p>
           </div>
         </div>
 
-        <div class="card-cream p-5 flex gap-4 items-start">
-          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
-          <div>
+        <div class="card-cream p-5 flex gap-4 items-start shadow-sm hover:shadow-md transition-all duration-300 hover:translate-x-1" style="border-radius: 16px;">
+          <div class="feat-icon" style="border-radius: 12px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
+          <div style="font-family: 'DM Sans', sans-serif;">
             <p class="font-semibold text-base mb-1" style="color:var(--navy)">Personalizado con tu identidad</p>
             <p class="text-sm" style="color:var(--ink-500);line-height:1.6">Logo y colores corporativos integrados en toda la experiencia de usuario.</p>
           </div>
         </div>
 
-        <div class="card-cream p-5 flex gap-4 items-start">
-          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+        <div class="card-cream p-5 flex gap-4 items-start shadow-sm hover:shadow-md transition-all duration-300 hover:translate-x-1" style="border-radius: 16px;">
+          <div class="feat-icon" style="border-radius: 12px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+          <div style="font-family: 'DM Sans', sans-serif;">
           <div>
-            <p class="font-semibold text-base mb-1" style="color:var(--navy)">Premios flexibles en especie</p>
-            <p class="text-sm" style="color:var(--ink-500);line-height:1.6">La empresa define: días de vacaciones, electrodomésticos, gift cards. Sin efectivo.</p>
+            <p class="font-semibold text-base mb-1" style="color:var(--navy)">Premios personalizados</p>
+            <p class="text-sm" style="color:var(--ink-500);line-height:1.6">La empresa decide internamente qué premios va a otorgar y los declara en la plataforma. No incluye dinero en efectivo.</p>
           </div>
         </div>
-
-        <div class="card-cream p-5 flex gap-4 items-start" style="border-color:var(--gr-500);background:rgba(44,163,109,.04)">
-          <div class="feat-icon" style="background:linear-gradient(135deg,var(--gr-600),var(--gr-500));color:#fff">
+      </div>
+        <div class="card-cream p-5 flex gap-4 items-start shadow-sm hover:shadow-md transition-all duration-300 hover:translate-x-1" style="border-radius: 16px; border-color:var(--gr-500); background:rgba(44,163,109,.04);">
+          <div class="feat-icon" style="border-radius: 12px; background:linear-gradient(135deg,var(--gr-600),var(--gr-500));color:#fff;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
           </div>
-          <div>
+          <div style="font-family: 'DM Sans', sans-serif;">
             <p class="font-semibold text-base mb-1" style="color:var(--gr-700)">100% legal y sin riesgo</p>
             <p class="text-sm" style="color:var(--ink-500);line-height:1.6">Pronósticos recreativos, no apuestas. Participación voluntaria. Aviso de juego responsable incluido.</p>
           </div>
         </div>
 
-        <div class="card-cream p-5 flex gap-4 items-start" style="border-color:var(--gold);background:rgba(235,195,43,.05)">
-          <div class="feat-icon" style="background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy-deep)">
+        <div class="card-cream p-5 flex gap-4 items-start shadow-sm hover:shadow-md transition-all duration-300 hover:translate-x-1" style="border-radius: 16px; border-color:var(--gold); background:rgba(235,195,43,.05);">
+          <div class="feat-icon" style="border-radius: 12px; background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy-deep);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
           </div>
-          <div>
+          <div style="font-family: 'DM Sans', sans-serif;">
             <p class="font-semibold text-base mb-1" style="color:var(--gold-dark)">Herramienta permanente post-Mundial</p>
             <p class="text-sm" style="color:var(--ink-500);line-height:1.6">Tras el torneo queda habilitada para sorteos internos y dinámicas de integración.</p>
           </div>
@@ -620,7 +634,6 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
     </div>
   </div>
 </section>
-
 <!-- CÓMO FUNCIONA -->
 <section class="sec sec-dark" id="como-funciona" style="background:linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%)">
   <div class="absolute inset-0 opacity-30 pointer-events-none stadium-dots"></div>
@@ -965,11 +978,11 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
             </span>
             <span>mferreyra@escencialconsult.com.ar</span>
           </a>
-          <a href="https://wa.me/5491153588062" target="_blank" class="flex items-center gap-3 text-sm text-white no-underline">
+          <a href="https://wa.me/5491133588062" target="_blank" class="flex items-center gap-3 text-sm text-white no-underline">
             <span class="icon-circle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
             </span>
-            <span>+54 9 11 5358-8062</span>
+            <span>+54 9 11 3358-8062</span>
           </a>
           <a href="https://escencialconsultora.com.ar" target="_blank" class="flex items-center gap-3 text-sm text-white no-underline">
             <span class="icon-circle">
@@ -1205,7 +1218,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
         <p class="mono-label mb-4" style="color:var(--gold)">Contacto</p>
         <ul class="space-y-2.5 text-sm text-white/70">
           <li><a href="mailto:mferreyra@escencialconsult.com.ar" class="navlink">mferreyra@escencialconsult.com.ar</a></li>
-          <li><a href="https://wa.me/5491153588062" target="_blank" class="navlink">+54 9 11 5358-8062</a></li>
+          <li><a href="https://wa.me/5491133588062" target="_blank" class="navlink">+54 9 11 3358-8062</a></li>
           <li><a href="https://escencialconsultora.com.ar" target="_blank" class="navlink">escencialconsultora.com.ar</a></li>
         </ul>
       </div>
