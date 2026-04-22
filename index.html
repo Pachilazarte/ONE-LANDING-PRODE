@@ -892,40 +892,83 @@ body{
       </div>
     </div>
 
-    <!-- SINDICATO -->
-    <div id="pricing-sindicato" class="hidden" data-aos="fade-up">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
-        <div class="price-card">
-          <p class="display text-3xl mb-1" style="color:var(--v-900)">BÁSICO</p>
-          <p class="text-xs mb-4" style="color:var(--ink-500)">Hasta 30 usuarios</p>
-          <div class="mb-1"><span class="display text-4xl" style="color:var(--v-900)">$400.000</span><span class="text-xs ml-1" style="color:var(--ink-500)">ARS</span></div>
-          <p class="text-sm font-semibold mb-5" style="color:var(--g-600)">≈ USD 284</p>
-          <a href="#contacto" onclick="preSelectPlan('sindicato','1-30')" class="btn btn-outline-violet w-full text-sm">Elegir</a>
+<div id="pricing-sindicato" class="hidden" data-aos="fade-up">
+      
+      <div class="max-w-4xl mx-auto mb-10 bg-white rounded-lg p-6 sm:p-8 flex flex-col sm:flex-row gap-5 items-start relative overflow-hidden" style="border:1px solid var(--cr-200); box-shadow:0 8px 24px rgba(26,18,53,.04)">
+        <div class="absolute top-0 left-0 w-1.5 h-full" style="background:var(--rd-500)"></div>
+        
+        <div class="icon-circle flex-shrink-0 mt-1" style="background:rgba(213,99,71,.08); border-color:rgba(31, 3, 28, 0.25); color:var(--rd-600);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <div class="price-card">
-          <p class="display text-3xl mb-1" style="color:var(--v-900)">ESTÁNDAR</p>
-          <p class="text-xs mb-4" style="color:var(--ink-500)">31 a 60 usuarios</p>
-          <div class="mb-1"><span class="display text-4xl" style="color:var(--v-900)">$580.000</span><span class="text-xs ml-1" style="color:var(--ink-500)">ARS</span></div>
-          <p class="text-sm font-semibold mb-5" style="color:var(--g-600)">≈ USD 411</p>
-          <a href="#contacto" onclick="preSelectPlan('sindicato','31-60')" class="btn btn-outline-violet w-full text-sm">Elegir</a>
+        
+        <div>
+          <h4 class="serif font-semibold text-xl mb-2" style="color:var(--v-900)">Paquete Exclusivo para Instituciones Sindicales</h4>
+          <p class="text-sm leading-relaxed" style="color:var(--ink-700)">
+            <strong style="color:var(--v-700)">¿Qué califica como Sindicato?</strong> Este beneficio es exclusivo para asociaciones gremiales, sindicatos, mutuales y federaciones. 
+            Entendiendo que estas instituciones agrupan a miles de trabajadores, creamos este <strong>plan con precio subsidiado</strong>. Nuestro objetivo es que el presupuesto no sea una barrera y puedan ofrecer este espacio de integración, recreación y pertenencia a <span style="color:var(--rd-600); font-weight:600">todos sus afiliados</span> durante el Mundial.
+          </p>
         </div>
-        <div class="price-card">
-          <p class="display text-3xl mb-1" style="color:var(--v-900)">FULL</p>
-          <p class="text-xs mb-4" style="color:var(--ink-500)">61 o más usuarios</p>
-          <div class="mb-1"><span class="display text-4xl" style="color:var(--v-900)">$1.000.000</span><span class="text-xs ml-1" style="color:var(--ink-500)">ARS</span></div>
-          <p class="text-sm font-semibold mb-5" style="color:var(--g-600)">≈ USD 709</p>
-          <a href="#contacto" onclick="preSelectPlan('sindicato','61+')" class="btn btn-outline-violet w-full text-sm">Elegir</a>
-        </div>
-        <div class="price-card price-card-featured relative">
-          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap">
-            <span class="text-xs font-bold px-3 py-1 rounded-full" style="background:var(--g-500);color:var(--v-900);letter-spacing:.08em">INST. SINDICALES</span>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto px-4 md:px-0">
+        
+        <div class="price-card opacity-90 transition-all hover:opacity-100 flex flex-col justify-between" style="background:var(--cr-50)">
+          <div>
+            <p class="display text-3xl mb-1" style="color:var(--ink-300)">FULL REGULAR</p>
+            <p class="text-xs mb-4" style="color:var(--ink-500)">61 o más usuarios</p>
+            
+            <div class="mb-1 mt-4">
+              <div class="relative inline-block">
+                <span class="display text-5xl" style="color:var(--ink-300)">$1.000.000</span>
+                <div class="absolute top-1/2 left-[-5%] w-[110%] h-[6px] -rotate-6 rounded-full pointer-events-none" style="background:var(--rd-600); opacity:0.85"></div>
+              </div>
+              <span class="text-xs ml-1 font-bold" style="color:var(--ink-300)">ARS</span>
+            </div>
+            
+            <p class="text-sm font-semibold mb-6 mt-2" style="color:var(--ink-500)">Precio de Lista (≈ USD 709)</p>
           </div>
-          <p class="display text-3xl mb-1" style="color:var(--g-400)">FULL</p>
-          <p class="text-xs mb-4" style="color:var(--on-dark-dim)">61+ · Precio especial</p>
-          <div class="mb-1"><span class="display text-4xl" style="color:var(--on-dark)">$400.000</span><span class="text-xs ml-1" style="color:var(--on-dark-dim)">ARS</span></div>
-          <p class="text-sm font-semibold mb-5" style="color:var(--g-400)">≈ USD 284</p>
-          <a href="#contacto" onclick="preSelectPlan('institucional','61+')" class="btn btn-gold w-full text-sm">Elegir</a>
+          
+          <div>
+            <div class="rule-violet mb-5 opacity-50"></div>
+            <a href="#contacto" onclick="preSelectPlan('sindicato','61+')" class="btn btn-outline-violet w-full text-sm" style="color:var(--ink-500); border-color:var(--cr-200)">Ver plan regular</a>
+          </div>
         </div>
+
+        <div class="price-card price-card-featured relative flex flex-col justify-between" style="border:2px solid var(--rd-500); box-shadow:0 12px 40px rgba(213,99,71,.2)">
+          
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap z-10">
+            <span class="text-[11px] sm:text-xs font-bold px-5 py-1.5 rounded-full text-white uppercase tracking-wider flex items-center gap-1.5" style="background:var(--rd-600); box-shadow:0 6px 16px rgba(213,99,71,.4)">
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" style="width:14px;height:14px"><path d="M12 2c0 0-4.5 3-4.5 7.5 0 2.2 1.5 4.3 3.5 5.2-.2-.6-.3-1.2-.3-1.8 0-2.4 2-3.8 2-3.8s-.5 1.5-.5 2.5c0 1.9 1.5 3.3 3.3 3.3 1.1 0 2.1-.6 2.7-1.5.3-.5.4-1.1.4-1.7 0-3.5-3.5-6.5-6.6-9.7z"/></svg>
+              Oferta: Primeras 1000 Compras
+            </span>
+          </div>
+
+          <div>
+            <div class="mt-4 mb-3">
+              <span class="text-[10px] font-bold px-2.5 py-1 rounded-sm" style="background:rgba(213,99,71,.15); color:var(--rd-500); border:1px solid var(--rd-600); letter-spacing:.08em">
+                SUBSIDIO SINDICAL
+              </span>
+            </div>
+            
+            <p class="display text-3xl mb-1" style="color:var(--on-dark)">FULL PROMO</p>
+            <p class="text-xs mb-4" style="color:var(--rd-500)">Capacidad ilimitada de afiliados</p>
+            
+            <div class="mb-1 mt-4">
+              <span class="display text-5xl" style="color:var(--on-dark)">$400.000</span>
+              <span class="text-xs ml-1" style="color:var(--on-dark-dim)">ARS</span>
+            </div>
+            
+            <p class="text-sm font-semibold mb-6 mt-2" style="color:var(--g-400)">≈ USD 284 <span class="ml-1 text-xs font-normal" style="color:var(--on-dark-dim)">(Pago único)</span></p>
+          </div>
+          
+          <div>
+            <div class="rule-on-dark mb-5"></div>
+            <a href="#contacto" onclick="preSelectPlan('institucional','61+')" class="btn w-full text-sm font-bold shadow-lg transition-transform hover:-translate-y-1" style="background:var(--rd-600); color:#fff; border:none;">
+              Aprovechar Oferta Ahora
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
 
