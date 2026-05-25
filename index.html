@@ -138,13 +138,21 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
 .btn svg{transition:transform .25s}
 .btn:hover svg{transform:translateX(3px)}
 
-.price-card{background:#fff;border:1px solid var(--cream-2);border-radius:12px;padding:2.5rem 1.75rem;transition:all .35s ease;position:relative;display:flex;flex-direction:column}
+.price-card{background:#fff;border:1px solid var(--cream-2);border-radius:12px;padding:2rem 1.5rem;transition:all .35s ease;position:relative;display:flex;flex-direction:column}
 .price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--cream-2);transition:background .3s;border-radius:12px 12px 0 0}
-.price-card:hover{border-color:var(--blue-med);transform:translateY(-8px);box-shadow:0 20px 48px rgba(12,24,43,.1)}
-.price-card:hover::before{background:var(--blue-med)}
+@media(min-width:768px){
+  .price-card:hover{border-color:var(--blue-med);transform:translateY(-8px);box-shadow:0 20px 48px rgba(12,24,43,.1)}
+  .price-card:hover::before{background:var(--blue-med)}
+}
 .price-card-featured{background:linear-gradient(170deg,var(--navy),var(--navy-deep));color:#fff;border:2px solid var(--gold);box-shadow:0 24px 60px rgba(12,24,43,.25)}
 .price-card-featured::before{background:var(--gold)}
-.price-card-featured:hover{transform:translateY(-4px);box-shadow:0 32px 72px rgba(12,24,43,.35)}
+@media(min-width:768px){.price-card-featured:hover{transform:translateY(-4px);box-shadow:0 32px 72px rgba(12,24,43,.35)}}
+#pricing-empresa::-webkit-scrollbar{height:3px}
+#pricing-empresa::-webkit-scrollbar-track{background:var(--cream-2);border-radius:3px}
+#pricing-empresa::-webkit-scrollbar-thumb{background:var(--navy);border-radius:3px}
+#pricing-sindicato::-webkit-scrollbar{height:3px}
+#pricing-sindicato::-webkit-scrollbar-track{background:var(--cream-2);border-radius:3px}
+#pricing-sindicato::-webkit-scrollbar-thumb{background:var(--navy);border-radius:3px}
 
 .fstep{display:none}
 .fstep.active{display:block;animation:slideUp .4s ease}
@@ -173,8 +181,9 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
 .tab-btn{padding:.6rem 1.6rem;border-radius:999px;font-size:.85rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--ink-500);transition:all .25s}
 .tab-btn.active{background:var(--navy);color:#fff;box-shadow:0 4px 12px rgba(12,24,43,.2)}
 
-.faq-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.faq-body.open{max-height:400px}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.faq-body.open{max-height:1000px}
+#full-tiers.open{max-height:none;overflow:visible}
 .faq-arrow{transition:transform .35s}
 .faq-arrow.rotated{transform:rotate(180deg)}
 
@@ -552,7 +561,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
         <h2 class="display mb-6" style="font-size: clamp(2.5rem, 6vw, 4.2rem); color: var(--navy); line-height: 1;">
           UNA HERRAMIENTA<br/>
           <span style="font-family: 'DM Sans', sans-serif; font-style: normal; font-weight: 700; color: var(--blue-med); text-transform: uppercase; font-size: 0.8em; letter-spacing: -0.01em;">pensada</span><br/>
-          PARA RRHH
+          PARA EMPRESAS
         </h2>
 
         <p class="text-lg mb-10" style="color: var(--ink-700); max-width: 32rem; line-height: 1.6; font-family: 'DM Sans', sans-serif;">
@@ -751,10 +760,12 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
     </div>
 
     <!-- EMPRESA -->
-    <div id="pricing-empresa" class="grid sm:grid-cols-3 gap-5 max-w-5xl mx-auto" data-aos="fade-up">
+    <!-- hint mobile only -->
+    <p class="text-center text-xs mb-3 md:hidden" style="color:var(--ink-300)">← Deslizá para ver los planes →</p>
+    <div id="pricing-empresa" class="flex md:grid md:grid-cols-3 gap-5 max-w-5xl mx-auto overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-auto md:px-0 md:overflow-visible" data-aos="fade-up">
 
       <!-- Plan Básico -->
-      <div class="price-card" id="pc-basic">
+      <div class="price-card flex-shrink-0 w-[82vw] md:w-auto snap-start" id="pc-basic">
         <p class="mono-label mb-4" style="color:var(--ink-500)">Plan</p>
         <p class="display text-4xl mb-1" style="color:var(--navy)">BÁSICO</p>
         <p class="text-xs mb-5" style="color:var(--ink-500)">Hasta 30 usuarios</p>
@@ -774,7 +785,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
       </div>
 
       <!-- Plan Estándar -->
-      <div class="price-card price-card-featured relative" id="pc-standard">
+      <div class="price-card price-card-featured relative flex-shrink-0 w-[82vw] md:w-auto snap-start" id="pc-standard">
         <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap z-10">
           <span class="text-xs font-bold px-3 py-1 rounded-full" style="background:var(--gold);color:var(--navy-deep);letter-spacing:.08em">★ MÁS ELEGIDO</span>
         </div>
@@ -798,24 +809,97 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
       </div>
 
       <!-- Plan Full -->
-      <div class="price-card" id="pc-full">
+      <div class="price-card flex-shrink-0 w-[82vw] md:w-auto snap-start" id="pc-full">
+        <div class="absolute -top-3 right-4">
+          <span class="text-[10px] font-bold px-2.5 py-1 rounded-full" style="background:rgba(66,91,139,.12);color:var(--blue-med);border:1px solid rgba(66,91,139,.3);letter-spacing:.06em">ESCALABLE</span>
+        </div>
         <p class="mono-label mb-4" style="color:var(--ink-500)">Plan</p>
         <p class="display text-4xl mb-1" style="color:var(--navy)">FULL</p>
-        <p class="text-xs mb-5" style="color:var(--ink-500)">61 o más usuarios</p>
+        <p class="text-xs mb-3" style="color:var(--ink-500)">Desde 61 usuarios · Infraestructura escalable</p>
         <div class="mb-1">
-          <span class="display price-main" id="price-full-main" style="font-size:2.8rem;color:var(--navy)">$400.000</span>
+          <span class="display price-main" id="price-full-main" style="font-size:2.4rem;color:var(--navy)">$400.000</span>
           <span class="text-xs ml-1 price-unit" id="price-full-unit" style="color:var(--ink-500)">ARS</span>
         </div>
-        <p class="text-sm font-semibold mb-6 price-sub" id="price-full-sub" style="color:var(--gold-dark)">≈ USD 284</p>
-        <div class="rule-violet mb-5"></div>
-        <ul class="space-y-2.5 text-sm mb-7" style="color:var(--ink-700)">
-          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Usuarios ilimitados</li>
+        <p class="text-xs font-semibold mb-1 price-sub" id="price-full-sub" style="color:var(--gold-dark)">≈ USD 284 · plataforma base</p>
+        <p class="text-xs mb-4 font-semibold" style="color:var(--blue-med)">+ desde USD 25/mes infraestructura</p>
+
+        <!-- Sub-tiers toggle -->
+        <button type="button" onclick="toggleFullTiers()" class="w-full flex items-center justify-between gap-2 text-xs font-semibold mb-3 px-3 py-2 rounded-lg transition-colors" style="background:rgba(66,91,139,.07);color:var(--blue-med);border:1px solid rgba(66,91,139,.18);cursor:pointer">
+          <span>Ver todos los tramos de precio</span>
+          <svg id="full-tiers-arrow" class="faq-arrow w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="full-tiers" class="faq-body mb-4">
+          <div class="rounded-lg overflow-hidden text-xs" style="border:1px solid var(--cream-2)">
+            <!-- nota base -->
+            <div class="flex items-center gap-2 px-3 py-1.5" style="background:var(--navy);color:var(--gold)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3 h-3 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="font-semibold" style="font-size:.68rem;letter-spacing:.06em;text-transform:uppercase">Plataforma $400.000 ARS · + infraestructura según tramo</span>
+            </div>
+            <!-- PRECIO FIJO -->
+            <div class="px-3 py-1 font-bold uppercase tracking-wider" style="font-size:.62rem;background:rgba(27,138,90,.09);color:var(--gr-600);border-bottom:1px solid rgba(27,138,90,.15)">
+              Precio fijo · hasta 1.000 usuarios
+            </div>
+            <div class="flex items-center justify-between px-3 py-1.5" style="border-bottom:1px solid var(--cream-2)">
+              <span class="whitespace-nowrap" style="color:var(--ink-700)">Hasta 200 usuarios</span>
+              <span class="font-bold whitespace-nowrap" style="color:var(--gr-700)">+ USD 25/mes ★</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-1.5" style="background:rgba(27,138,90,.03);border-bottom:1px solid var(--cream-2)">
+              <span class="whitespace-nowrap" style="color:var(--ink-700)">200 – 1.000 usuarios</span>
+              <span class="font-bold whitespace-nowrap" style="color:var(--gr-700)">+ USD 25/mes ★</span>
+            </div>
+            <!-- EMPRESA GRANDE -->
+            <div class="px-3 py-1 font-bold uppercase tracking-wider" style="font-size:.62rem;background:rgba(66,91,139,.09);color:var(--blue-med);border-bottom:1px solid rgba(66,91,139,.15)">
+              Empresa grande · 1.000 a 5.000
+            </div>
+            <div class="flex items-center justify-between px-3 py-1.5" style="border-bottom:1px solid var(--cream-2)">
+              <span class="whitespace-nowrap" style="color:var(--ink-700)">1.000 – 2.000 usuarios</span>
+              <span class="font-bold whitespace-nowrap" style="color:var(--navy)">+ USD 40/mes</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-1.5" style="background:var(--cream);border-bottom:1px solid var(--cream-2)">
+              <span class="whitespace-nowrap" style="color:var(--ink-700)">2.000 – 3.000 usuarios</span>
+              <span class="font-bold whitespace-nowrap" style="color:var(--navy)">+ USD 85/mes</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-1.5" style="border-bottom:1px solid var(--cream-2)">
+              <span class="whitespace-nowrap" style="color:var(--ink-700)">3.000 – 4.000 usuarios</span>
+              <span class="font-bold whitespace-nowrap" style="color:var(--navy)">+ USD 85/mes</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-1.5" style="background:var(--cream);border-bottom:1px solid var(--cream-2)">
+              <span class="whitespace-nowrap" style="color:var(--ink-700)">4.000 – 5.000 usuarios</span>
+              <span class="font-bold whitespace-nowrap" style="color:var(--navy)">+ USD 85/mes</span>
+            </div>
+            <!-- CORPORACIÓN -->
+            <div class="px-3 py-1 font-bold uppercase tracking-wider" style="font-size:.62rem;background:rgba(201,159,22,.09);color:var(--gold-dark);border-bottom:1px solid rgba(201,159,22,.2)">
+              Corporación · 5.000 a 20.000
+            </div>
+            <div class="flex items-center justify-between px-3 py-1.5" style="border-bottom:1px solid var(--cream-2)">
+              <span class="whitespace-nowrap" style="color:var(--ink-700)">5.000 – 8.000 usuarios</span>
+              <span class="font-bold whitespace-nowrap" style="color:var(--navy)">+ USD 135/mes</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-1.5" style="background:var(--cream);border-bottom:1px solid var(--cream-2)">
+              <span class="whitespace-nowrap" style="color:var(--ink-700)">8.000 – 10.000 usuarios</span>
+              <span class="font-bold whitespace-nowrap" style="color:var(--navy)">+ USD 135/mes</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-1.5" style="border-bottom:1px solid var(--cream-2)">
+              <span class="whitespace-nowrap" style="color:var(--ink-700)">10.000 – 15.000 usuarios</span>
+              <span class="font-bold whitespace-nowrap" style="color:var(--navy)">+ USD 135/mes</span>
+            </div>
+            <div class="flex items-center justify-between px-3 py-1.5" style="background:var(--cream);border-bottom:1px solid var(--cream-2)">
+              <span class="whitespace-nowrap" style="color:var(--ink-700)">15.000 – 20.000 usuarios</span>
+              <span class="font-bold whitespace-nowrap" style="color:var(--navy)">+ USD 210/mes</span>
+            </div>
+            <p class="px-3 py-1.5" style="font-size:.62rem;color:var(--ink-500);border-top:1px solid var(--cream-2)">★ precio fijo · infra: costo mensual por demanda real</p>
+          </div>
+        </div>
+
+        <div class="rule-violet mb-4"></div>
+        <ul class="space-y-2 text-sm mb-5" style="color:var(--ink-700)">
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Sin límite de participantes</li>
           <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Plataforma personalizada</li>
           <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>QR + materiales digitales</li>
-          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Premios en especie</li>
-          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Soporte dedicado</li>
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Soporte dedicado 24/7</li>
+          <li class="flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" style="width:1rem;height:1rem;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Infraestructura Micro → XL</li>
         </ul>
-        <a href="#contacto" onclick="preSelectPlan('empresa','61+')" class="btn btn-outline-navy w-full">Elegir Full</a>
+        <a href="#contacto" onclick="preSelectPlan('empresa','61-200')" class="btn btn-outline-navy w-full">Elegir Full</a>
       </div>
     </div>
 
@@ -853,7 +937,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
           </div>
           <div>
             <div class="rule-violet mb-5 opacity-50"></div>
-            <a href="#contacto" onclick="preSelectPlan('sindicato','61+')" class="btn btn-outline-navy w-full text-sm" style="color:var(--ink-500); border-color:var(--cream-2)">Ver plan regular</a>
+            <a href="#contacto" onclick="preSelectPlan('sindicato','61-200')" class="btn btn-outline-navy w-full text-sm" style="color:var(--ink-500); border-color:var(--cream-2)">Ver plan regular</a>
           </div>
         </div>
 
@@ -880,7 +964,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
           </div>
           <div>
             <div class="rule-on-dark mb-5"></div>
-            <a href="#contacto" onclick="preSelectPlan('institucional','61+')" class="btn w-full text-sm font-bold shadow-lg transition-transform hover:-translate-y-1" style="background:var(--rd-600); color:#fff; border:none;">
+            <a href="#contacto" onclick="preSelectPlan('institucional','61-200')" class="btn w-full text-sm font-bold shadow-lg transition-transform hover:-translate-y-1" style="background:var(--rd-600); color:#fff; border:none;">
               Aprovechar Oferta Ahora
             </a>
           </div>
@@ -889,7 +973,98 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
       </div>
     </div>
 
-    <div class="mt-10 rounded-lg p-4 text-center max-w-3xl mx-auto" style="background:rgba(66,91,139,.06);border:1px solid rgba(66,91,139,.2)">
+    <!-- TABLA COMPARATIVA DE PLANES -->
+    <div class="mt-12 max-w-4xl mx-auto" data-aos="fade-up">
+      <div class="text-center mb-6">
+        <p class="mono-label" style="color:var(--ink-500)">Compará los planes</p>
+        <h3 class="display text-3xl mt-1" style="color:var(--navy)">¿QUÉ INCLUYE CADA PLAN?</h3>
+      </div>
+      <div class="overflow-x-auto rounded-xl" style="border:1px solid var(--cream-2);box-shadow:0 4px 16px rgba(12,24,43,.06)">
+        <table class="w-full text-sm" style="border-collapse:collapse;min-width:480px">
+          <thead>
+            <tr style="background:var(--navy)">
+              <th class="text-left px-5 py-4 font-semibold" style="color:rgba(255,255,255,.6);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;width:44%">Característica</th>
+              <th class="text-center px-3 py-4" style="color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.05em">BÁSICO</th>
+              <th class="text-center px-3 py-4" style="color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.05em">ESTÁNDAR</th>
+              <th class="text-center px-3 py-4" style="color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.05em">FULL</th>
+            </tr>
+            <tr style="background:rgba(12,24,43,.04);border-bottom:1px solid var(--cream-2)">
+              <td class="px-5 py-2.5 text-xs" style="color:var(--ink-500)">Participantes</td>
+              <td class="text-center px-3 py-2.5 text-xs font-semibold" style="color:var(--navy)">hasta 30</td>
+              <td class="text-center px-3 py-2.5 text-xs font-semibold" style="color:var(--navy)">31 – 60</td>
+              <td class="text-center px-3 py-2.5 text-xs font-semibold" style="color:var(--navy)">61 → 20.000+</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--cream-2)">
+              <td class="px-5 py-3" style="color:var(--ink-700)">Plataforma personalizada (logo + colores)</td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+            </tr>
+            <tr style="background:var(--cream);border-bottom:1px solid var(--cream-2)">
+              <td class="px-5 py-3" style="color:var(--ink-700)">QR + materiales digitales</td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--cream-2)">
+              <td class="px-5 py-3" style="color:var(--ink-700)">Tabla de posiciones en tiempo real</td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+            </tr>
+            <tr style="background:var(--cream);border-bottom:1px solid var(--cream-2)">
+              <td class="px-5 py-3" style="color:var(--ink-700)">Premios en especie (definidos por la empresa)</td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--cream-2)">
+              <td class="px-5 py-3" style="color:var(--ink-700)">Herramienta activa post-Mundial</td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+            </tr>
+            <tr style="background:var(--cream);border-bottom:1px solid var(--cream-2)">
+              <td class="px-5 py-3" style="color:var(--ink-700)">Soporte por email</td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--cream-2)">
+              <td class="px-5 py-3" style="color:var(--ink-700)">Soporte prioritario (WhatsApp)</td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink-300)" stroke-width="2.5" class="inline w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+            </tr>
+            <tr style="background:var(--cream);border-bottom:1px solid var(--cream-2)">
+              <td class="px-5 py-3" style="color:var(--ink-700)">Soporte dedicado 24/7 durante el torneo</td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink-300)" stroke-width="2.5" class="inline w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink-300)" stroke-width="2.5" class="inline w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--cream-2)">
+              <td class="px-5 py-3" style="color:var(--ink-700)">Infraestructura escalable (Micro → XL)</td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink-300)" stroke-width="2.5" class="inline w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink-300)" stroke-width="2.5" class="inline w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+            </tr>
+            <tr style="background:var(--cream)">
+              <td class="px-5 py-3" style="color:var(--ink-700)">Precio progresivo según demanda real</td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink-300)" stroke-width="2.5" class="inline w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink-300)" stroke-width="2.5" class="inline w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+              <td class="text-center"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr-600)" stroke-width="3" class="inline w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-center text-xs mt-4" style="color:var(--ink-500)">
+        ¿Empresa grande o corporación? <a href="presupuesto.html" class="font-semibold underline" style="color:var(--navy)">Consultá el presupuesto detallado →</a>
+      </p>
+    </div>
+
+    <div class="mt-8 rounded-lg p-4 text-center max-w-3xl mx-auto" style="background:rgba(66,91,139,.06);border:1px solid rgba(66,91,139,.2)">
       <p class="text-xs" style="color:var(--ink-500)">
         Plataforma recreativa. No constituye apuesta regulada. Los premios son definidos y entregados por la empresa contratante.
         <button onclick="openTc()" class="underline ml-1" style="color:var(--navy);background:none;border:none;cursor:pointer;font-size:inherit;font-weight:600">Ver Términos y Condiciones</button>
@@ -1087,25 +1262,45 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
                   <label class="flabel" for="fqty">Cantidad de participantes *</label>
                   <select id="fqty" class="finput" onchange="updatePlanPreview()">
                     <option value="">Seleccioná un rango...</option>
-                    <option value="1-30">Hasta 30 personas</option>
-                    <option value="31-60">31 a 60 personas</option>
-                    <option value="61+">61 o más personas</option>
+                    <optgroup label="── Planes Base ──">
+                      <option value="1-30">Hasta 30 personas  ·  Plan BÁSICO</option>
+                      <option value="31-60">31 a 60 personas  ·  Plan ESTÁNDAR</option>
+                    </optgroup>
+                    <optgroup label="── FULL · Precio fijo hasta 1.000 usuarios ──">
+                      <option value="61-200">61 a 200 personas  ·  $400.000 + USD 25/mes</option>
+                      <option value="201-1000">200 a 1.000 personas  ·  $400.000 + USD 25/mes ★</option>
+                    </optgroup>
+                    <optgroup label="── FULL · Empresa grande 1.000–5.000 ──">
+                      <option value="1001-2000">1.000 a 2.000 personas  ·  $400.000 + USD 40/mes</option>
+                      <option value="2001-3000">2.000 a 3.000 personas  ·  $400.000 + USD 85/mes</option>
+                      <option value="3001-4000">3.000 a 4.000 personas  ·  $400.000 + USD 85/mes</option>
+                      <option value="4001-5000">4.000 a 5.000 personas  ·  $400.000 + USD 85/mes</option>
+                    </optgroup>
+                    <optgroup label="── FULL · Corporación 5.000–20.000 ──">
+                      <option value="5001-8000">5.000 a 8.000 personas  ·  $400.000 + USD 135/mes</option>
+                      <option value="8001-10000">8.000 a 10.000 personas  ·  $400.000 + USD 135/mes</option>
+                      <option value="10001-15000">10.000 a 15.000 personas  ·  $400.000 + USD 135/mes</option>
+                      <option value="15001-20000">15.000 a 20.000 personas  ·  $400.000 + USD 210/mes</option>
+                    </optgroup>
                   </select>
                   <p class="ferror" id="err-fqty">Seleccioná la cantidad de participantes.</p>
                 </div>
                 <div id="plan-preview-box" class="hidden plan-preview">
-                  <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
                     <span class="mono-label" style="color:var(--ink-500)">Plan sugerido</span>
-                    <span id="pp-plan" class="display text-lg px-3 py-0.5 rounded-full" style="background:var(--navy);color:#fff">BÁSICO</span>
+                    <div class="flex items-center gap-2">
+                      <span id="pp-tier" class="text-[10px] font-bold px-2 py-0.5 rounded" style="background:rgba(66,91,139,.1);color:var(--blue-med);border:1px solid rgba(66,91,139,.2);display:none">Compute</span>
+                      <span id="pp-plan" class="display text-lg px-3 py-0.5 rounded-full" style="background:var(--navy);color:#fff">BÁSICO</span>
+                    </div>
                   </div>
                   <div class="flex items-end justify-between">
-                    <span class="text-xs" style="color:var(--ink-500)">Precio estimado</span>
+                    <span class="text-xs" style="color:var(--ink-500)">Precio</span>
                     <div class="text-right">
                       <div class="display text-2xl" id="pp-ars" style="color:var(--navy)">$160.000 ARS</div>
                       <div class="text-xs font-semibold" id="pp-usd" style="color:var(--gold-dark)">≈ USD 113</div>
                     </div>
                   </div>
-                  <p class="text-xs mt-2 pt-2" style="color:var(--ink-500);border-top:1px solid var(--cream-2)">Precio referencial</p>
+                  <p class="text-xs mt-2 pt-2" style="color:var(--ink-500);border-top:1px solid var(--cream-2)">Precio referencial · ajustable según negociación</p>
                 </div>
                 <div>
                   <label class="flabel" for="fwhn">¿Cuándo lo necesitás?</label>
@@ -1166,19 +1361,43 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
               </div>
             </div>
 
-            <div class="fstep text-center py-10" id="step-success">
-              <div class="flex justify-center mb-6">
+            <div class="fstep text-center py-6" id="step-success">
+              <div class="flex justify-center mb-5">
                 <div class="success-ring">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:3rem;height:3rem"><polyline points="20 6 9 17 4 12"/></svg>
                 </div>
               </div>
               <h3 class="display text-5xl mb-3" style="color:var(--gr-600)">SOLICITUD ENVIADA</h3>
-              <p class="text-base leading-relaxed max-w-md mx-auto mb-6 serif" style="color:var(--ink-500)">
-                Gracias por contactarte. Un asesor de <strong style="color:var(--navy)">Escencial</strong> te estará contactando por email dentro de las próximas <strong style="color:var(--gr-600)">24 horas hábiles</strong> para coordinar la activación de tu PRODE Mundialista.
+              <p class="text-base leading-relaxed max-w-md mx-auto mb-5 serif" style="color:var(--ink-500)">
+                Gracias por contactarte. Un asesor de <strong style="color:var(--navy)">Escencial</strong> te estará contactando por email dentro de las próximas <strong style="color:var(--gr-600)">24 horas hábiles</strong>.
               </p>
-              <div id="success-summary" class="plan-preview text-left mb-6 text-sm"></div>
-              <p class="text-xs mb-6" style="color:var(--ink-500)">📧 Revisá tu bandeja de entrada (y la carpeta spam por las dudas).</p>
-              <a href="#" class="btn btn-outline-navy text-sm">← Volver al inicio</a>
+              <div id="success-summary" class="plan-preview text-left mb-5 text-sm"></div>
+              <p class="text-xs mb-5" style="color:var(--ink-500)">📧 Revisá tu bandeja de entrada (y la carpeta spam por las dudas).</p>
+
+              <!-- QR + WhatsApp para el vendedor -->
+              <div class="rounded-xl p-5 text-left" style="background:rgba(27,138,90,.06);border:1px solid rgba(27,138,90,.25)">
+                <p class="mono-label mb-4 text-center" style="color:var(--gr-600)">Enviar presupuesto al vendedor</p>
+                <div class="flex flex-col sm:flex-row gap-5 items-center">
+                  <div class="shrink-0 flex flex-col items-center">
+                    <img id="success-qr" src="" alt="QR WhatsApp" class="w-36 h-36 rounded-lg" style="border:2px solid rgba(27,138,90,.3);display:block"/>
+                    <p class="text-[10px] mt-1.5 font-semibold uppercase tracking-wider" style="color:var(--ink-500)">Escaneá el QR</p>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm mb-3 leading-relaxed" style="color:var(--ink-700)">Se generó un mensaje con todos los datos del presupuesto listo para enviar por WhatsApp:</p>
+                    <a id="success-wa-link" href="#" target="_blank" rel="noopener" class="btn btn-green w-full text-sm font-bold">
+                      <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 flex-shrink-0">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                      </svg>
+                      Abrir WhatsApp con presupuesto
+                    </a>
+                    <p class="text-[10px] mt-2 text-center" style="color:var(--ink-500)">+54 9 11 3358-8062 · mferreyra@escencialconsult.com.ar</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5">
+                <a href="#" class="btn btn-outline-navy text-sm">← Volver al inicio</a>
+              </div>
             </div>
 
           </form>
@@ -1233,7 +1452,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
 
 <!-- SCRIPTS -->
 <script>
-/* Nav scroll */
+/* Nav scroll inline — antes de cargar AOS y app.js */
 window.addEventListener('scroll',()=>{
   const nav=document.getElementById('nav');
   if(scrollY>40){
@@ -1250,105 +1469,6 @@ window.addEventListener('scroll',()=>{
     nav.style.paddingBottom='1rem';
   }
 });
-
-/* ═══════════════════════════════════════════════
-   PRECIOS POR PAÍS
-   ═══════════════════════════════════════════════ */
-const PRICES = {
-  argentina: {
-    basic:    { main: '$160.000',  unit: 'ARS', sub: '≈ USD 113' },
-    standard: { main: '$280.000',  unit: 'ARS', sub: '≈ USD 199' },
-    full:     { main: '$400.000',  unit: 'ARS', sub: '≈ USD 284' },
-    info: '🇦🇷 Precios en <strong>pesos argentinos (ARS)</strong>. Tipo de cambio referencial: 1&nbsp;USD&nbsp;=&nbsp;$1.410&nbsp;ARS.',
-    sindicato: true
-  },
-  bolivia: {
-    basic:    { main: 'Bs. 900',   unit: 'BOB', sub: '≈ USD 130' },
-    standard: { main: 'Bs. 1.600', unit: 'BOB', sub: '≈ USD 231' },
-    full:     { main: 'Bs. 2.300', unit: 'BOB', sub: '≈ USD 333' },
-    info: '🇧🇴 Precios en <strong>bolivianos (BOB)</strong>.',
-    sindicato: false
-  },
-  mexico: {
-    basic:    { main: '$865',   unit: 'MXN', sub: '≈ USD 43' },
-    standard: { main: '$1.557', unit: 'MXN', sub: '≈ USD 78' },
-    full:     { main: '$2.249', unit: 'MXN', sub: '≈ USD 112' },
-    info: '🇲🇽 Precios en <strong>pesos mexicanos (MXN)</strong>.',
-    sindicato: false
-  },
-  peru: {
-    basic:    { main: 'S/ 240', unit: 'PEN', sub: '≈ USD 64' },
-    standard: { main: 'S/ 430', unit: 'PEN', sub: '≈ USD 115' },
-    full:     { main: 'S/ 620', unit: 'PEN', sub: '≈ USD 165' },
-    info: '🇵🇪 Precios en <strong>soles peruanos (PEN)</strong>.',
-    sindicato: false
-  },
-  otro: {
-    basic:    { main: 'USD 113', unit: '', sub: 'Precio internacional' },
-    standard: { main: 'USD 199', unit: '', sub: 'Precio internacional' },
-    full:     { main: 'USD 284', unit: '', sub: 'Precio internacional' },
-    info: '🌎 Precios en <strong>dólares estadounidenses (USD)</strong>.',
-    sindicato: false
-  }
-};
-
-let currentCountry = 'argentina';
-
-function switchCountry(country) {
-  currentCountry = country;
-
-  // Actualizar botones activos
-  document.querySelectorAll('.country-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.country === country);
-  });
-
-  const p = PRICES[country];
-
-  // Actualizar info
-  document.getElementById('country-info').innerHTML = p.info;
-
-  // Actualizar precios en tarjetas
-  document.getElementById('price-basic-main').textContent    = p.basic.main;
-  document.getElementById('price-basic-unit').textContent    = p.basic.unit;
-  document.getElementById('price-basic-sub').textContent     = p.basic.sub;
-
-  document.getElementById('price-standard-main').textContent = p.standard.main;
-  document.getElementById('price-standard-unit').textContent = p.standard.unit;
-  document.getElementById('price-standard-sub').textContent  = p.standard.sub;
-
-  document.getElementById('price-full-main').textContent     = p.full.main;
-  document.getElementById('price-full-unit').textContent     = p.full.unit;
-  document.getElementById('price-full-sub').textContent      = p.full.sub;
-
-  // Mostrar/ocultar tab de sindicatos
-  const tabsWrap = document.getElementById('tabs-pricing-wrap');
-  if (p.sindicato) {
-    tabsWrap.style.display = '';
-  } else {
-    tabsWrap.style.display = 'none';
-    // Forzar vista empresa si se ocultaron los tabs
-    switchPricing('e');
-  }
-}
-
-/* Tabs empresas / sindicatos */
-function switchPricing(t) {
-  const ePanel = document.getElementById('pricing-empresa');
-  const sPanel = document.getElementById('pricing-sindicato');
-  const eBt    = document.getElementById('tab-empresa');
-  const sBt    = document.getElementById('tab-sindicato');
-  if (t === 'e') {
-    ePanel.classList.remove('hidden');
-    sPanel.classList.add('hidden');
-    eBt.classList.add('active');
-    sBt.classList.remove('active');
-  } else {
-    ePanel.classList.add('hidden');
-    sPanel.classList.remove('hidden');
-    eBt.classList.remove('active');
-    sBt.classList.add('active');
-  }
-}
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="app.js"></script>

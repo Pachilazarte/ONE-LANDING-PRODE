@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Presupuesto Prode 2026 · Escencial Consultora</title>
+<meta name="description" content="Compará los planes del Prode Mundialista 2026 y solicitá tu presupuesto personalizado."/>
+<link rel="icon" type="image/png" href="./imgprode/one-prode-dorado.png"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{
+  'navy-deep':'#05090f','navy':'#0c182b','navy-soft':'#18243f',
+  'blue-med':'#425b8b','blue-soft':'#6e83ad',
+  'gold':'#ebc32b','gold-light':'#f5d75a','gold-dark':'#c99f16',
+  'cream':'#faf7f0','cream-2':'#f0eadb'
+}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy-deep:#05090f;--navy:#0c182b;--navy-soft:#18243f;
+  --blue-med:#425b8b;--blue-soft:#6e83ad;
+  --gold:#ebc32b;--gold-light:#f5d75a;--gold-dark:#c99f16;
+  --cream:#faf7f0;--cream-2:#f0eadb;
+  --ink-900:#0c182b;--ink-700:#2b3a5a;--ink-500:#5f6e8a;--ink-300:#a8b2c4;
+  --gr-600:#1b8a5a;--gr-500:#2ca36d;--rd-600:#b8452e;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink-900);line-height:1.6;-webkit-font-smoothing:antialiased}
+.display{font-family:'Bebas Neue',sans-serif;letter-spacing:.01em;line-height:.9}
+.serif{font-family:'Fraunces',Georgia,serif;font-optical-sizing:auto}
+.mono-label{font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.72rem}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-weight:600;font-size:.92rem;text-decoration:none;padding:.95rem 1.9rem;border-radius:999px;cursor:pointer;transition:all .28s ease;border:none;white-space:nowrap}
+.btn-gold{background:var(--gold);color:var(--navy-deep);box-shadow:0 8px 24px rgba(235,195,43,.3)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-green{background:var(--gr-600);color:#fff}
+.btn-green:hover{background:var(--gr-500);transform:translateY(-2px)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-soft);transform:translateY(-2px)}
+.btn-outline-navy{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+.btn-outline-navy:hover{background:var(--navy);color:#fff}
+.finput{width:100%;background:#fff;border:1.5px solid var(--cream-2);border-radius:8px;padding:.9rem 1.1rem;color:var(--ink-900);font-family:'DM Sans',sans-serif;font-size:.95rem;outline:none;transition:all .2s}
+.finput:focus{border-color:var(--blue-med);box-shadow:0 0 0 3px rgba(66,91,139,.15)}
+.finput::placeholder{color:var(--ink-500);opacity:.7}
+.flabel{display:block;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-700);margin-bottom:.5rem}
+.ferror{font-size:.78rem;color:var(--rd-600);margin-top:.4rem;display:none;font-weight:500}
+.ferror.active{display:block}
+.fstep{display:none}
+.fstep.active{display:block;animation:slideUp .4s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.step-dot{width:2rem;height:2rem;border-radius:50%;border:2px solid var(--cream-2);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;color:var(--ink-500);background:#fff;transition:all .35s;flex-shrink:0}
+.step-dot.active{border-color:var(--navy);background:var(--navy);color:var(--gold);box-shadow:0 0 0 4px rgba(12,24,43,.12)}
+.step-dot.done{border-color:var(--gr-600);background:var(--gr-600);color:#fff}
+.step-line{flex:1;height:2px;background:var(--cream-2);transition:background .4s;border-radius:2px}
+.step-line.done{background:var(--gr-500)}
+.pbar{height:4px;background:var(--cream-2);border-radius:999px;overflow:hidden}
+.pbar-fill{height:100%;background:linear-gradient(90deg,var(--navy),var(--gold));border-radius:999px;transition:width .5s ease}
+.plan-preview{background:linear-gradient(135deg,rgba(66,91,139,.08),rgba(235,195,43,.08));border:1px dashed var(--blue-med);border-radius:10px;padding:1.2rem}
+.spin{width:1.1rem;height:1.1rem;border:2.5px solid rgba(12,24,43,.25);border-top-color:var(--navy);border-radius:50%;animation:rot .7s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.success-ring{width:6.5rem;height:6.5rem;border-radius:50%;background:linear-gradient(135deg,var(--gr-600),var(--gr-500));display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.8rem;animation:ringPop .7s cubic-bezier(.175,.885,.32,1.275) both;box-shadow:0 0 0 6px rgba(27,138,90,.15),0 12px 36px rgba(27,138,90,.3)}
+@keyframes ringPop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+
+/* ── PLAN RADIO CARDS ── */
+.plan-card{background:#fff;border:2px solid var(--cream-2);border-radius:14px;padding:1.1rem 1.25rem;cursor:pointer;transition:all .25s ease;display:flex;align-items:center;gap:1rem;position:relative}
+.plan-card:hover{border-color:var(--blue-med);box-shadow:0 6px 20px rgba(12,24,43,.08);transform:translateY(-1px)}
+.plan-card.selected{border-color:var(--gold);background:rgba(235,195,43,.05);box-shadow:0 8px 24px rgba(235,195,43,.2)}
+.plan-card.selected .plan-radio{background:var(--navy);border-color:var(--navy)}
+.plan-card.selected .plan-radio::after{content:'';display:block;width:.5rem;height:.5rem;border-radius:50%;background:var(--gold)}
+.plan-radio{width:1.2rem;height:1.2rem;border-radius:50%;border:2px solid var(--ink-300);background:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.plan-card.featured{border-color:var(--gold);background:var(--navy);color:#fff}
+.plan-card.featured:hover{border-color:var(--gold-light);box-shadow:0 16px 40px rgba(12,24,43,.3)}
+.plan-card.featured.selected{border-color:var(--gold-light);background:var(--navy-soft)}
+.plan-card.featured .plan-radio{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.1)}
+.plan-card.featured.selected .plan-radio{background:var(--gold);border-color:var(--gold)}
+.plan-card.featured.selected .plan-radio::after{background:var(--navy)}
+.user-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:.25rem .6rem;border-radius:999px;background:rgba(66,91,139,.1);color:var(--blue-med)}
+.plan-card.featured .user-badge{background:rgba(235,195,43,.15);color:var(--gold)}
+.plan-card.selected:not(.featured) .user-badge{background:rgba(12,24,43,.08);color:var(--navy)}
+
+/* ── BENEFIT ITEMS ── */
+.benefit-item{display:flex;align-items:center;gap:.75rem;padding:.6rem .5rem;border-radius:8px;transition:all .2s}
+.benefit-item.included .b-icon{background:rgba(27,138,90,.1);color:var(--gr-600)}
+.benefit-item.excluded{opacity:.4}
+.benefit-item.excluded .b-icon{background:rgba(95,110,138,.1);color:var(--ink-300)}
+.b-icon{width:1.6rem;height:1.6rem;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+
+/* ── FULL SUB-TIER ── */
+.tier-row{display:flex;justify-content:space-between;align-items:center;padding:.45rem .75rem;border-radius:6px;cursor:pointer;transition:background .15s;font-size:.8rem}
+.tier-row:hover{background:rgba(66,91,139,.05)}
+.tier-row.active{background:rgba(235,195,43,.1)}
+.tier-row input[type=radio]{accent-color:var(--navy)}
+
+#tc-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(5,9,15,.8);backdrop-filter:blur(10px);padding:1rem}
+#tc-modal.open{display:flex}
+.modal-body{background:var(--cream);border:1px solid var(--gold);border-radius:12px;max-width:720px;width:100%;max-height:88vh;overflow-y:auto;padding:2.5rem;box-shadow:0 32px 80px rgba(0,0,0,.5)}
+.modal-body h2{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;margin-bottom:1.5rem;color:var(--navy)}
+.modal-body h3{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;margin:1.5rem 0 .5rem;color:var(--navy)}
+.modal-body p,.modal-body li{font-size:.92rem;color:var(--ink-700);line-height:1.75}
+.modal-body ul{padding-left:1.2rem;list-style:disc;margin-top:.5rem}
+.modal-body li{margin-bottom:.4rem}
+</style>
+</head>
+<body>
+
+<!-- T&C MODAL -->
+<div id="tc-modal" role="dialog">
+  <div class="modal-body">
+    <div class="flex items-center justify-between mb-5">
+      <h2>TÉRMINOS Y CONDICIONES</h2>
+      <button onclick="closeTc()" class="btn btn-navy" style="padding:.5rem 1rem;font-size:.82rem">✕ Cerrar</button>
+    </div>
+    <h3>1. Naturaleza del Servicio</h3>
+    <p>La plataforma de Prode de Escencial es una herramienta tecnológica de pronósticos deportivos con fines exclusivamente recreativos y de integración laboral.</p>
+    <h3>2. Exención de Responsabilidad</h3>
+    <p>Escencial actúa únicamente como proveedor de la plataforma tecnológica. La plataforma no constituye ni habilita apuestas económicas reguladas ni juegos de azar.</p>
+    <h3>3. Gestión de Premios</h3>
+    <p>La definición, gestión y entrega de cualquier premio corre por cuenta exclusiva de la empresa contratante. Escencial no administra premios ni interviene en la selección de ganadores.</p>
+    <h3>4. Responsabilidad de la Empresa Contratante</h3>
+    <p>Garantizar participación voluntaria de los colaboradores y que no se maneje dinero en efectivo vinculado a los resultados del Prode.</p>
+    <div class="mt-6 pt-4" style="border-top:1px solid var(--cream-2)">
+      <p style="font-size:.78rem;color:var(--ink-500)">Escencial Consultora · mferreyra@escencialconsult.com.ar · +54 9 11 3358-8062</p>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header style="background:var(--navy);border-bottom:3px solid var(--gold)">
+  <div class="wrap py-4 flex items-center justify-between gap-4">
+    <a href="index.html" class="flex items-center gap-3 no-underline">
+      <img src="./imgprode/one-prode-talento-new3.png" alt="Prode Talento" class="h-10 w-auto drop-shadow-lg" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/>
+      <span style="display:none;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--gold)">PRODE TALENTO</span>
+    </a>
+    <div class="flex items-center gap-3">
+      <a href="index.html" class="text-sm font-semibold text-white/70 hover:text-white transition-colors no-underline hidden sm:inline">← Volver a la landing</a>
+      <a href="#form-section" class="btn btn-gold" style="padding:.55rem 1.3rem;font-size:.82rem">Solicitar presupuesto</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO STRIP -->
+<div style="background:linear-gradient(135deg,var(--navy-soft),var(--navy-deep));border-bottom:1px solid rgba(235,195,43,.2)">
+  <div class="wrap py-10 text-center text-white">
+    <p class="mono-label mb-3" style="color:var(--gold)">Prode Mundialista 2026</p>
+    <h1 class="display mb-3" style="font-size:clamp(2.2rem,6vw,4rem)">ELEGÍ TU PLAN</h1>
+    <p class="serif text-base max-w-xl mx-auto" style="color:rgba(255,255,255,.75)">
+      Precio progresivo según infraestructura real. Seleccioná el tramo que se adapta a tu organización y completá el formulario.
+    </p>
+  </div>
+</div>
+
+<!-- COMPARADOR DE PLANES -->
+<section class="py-12" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+
+      <!-- BENEFICIOS (izquierda) -->
+      <div class="lg:col-span-5">
+        <div class="rounded-2xl p-6" style="background:#fff;border:1px solid var(--cream-2);box-shadow:0 4px 16px rgba(12,24,43,.06)">
+          <h2 class="font-bold text-lg mb-1" style="color:var(--navy)">Beneficios incluidos</h2>
+          <p id="benefit-subtitle" class="text-xs mb-5" style="color:var(--ink-500)">Seleccioná un plan para ver qué incluye</p>
+
+          <ul id="benefit-list" class="space-y-1">
+            <li class="benefit-item included" data-plans="basico,standard,full">
+              <span class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-3.5 h-3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span class="text-sm" style="color:var(--ink-700)">Plataforma personalizada (logo + colores)</span>
+            </li>
+            <li class="benefit-item included" data-plans="basico,standard,full">
+              <span class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-3.5 h-3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span class="text-sm" style="color:var(--ink-700)">QR + materiales digitales</span>
+            </li>
+            <li class="benefit-item included" data-plans="basico,standard,full">
+              <span class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-3.5 h-3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span class="text-sm" style="color:var(--ink-700)">Tabla de posiciones en tiempo real</span>
+            </li>
+            <li class="benefit-item included" data-plans="basico,standard,full">
+              <span class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-3.5 h-3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span class="text-sm" style="color:var(--ink-700)">Premios en especie (configurables)</span>
+            </li>
+            <li class="benefit-item included" data-plans="basico,standard,full">
+              <span class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-3.5 h-3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span class="text-sm" style="color:var(--ink-700)">Herramienta activa post-Mundial</span>
+            </li>
+            <li class="benefit-item included" data-plans="basico,standard,full">
+              <span class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-3.5 h-3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span class="text-sm" style="color:var(--ink-700)">100% legal · sin riesgo para la empresa</span>
+            </li>
+            <li class="benefit-item included" data-plans="basico,standard,full">
+              <span class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-3.5 h-3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span class="text-sm" style="color:var(--ink-700)">Soporte por email</span>
+            </li>
+            <li class="benefit-item excluded" data-plans="standard,full">
+              <span class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3 h-3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+              <span class="text-sm" style="color:var(--ink-700)">Soporte prioritario (WhatsApp)</span>
+            </li>
+            <li class="benefit-item excluded" data-plans="full">
+              <span class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3 h-3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+              <span class="text-sm" style="color:var(--ink-700)">Soporte dedicado 24/7 durante el torneo</span>
+            </li>
+            <li class="benefit-item excluded" data-plans="full">
+              <span class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3 h-3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+              <span class="text-sm" style="color:var(--ink-700)">Infraestructura escalable (Micro → XL)</span>
+            </li>
+            <li class="benefit-item excluded" data-plans="full">
+              <span class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3 h-3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+              <span class="text-sm" style="color:var(--ink-700)">Precio progresivo por demanda real</span>
+            </li>
+            <li class="benefit-item excluded" data-plans="full">
+              <span class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3 h-3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+              <span class="text-sm" style="color:var(--ink-700)">Sin límite de participantes simultáneos</span>
+            </li>
+          </ul>
+
+          <div class="mt-5 pt-4" style="border-top:1px solid var(--cream-2)">
+            <p class="text-xs" style="color:var(--ink-500)">Plataforma recreativa. No apuesta regulada.
+              <button onclick="openTc()" class="underline font-semibold ml-1" style="color:var(--navy);background:none;border:none;cursor:pointer;font-size:inherit">T&amp;C</button>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAN SELECTOR (derecha) -->
+      <div class="lg:col-span-7 space-y-3">
+
+        <!-- BÁSICO -->
+        <div class="plan-card" id="pcard-basico" onclick="selectBudgetPlan('basico')" role="radio" aria-checked="false" tabindex="0">
+          <span class="plan-radio" id="pradio-basico"></span>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-1">
+              <span class="display text-2xl" style="color:var(--navy)">BÁSICO</span>
+              <span class="user-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3 h-3"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                Hasta 30 usuarios
+              </span>
+            </div>
+            <p class="text-xs" style="color:var(--ink-500)">Ideal para equipos pequeños</p>
+          </div>
+          <div class="text-right shrink-0">
+            <div class="display text-2xl" style="color:var(--navy)" id="pb-price-main">$160.000</div>
+            <div class="text-xs font-semibold" style="color:var(--gold-dark)" id="pb-price-sub">ARS · ≈ USD 113</div>
+          </div>
+        </div>
+
+        <!-- ESTÁNDAR -->
+        <div class="plan-card featured" id="pcard-standard" onclick="selectBudgetPlan('standard')" role="radio" aria-checked="false" tabindex="0">
+          <div class="absolute -top-3.5 left-4">
+            <span class="text-[10px] font-bold px-3 py-1 rounded-full" style="background:var(--gold);color:var(--navy-deep);letter-spacing:.06em">★ MÁS ELEGIDO</span>
+          </div>
+          <span class="plan-radio" id="pradio-standard"></span>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-1">
+              <span class="display text-2xl text-white">ESTÁNDAR</span>
+              <span class="user-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3 h-3"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                31 a 60 usuarios
+              </span>
+            </div>
+            <p class="text-xs" style="color:rgba(255,255,255,.6)">Equipos medianos · soporte prioritario</p>
+          </div>
+          <div class="text-right shrink-0">
+            <div class="display text-2xl text-white" id="ps-price-main">$280.000</div>
+            <div class="text-xs font-semibold" style="color:var(--gold)" id="ps-price-sub">ARS · ≈ USD 199</div>
+          </div>
+        </div>
+
+        <!-- FULL -->
+        <div class="plan-card" id="pcard-full" onclick="selectBudgetPlan('full')" role="radio" aria-checked="false" tabindex="0">
+          <div class="absolute -top-3 right-4">
+            <span class="text-[10px] font-bold px-2.5 py-1 rounded-full" style="background:rgba(66,91,139,.12);color:var(--blue-med);border:1px solid rgba(66,91,139,.3);letter-spacing:.06em">ESCALABLE</span>
+          </div>
+          <span class="plan-radio" id="pradio-full"></span>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-1">
+              <span class="display text-2xl" style="color:var(--navy)">FULL</span>
+              <span class="user-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3 h-3"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                61 → 20.000+ usuarios
+              </span>
+            </div>
+            <p class="text-xs" style="color:var(--ink-500)">Empresas grandes y corporaciones</p>
+          </div>
+          <div class="text-right shrink-0">
+            <div class="display text-xl" style="color:var(--navy)">$400.000 ARS</div>
+            <div class="text-xs font-semibold" style="color:var(--gold-dark)">plataforma · + desde USD 25/mes infra</div>
+          </div>
+        </div>
+
+        <!-- FULL sub-tiers — aparece cuando se selecciona FULL -->
+        <div id="full-subtiers" class="hidden rounded-xl overflow-hidden" style="border:1px solid var(--cream-2);background:#fff;box-shadow:0 4px 12px rgba(12,24,43,.06)">
+          <div class="px-4 py-3" style="background:var(--navy)">
+            <p class="mono-label mb-0.5" style="color:var(--gold)">Seleccioná el tramo de participantes</p>
+            <p class="text-xs" style="color:rgba(255,255,255,.5)">Plataforma $400.000 ARS · + infra según tramo</p>
+          </div>
+          <div id="tier-list">
+            <!-- PRECIO FIJO -->
+            <div class="px-4 py-1 text-[10px] font-bold uppercase tracking-wider" style="background:rgba(27,138,90,.09);color:var(--gr-600);border-bottom:1px solid rgba(27,138,90,.15)">
+              Precio fijo · Hasta 1.000 usuarios
+            </div>
+            <label class="tier-row" style="border-bottom:1px solid var(--cream-2)">
+              <div class="flex items-center gap-3 min-w-0">
+                <input type="radio" name="full-tier" value="61-200" class="flex-shrink-0"/>
+                <div class="min-w-0">
+                  <div class="font-semibold text-sm whitespace-nowrap" style="color:var(--navy)">Hasta 200 usuarios</div>
+                  <div class="text-xs" style="color:var(--ink-500)">Compute Micro</div>
+                </div>
+              </div>
+              <div class="text-right flex-shrink-0 pl-2">
+                <div class="font-bold text-sm whitespace-nowrap" style="color:var(--gr-600)">+ USD 25/mes</div>
+                <div class="text-[10px]" style="color:var(--gr-600)">★ precio fijo</div>
+              </div>
+            </label>
+            <label class="tier-row" style="border-bottom:1px solid var(--cream-2)">
+              <div class="flex items-center gap-3 min-w-0">
+                <input type="radio" name="full-tier" value="201-1000" class="flex-shrink-0"/>
+                <div class="min-w-0">
+                  <div class="font-semibold text-sm whitespace-nowrap" style="color:var(--navy)">200 a 1.000 usuarios</div>
+                  <div class="text-xs" style="color:var(--ink-500)">Compute Micro</div>
+                </div>
+              </div>
+              <div class="text-right flex-shrink-0 pl-2">
+                <div class="font-bold text-sm whitespace-nowrap" style="color:var(--gr-600)">+ USD 25/mes</div>
+                <div class="text-[10px]" style="color:var(--gr-600)">★ precio fijo</div>
+              </div>
+            </label>
+            <!-- EMPRESA GRANDE -->
+            <div class="px-4 py-1 text-[10px] font-bold uppercase tracking-wider" style="background:rgba(66,91,139,.09);color:var(--blue-med);border-bottom:1px solid rgba(66,91,139,.15)">
+              Empresa grande · 1.000 a 5.000
+            </div>
+            <label class="tier-row" style="border-bottom:1px solid var(--cream-2)">
+              <div class="flex items-center gap-3 min-w-0">
+                <input type="radio" name="full-tier" value="1001-2000" class="flex-shrink-0"/>
+                <div class="min-w-0">
+                  <div class="font-semibold text-sm whitespace-nowrap" style="color:var(--navy)">1.000 a 2.000 usuarios</div>
+                  <div class="text-xs" style="color:var(--ink-500)">Compute Small</div>
+                </div>
+              </div>
+              <div class="text-right flex-shrink-0 pl-2">
+                <div class="font-bold text-sm whitespace-nowrap" style="color:var(--navy)">+ USD 40/mes</div>
+              </div>
+            </label>
+            <label class="tier-row" style="border-bottom:1px solid var(--cream-2);background:rgba(66,91,139,.03)">
+              <div class="flex items-center gap-3 min-w-0">
+                <input type="radio" name="full-tier" value="2001-3000" class="flex-shrink-0"/>
+                <div class="min-w-0">
+                  <div class="font-semibold text-sm whitespace-nowrap" style="color:var(--navy)">2.000 a 3.000 usuarios</div>
+                  <div class="text-xs" style="color:var(--ink-500)">Compute Medium</div>
+                </div>
+              </div>
+              <div class="text-right flex-shrink-0 pl-2">
+                <div class="font-bold text-sm whitespace-nowrap" style="color:var(--navy)">+ USD 85/mes</div>
+              </div>
+            </label>
+            <label class="tier-row" style="border-bottom:1px solid var(--cream-2)">
+              <div class="flex items-center gap-3 min-w-0">
+                <input type="radio" name="full-tier" value="3001-4000" class="flex-shrink-0"/>
+                <div class="min-w-0">
+                  <div class="font-semibold text-sm whitespace-nowrap" style="color:var(--navy)">3.000 a 4.000 usuarios</div>
+                  <div class="text-xs" style="color:var(--ink-500)">Compute Medium</div>
+                </div>
+              </div>
+              <div class="text-right flex-shrink-0 pl-2">
+                <div class="font-bold text-sm whitespace-nowrap" style="color:var(--navy)">+ USD 85/mes</div>
+              </div>
+            </label>
+            <label class="tier-row" style="border-bottom:1px solid var(--cream-2);background:rgba(66,91,139,.03)">
+              <div class="flex items-center gap-3 min-w-0">
+                <input type="radio" name="full-tier" value="4001-5000" class="flex-shrink-0"/>
+                <div class="min-w-0">
+                  <div class="font-semibold text-sm whitespace-nowrap" style="color:var(--navy)">4.000 a 5.000 usuarios</div>
+                  <div class="text-xs" style="color:var(--ink-500)">Compute Medium</div>
+                </div>
+              </div>
+              <div class="text-right flex-shrink-0 pl-2">
+                <div class="font-bold text-sm whitespace-nowrap" style="color:var(--navy)">+ USD 85/mes</div>
+              </div>
+            </label>
+            <!-- CORPORACIÓN -->
+            <div class="px-4 py-1 text-[10px] font-bold uppercase tracking-wider" style="background:rgba(201,159,22,.09);color:var(--gold-dark);border-bottom:1px solid rgba(201,159,22,.2)">
+              Corporación · 5.000 a 20.000
+            </div>
+            <label class="tier-row" style="border-bottom:1px solid var(--cream-2)">
+              <div class="flex items-center gap-3 min-w-0">
+                <input type="radio" name="full-tier" value="5001-8000" class="flex-shrink-0"/>
+                <div class="min-w-0">
+                  <div class="font-semibold text-sm whitespace-nowrap" style="color:var(--navy)">5.000 a 8.000 usuarios</div>
+                  <div class="text-xs" style="color:var(--ink-500)">Compute Large</div>
+                </div>
+              </div>
+              <div class="text-right flex-shrink-0 pl-2">
+                <div class="font-bold text-sm whitespace-nowrap" style="color:var(--navy)">+ USD 135/mes</div>
+              </div>
+            </label>
+            <label class="tier-row" style="border-bottom:1px solid var(--cream-2);background:rgba(201,159,22,.03)">
+              <div class="flex items-center gap-3 min-w-0">
+                <input type="radio" name="full-tier" value="8001-10000" class="flex-shrink-0"/>
+                <div class="min-w-0">
+                  <div class="font-semibold text-sm whitespace-nowrap" style="color:var(--navy)">8.000 a 10.000 usuarios</div>
+                  <div class="text-xs" style="color:var(--ink-500)">Compute Large</div>
+                </div>
+              </div>
+              <div class="text-right flex-shrink-0 pl-2">
+                <div class="font-bold text-sm whitespace-nowrap" style="color:var(--navy)">+ USD 135/mes</div>
+              </div>
+            </label>
+            <label class="tier-row" style="border-bottom:1px solid var(--cream-2)">
+              <div class="flex items-center gap-3 min-w-0">
+                <input type="radio" name="full-tier" value="10001-15000" class="flex-shrink-0"/>
+                <div class="min-w-0">
+                  <div class="font-semibold text-sm whitespace-nowrap" style="color:var(--navy)">10.000 a 15.000 usuarios</div>
+                  <div class="text-xs" style="color:var(--ink-500)">Compute Large</div>
+                </div>
+              </div>
+              <div class="text-right flex-shrink-0 pl-2">
+                <div class="font-bold text-sm whitespace-nowrap" style="color:var(--navy)">+ USD 135/mes</div>
+              </div>
+            </label>
+            <label class="tier-row">
+              <div class="flex items-center gap-3 min-w-0">
+                <input type="radio" name="full-tier" value="15001-20000" class="flex-shrink-0"/>
+                <div class="min-w-0">
+                  <div class="font-semibold text-sm whitespace-nowrap" style="color:var(--navy)">15.000 a 20.000 usuarios</div>
+                  <div class="text-xs" style="color:var(--ink-500)">Compute XL</div>
+                </div>
+              </div>
+              <div class="text-right flex-shrink-0 pl-2">
+                <div class="font-bold text-sm whitespace-nowrap" style="color:var(--navy)">+ USD 210/mes</div>
+              </div>
+            </label>
+          </div>
+          <p class="px-4 py-2 text-[10px]" style="color:var(--ink-500);border-top:1px solid var(--cream-2)">★ precio fijo · infra: costo mensual por demanda real</p>
+        </div>
+
+        <!-- CTA -->
+        <div class="pt-2">
+          <button id="cta-btn" onclick="goToForm()" class="btn btn-gold w-full text-base font-bold" disabled style="opacity:.5;cursor:not-allowed">
+            Solicitar presupuesto
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <p id="cta-hint" class="text-xs text-center mt-2" style="color:var(--ink-500)">Seleccioná un plan para continuar</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section id="form-section" class="py-12" style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-8">
+        <p class="mono-label mb-2" style="color:var(--ink-500)">Formulario de contacto</p>
+        <h2 class="display text-4xl" style="color:var(--navy)">COMPLETÁ TUS DATOS</h2>
+        <p class="serif text-base mt-2" style="color:var(--ink-700)">Un asesor te contactará en las próximas <strong>24 horas hábiles</strong>.</p>
+      </div>
+
+      <div class="rounded-2xl p-6 sm:p-8 shadow-lg" style="background:#fff">
+        <!-- Progress -->
+        <div class="mb-8">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="step-dot active" id="dot1">1</div>
+            <div class="step-line" id="line12"></div>
+            <div class="step-dot" id="dot2">2</div>
+            <div class="step-line" id="line23"></div>
+            <div class="step-dot" id="dot3">3</div>
+            <div class="step-line" id="line34"></div>
+            <div class="step-dot" id="dot4">4</div>
+          </div>
+          <div class="pbar"><div class="pbar-fill" id="pbfill" style="width:25%"></div></div>
+          <div class="flex justify-between mt-2">
+            <span id="step-label" class="text-xs font-semibold" style="color:var(--navy)">Paso 1 de 4</span>
+            <span id="step-pct" class="text-xs" style="color:var(--ink-500)">25%</span>
+          </div>
+        </div>
+
+        <form id="form-main" novalidate>
+
+          <!-- PASO 1: Tipo de organización -->
+          <div class="fstep active" id="step1">
+            <h3 class="font-semibold text-xl mb-5" style="color:var(--navy);font-family:'Fraunces',serif">¿Qué tipo de organización sos?</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
+              <div class="opt-box" id="opt-empresa" onclick="selectOrg('empresa')" style="cursor:pointer;border:1.5px solid var(--cream-2);border-radius:10px;padding:1.25rem 1rem;background:#fff;transition:all .25s;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.5rem">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-med)" stroke-width="1.5" style="width:2rem;height:2rem"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="22" x2="9" y2="18"/><line x1="15" y1="22" x2="15" y2="18"/><line x1="8" y1="6" x2="10" y2="6"/><line x1="14" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/></svg>
+                <span class="font-semibold text-sm" style="color:var(--navy)">Empresa</span>
+                <span class="text-xs" style="color:var(--ink-500)">Privada o pública</span>
+              </div>
+              <div class="opt-box" id="opt-sindicato" onclick="selectOrg('sindicato')" style="cursor:pointer;border:1.5px solid var(--cream-2);border-radius:10px;padding:1.25rem 1rem;background:#fff;transition:all .25s;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.5rem">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-med)" stroke-width="1.5" style="width:2rem;height:2rem"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span class="font-semibold text-sm" style="color:var(--navy)">Sindicato</span>
+                <span class="text-xs" style="color:var(--ink-500)">Organización gremial</span>
+              </div>
+              <div class="opt-box" id="opt-institucional" onclick="selectOrg('institucional')" style="cursor:pointer;border:1.5px solid var(--cream-2);border-radius:10px;padding:1.25rem 1rem;background:#fff;transition:all .25s;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.5rem">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-med)" stroke-width="1.5" style="width:2rem;height:2rem"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg>
+                <span class="font-semibold text-sm" style="color:var(--navy)">Inst. Sindical</span>
+                <span class="text-xs" style="color:var(--ink-500)">Precio especial</span>
+              </div>
+            </div>
+            <p id="err-org" class="ferror">Seleccioná el tipo de organización.</p>
+            <button type="button" class="btn btn-navy w-full" onclick="nextStep(1)">
+              Continuar
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+
+          <!-- PASO 2: Datos de contacto -->
+          <div class="fstep" id="step2">
+            <h3 class="font-semibold text-xl mb-5" style="color:var(--navy);font-family:'Fraunces',serif">Tus datos de contacto</h3>
+            <div class="space-y-4 mb-6">
+              <div>
+                <label class="flabel" for="fn">Nombre y apellido *</label>
+                <input id="fn" type="text" class="finput" placeholder="Ej: María González"/>
+                <p class="ferror" id="err-fn">Campo obligatorio.</p>
+              </div>
+              <div>
+                <label class="flabel" for="fe2">Email corporativo *</label>
+                <input id="fe2" type="email" class="finput" placeholder="Ej: maria@empresa.com.ar"/>
+                <p class="ferror" id="err-fe">Email inválido.</p>
+              </div>
+              <div>
+                <label class="flabel" for="ftel">Teléfono / WhatsApp *</label>
+                <input id="ftel" type="tel" class="finput" placeholder="Ej: +54 9 11 2345-6789"/>
+                <p class="ferror" id="err-ftel">Campo obligatorio.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <button type="button" class="btn btn-outline-navy flex-1" onclick="prevStep(2)">← Atrás</button>
+              <button type="button" class="btn btn-navy flex-1" onclick="nextStep(2)">
+                Continuar
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- PASO 3: Datos de la organización -->
+          <div class="fstep" id="step3">
+            <h3 class="font-semibold text-xl mb-5" style="color:var(--navy);font-family:'Fraunces',serif">Datos de tu organización</h3>
+            <div class="space-y-4 mb-5">
+              <div>
+                <label class="flabel" for="forg">Nombre de la organización *</label>
+                <input id="forg" type="text" class="finput" placeholder="Ej: Empresa SA / Sindicato del Comercio"/>
+                <p class="ferror" id="err-forg">Campo obligatorio.</p>
+              </div>
+              <div>
+                <label class="flabel" for="fqty">Cantidad de participantes *</label>
+                <select id="fqty" class="finput" onchange="updatePlanPreview()">
+                  <option value="">Seleccioná un rango...</option>
+                  <optgroup label="── Planes Base ──">
+                    <option value="1-30">Hasta 30 personas  ·  Plan BÁSICO</option>
+                    <option value="31-60">31 a 60 personas  ·  Plan ESTÁNDAR</option>
+                  </optgroup>
+                  <optgroup label="── FULL · Precio fijo hasta 1.000 usuarios ──">
+                    <option value="61-200">61 a 200 personas  ·  $400.000 + USD 25/mes</option>
+                    <option value="201-1000">200 a 1.000 personas  ·  $400.000 + USD 25/mes ★</option>
+                  </optgroup>
+                  <optgroup label="── FULL · Empresa grande 1.000–5.000 ──">
+                    <option value="1001-2000">1.000 a 2.000 personas  ·  $400.000 + USD 40/mes</option>
+                    <option value="2001-3000">2.000 a 3.000 personas  ·  $400.000 + USD 85/mes</option>
+                    <option value="3001-4000">3.000 a 4.000 personas  ·  $400.000 + USD 85/mes</option>
+                    <option value="4001-5000">4.000 a 5.000 personas  ·  $400.000 + USD 85/mes</option>
+                  </optgroup>
+                  <optgroup label="── FULL · Corporación 5.000–20.000 ──">
+                    <option value="5001-8000">5.000 a 8.000 personas  ·  $400.000 + USD 135/mes</option>
+                    <option value="8001-10000">8.000 a 10.000 personas  ·  $400.000 + USD 135/mes</option>
+                    <option value="10001-15000">10.000 a 15.000 personas  ·  $400.000 + USD 135/mes</option>
+                    <option value="15001-20000">15.000 a 20.000 personas  ·  $400.000 + USD 210/mes</option>
+                  </optgroup>
+                </select>
+                <p class="ferror" id="err-fqty">Seleccioná la cantidad de participantes.</p>
+              </div>
+              <div id="plan-preview-box" class="hidden" style="background:linear-gradient(135deg,rgba(66,91,139,.08),rgba(235,195,43,.08));border:1px dashed var(--blue-med);border-radius:10px;padding:1.2rem">
+                <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+                  <span class="mono-label" style="color:var(--ink-500)">Plan sugerido</span>
+                  <div class="flex items-center gap-2">
+                    <span id="pp-tier" class="text-[10px] font-bold px-2 py-0.5 rounded" style="background:rgba(66,91,139,.1);color:var(--blue-med);border:1px solid rgba(66,91,139,.2);display:none">Compute</span>
+                    <span id="pp-plan" class="display text-lg px-3 py-0.5 rounded-full" style="background:var(--navy);color:#fff">BÁSICO</span>
+                  </div>
+                </div>
+                <div class="flex items-end justify-between">
+                  <span class="text-xs" style="color:var(--ink-500)">Precio</span>
+                  <div class="text-right">
+                    <div class="display text-2xl" id="pp-ars" style="color:var(--navy)">$160.000 ARS</div>
+                    <div class="text-xs font-semibold" id="pp-usd" style="color:var(--gold-dark)">≈ USD 113</div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label class="flabel" for="fwhn">¿Cuándo lo necesitás?</label>
+                <select id="fwhn" class="finput">
+                  <option value="">Seleccioná...</option>
+                  <option value="urgente">Urgente, antes del inicio del Mundial</option>
+                  <option value="semana">Esta semana</option>
+                  <option value="15dias">En los próximos 15 días</option>
+                  <option value="mes">En el próximo mes</option>
+                  <option value="consulta">Solo estoy consultando</option>
+                </select>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <button type="button" class="btn btn-outline-navy flex-1" onclick="prevStep(3)">← Atrás</button>
+              <button type="button" class="btn btn-navy flex-1" onclick="nextStep(3)">
+                Continuar
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- PASO 4: Confirmación -->
+          <div class="fstep" id="step4">
+            <h3 class="font-semibold text-xl mb-5" style="color:var(--navy);font-family:'Fraunces',serif">Confirmá tu solicitud</h3>
+            <div id="summary-box" class="rounded-lg p-4 mb-4 space-y-2 text-sm" style="background:var(--cream-2);border:1px solid var(--cream-2)"></div>
+            <div id="final-plan-box" class="plan-preview mb-4" style="background:linear-gradient(135deg,rgba(66,91,139,.08),rgba(235,195,43,.08));border:1px dashed var(--blue-med);border-radius:10px;padding:1.2rem">
+              <div class="flex items-center justify-between mb-2">
+                <span class="mono-label" style="color:var(--ink-500)">Tu plan</span>
+                <span id="fp-plan" class="display text-lg" style="color:var(--navy)">-</span>
+              </div>
+              <div class="flex items-end justify-between">
+                <span class="text-xs" style="color:var(--ink-500)">Precio</span>
+                <div class="text-right">
+                  <div class="display text-2xl" id="fp-ars" style="color:var(--navy)">-</div>
+                  <div class="text-xs font-semibold" id="fp-usd" style="color:var(--gold-dark)">-</div>
+                </div>
+              </div>
+              <p class="text-xs mt-2 pt-2" style="color:var(--ink-500);border-top:1px solid var(--cream-2)">Precio referencial · puede ajustarse según negociación</p>
+            </div>
+            <div class="mb-4">
+              <label class="flabel" for="fcmt">Comentarios adicionales (opcional)</label>
+              <textarea id="fcmt" class="finput" rows="3" placeholder="Ideas para premios, preguntas, requerimientos especiales..."></textarea>
+            </div>
+            <label class="flex items-start gap-3 mb-1 cursor-pointer">
+              <input type="checkbox" id="fchk" class="mt-0.5" style="accent-color:var(--navy);width:1.1rem;height:1.1rem"/>
+              <span class="text-sm leading-relaxed" style="color:var(--ink-700)">Acepto que Escencial Consultora me contacte. He leído los
+                <button type="button" onclick="openTc()" class="underline font-semibold" style="color:var(--navy);background:none;border:none;cursor:pointer;font-size:inherit">Términos y Condiciones</button>.
+              </span>
+            </label>
+            <p id="err-chk" class="ferror">Debés aceptar los términos.</p>
+            <div class="flex gap-3 mt-6">
+              <button type="button" class="btn btn-outline-navy flex-1" onclick="prevStep(4)">← Atrás</button>
+              <button type="button" id="submit-btn" class="btn btn-green flex-1" onclick="doSubmit()">
+                <span id="submit-text">Enviar solicitud</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                <div class="spin hidden" id="submit-spin"></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- ÉXITO -->
+          <div class="fstep text-center py-6" id="step-success">
+            <div class="flex justify-center mb-5">
+              <div class="success-ring">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:3rem;height:3rem"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+            </div>
+            <h3 class="display text-5xl mb-3" style="color:var(--gr-600)">SOLICITUD ENVIADA</h3>
+            <p class="text-base leading-relaxed max-w-md mx-auto mb-5" style="color:var(--ink-500);font-family:'Fraunces',serif">
+              Gracias por contactarte. Un asesor de <strong style="color:var(--navy)">Escencial</strong> te contactará dentro de las próximas <strong style="color:var(--gr-600)">24 horas hábiles</strong>.
+            </p>
+            <div id="success-summary" class="plan-preview text-left mb-5 text-sm" style="background:linear-gradient(135deg,rgba(66,91,139,.08),rgba(235,195,43,.08));border:1px dashed var(--blue-med);border-radius:10px;padding:1.2rem"></div>
+            <p class="text-xs mb-5" style="color:var(--ink-500)">📧 Revisá tu bandeja de entrada (y la carpeta spam).</p>
+
+            <!-- QR + WhatsApp -->
+            <div class="rounded-xl p-5 text-left" style="background:rgba(27,138,90,.06);border:1px solid rgba(27,138,90,.25)">
+              <p class="mono-label mb-4 text-center" style="color:var(--gr-600)">Enviar presupuesto al vendedor</p>
+              <div class="flex flex-col sm:flex-row gap-5 items-center">
+                <div class="shrink-0 flex flex-col items-center">
+                  <img id="success-qr" src="" alt="QR WhatsApp" class="w-36 h-36 rounded-lg" style="border:2px solid rgba(27,138,90,.3)"/>
+                  <p class="text-[10px] mt-1.5 font-semibold uppercase tracking-wider" style="color:var(--ink-500)">Escaneá el QR</p>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm mb-3 leading-relaxed" style="color:var(--ink-700)">Se generó el presupuesto completo listo para enviar por WhatsApp al vendedor:</p>
+                  <a id="success-wa-link" href="#" target="_blank" rel="noopener" class="btn btn-green w-full text-sm font-bold">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 flex-shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    Abrir WhatsApp con presupuesto
+                  </a>
+                  <p class="text-[10px] mt-2 text-center" style="color:var(--ink-500)">+54 9 11 3358-8062 · mferreyra@escencialconsult.com.ar</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-5">
+              <a href="index.html" class="btn btn-outline-navy text-sm">← Volver a la landing</a>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--navy-deep);border-top:3px solid var(--gold)">
+  <div class="wrap py-8 text-center">
+    <img src="./img/escencial-logoblanco.png" alt="Escencial Consultora" class="h-8 w-auto mx-auto mb-3" onerror="this.style.display='none'"/>
+    <p class="text-xs" style="color:rgba(255,255,255,.4)">© 2026 Escencial Consultora · <a href="mailto:mferreyra@escencialconsult.com.ar" class="text-white/40 hover:text-white/70">mferreyra@escencialconsult.com.ar</a> · <a href="https://wa.me/5491133588062" class="text-white/40 hover:text-white/70">+54 9 11 3358-8062</a></p>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════
+   PRESUPUESTO.HTML — JS autocontenido
+═══════════════════════════════════════════════ */
+
+/* T&C modal */
+function openTc(){document.getElementById('tc-modal').classList.add('open');document.body.style.overflow='hidden'}
+function closeTc(){document.getElementById('tc-modal').classList.remove('open');document.body.style.overflow=''}
+document.getElementById('tc-modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeTc()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeTc()});
+
+/* ── COMPARADOR DE PLANES ── */
+let selectedBudgetPlan = null;
+
+function selectBudgetPlan(plan){
+  selectedBudgetPlan = plan;
+  ['basico','standard','full'].forEach(p=>{
+    const card=document.getElementById('pcard-'+p);
+    const radio=document.getElementById('pradio-'+p);
+    if(card) card.classList.toggle('selected', p===plan);
+    if(radio) radio.setAttribute('aria-checked', p===plan ? 'true':'false');
+  });
+
+  // Mostrar/ocultar sub-tiers del FULL
+  const subtiers=document.getElementById('full-subtiers');
+  if(subtiers) subtiers.classList.toggle('hidden', plan!=='full');
+
+  // Actualizar lista de beneficios
+  const subtitle=document.getElementById('benefit-subtitle');
+  const NAMES={basico:'Plan BÁSICO',standard:'Plan ESTÁNDAR',full:'Plan FULL'};
+  if(subtitle) subtitle.textContent='Beneficios del '+NAMES[plan];
+  document.querySelectorAll('.benefit-item').forEach(item=>{
+    const plans=item.dataset.plans.split(',');
+    const included=plans.includes(plan);
+    item.classList.toggle('included',included);
+    item.classList.toggle('excluded',!included);
+    // Cambiar ícono
+    const icon=item.querySelector('.b-icon');
+    if(icon){
+      icon.innerHTML=included
+        ?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:.875rem;height:.875rem"><polyline points="20 6 9 17 4 12"/></svg>'
+        :'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:.75rem;height:.75rem"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    }
+  });
+
+  // Activar botón CTA
+  const btn=document.getElementById('cta-btn');
+  const hint=document.getElementById('cta-hint');
+  if(btn){btn.disabled=false;btn.style.opacity='1';btn.style.cursor='pointer';}
+  if(hint){
+    const PRICE_HINT={basico:'Plan BÁSICO · hasta 30 usuarios',standard:'Plan ESTÁNDAR · 31-60 usuarios',full:'Plan FULL · desde 61 usuarios'};
+    hint.textContent=PRICE_HINT[plan];
+  }
+
+  // Pre-seleccionar en el form según el plan
+  if(plan==='basico' && !orgValue) { /* solo sugerir */ }
+}
+
+function goToForm(){
+  // Pre-completar fqty según sub-tier seleccionado (si es FULL)
+  if(selectedBudgetPlan==='full'){
+    const checked=document.querySelector('input[name="full-tier"]:checked');
+    if(checked){
+      const sel=document.getElementById('fqty');
+      if(sel){sel.value=checked.value;updatePlanPreview();}
+    }
+  } else if(selectedBudgetPlan==='basico'){
+    const sel=document.getElementById('fqty');
+    if(sel){sel.value='1-30';updatePlanPreview();}
+  } else if(selectedBudgetPlan==='standard'){
+    const sel=document.getElementById('fqty');
+    if(sel){sel.value='31-60';updatePlanPreview();}
+  }
+  document.getElementById('form-section').scrollIntoView({behavior:'smooth'});
+}
+
+// Sincronizar tier-row radios con tier highlight
+document.querySelectorAll('input[name="full-tier"]').forEach(inp=>{
+  inp.addEventListener('change',function(){
+    document.querySelectorAll('.tier-row').forEach(r=>r.classList.remove('active'));
+    this.closest('.tier-row').classList.add('active');
+  });
+});
+
+/* ── PRICING DATA ── */
+const RATE=1410;
+const FULL_BASE_ARS=400000;
+const fmtARS=n=>'$'+n.toLocaleString('es-AR')+' ARS';
+const fmtARStoUSD=n=>'≈ USD '+Math.round(n/RATE).toLocaleString('en-US');
+const fmtUSDdirect=n=>'USD '+n+'/mes';
+const fmtUSDtoARS=n=>'≈ ARS $'+(n*RATE).toLocaleString('es-AR');
+function getPriceLine(info){
+  if(!info)return{main:'-',sub:'-',combined:'-'};
+  if(info.ars!==null&&info.ars!==undefined&&info.usd!==null&&info.usd!==undefined){
+    return{
+      main:fmtARS(info.ars),
+      sub:'+ USD '+info.usd+'/mes infraestructura',
+      combined:fmtARS(info.ars)+' + USD '+info.usd+'/mes'
+    };
+  }
+  if(info.ars!==null&&info.ars!==undefined) return{main:fmtARS(info.ars),sub:fmtARStoUSD(info.ars),combined:fmtARS(info.ars)};
+  return{main:fmtUSDdirect(info.usd),sub:fmtUSDtoARS(info.usd),combined:fmtUSDdirect(info.usd)};
+}
+
+const PLANS={
+  empresa:{
+    '1-30':       {plan:'BÁSICO',      ars:160000,          usd:null},
+    '31-60':      {plan:'ESTÁNDAR',    ars:280000,          usd:null},
+    '61-200':      {plan:'FULL MICRO',   ars:FULL_BASE_ARS,   usd:25,  tier:'Micro',  label:'Hasta 200 usuarios'},
+    '201-1000':    {plan:'FULL MICRO',   ars:FULL_BASE_ARS,   usd:25,  tier:'Micro',  label:'200 a 1.000 usuarios'},
+    '1001-2000':   {plan:'FULL SMALL',   ars:FULL_BASE_ARS,   usd:40,  tier:'Small',  label:'1.000 a 2.000 usuarios'},
+    '2001-3000':   {plan:'FULL MEDIUM',  ars:FULL_BASE_ARS,   usd:85,  tier:'Medium', label:'2.000 a 3.000 usuarios'},
+    '3001-4000':   {plan:'FULL MEDIUM',  ars:FULL_BASE_ARS,   usd:85,  tier:'Medium', label:'3.000 a 4.000 usuarios'},
+    '4001-5000':   {plan:'FULL MEDIUM',  ars:FULL_BASE_ARS,   usd:85,  tier:'Medium', label:'4.000 a 5.000 usuarios'},
+    '5001-8000':   {plan:'FULL LARGE',   ars:FULL_BASE_ARS,   usd:135, tier:'Large',  label:'5.000 a 8.000 usuarios'},
+    '8001-10000':  {plan:'FULL LARGE',   ars:FULL_BASE_ARS,   usd:135, tier:'Large',  label:'8.000 a 10.000 usuarios'},
+    '10001-15000': {plan:'FULL LARGE',   ars:FULL_BASE_ARS,   usd:135, tier:'Large',  label:'10.000 a 15.000 usuarios'},
+    '15001-20000': {plan:'FULL XL',      ars:FULL_BASE_ARS,   usd:210, tier:'XL',     label:'15.000 a 20.000 usuarios'}
+  },
+  sindicato:{
+    '1-30':        {plan:'BÁSICO',       ars:400000,          usd:null},
+    '31-60':       {plan:'ESTÁNDAR',     ars:580000,          usd:null},
+    '61-200':      {plan:'FULL MICRO',   ars:FULL_BASE_ARS,   usd:25,  tier:'Micro'},
+    '201-1000':    {plan:'FULL MICRO',   ars:FULL_BASE_ARS,   usd:25,  tier:'Micro'},
+    '1001-2000':   {plan:'FULL SMALL',   ars:FULL_BASE_ARS,   usd:40,  tier:'Small'},
+    '2001-3000':   {plan:'FULL MEDIUM',  ars:FULL_BASE_ARS,   usd:85,  tier:'Medium'},
+    '3001-4000':   {plan:'FULL MEDIUM',  ars:FULL_BASE_ARS,   usd:85,  tier:'Medium'},
+    '4001-5000':   {plan:'FULL MEDIUM',  ars:FULL_BASE_ARS,   usd:85,  tier:'Medium'},
+    '5001-8000':   {plan:'FULL LARGE',   ars:FULL_BASE_ARS,   usd:135, tier:'Large'},
+    '8001-10000':  {plan:'FULL LARGE',   ars:FULL_BASE_ARS,   usd:135, tier:'Large'},
+    '10001-15000': {plan:'FULL LARGE',   ars:FULL_BASE_ARS,   usd:135, tier:'Large'},
+    '15001-20000': {plan:'FULL XL',      ars:FULL_BASE_ARS,   usd:210, tier:'XL'}
+  },
+  institucional:{
+    '1-30':        {plan:'BÁSICO',       ars:400000,          usd:null},
+    '31-60':       {plan:'ESTÁNDAR',     ars:580000,          usd:null},
+    '61-200':      {plan:'FULL MICRO',   ars:FULL_BASE_ARS,   usd:25,  tier:'Micro'},
+    '201-1000':    {plan:'FULL MICRO',   ars:FULL_BASE_ARS,   usd:25,  tier:'Micro'},
+    '1001-2000':   {plan:'FULL SMALL',   ars:FULL_BASE_ARS,   usd:40,  tier:'Small'},
+    '2001-3000':   {plan:'FULL MEDIUM',  ars:FULL_BASE_ARS,   usd:85,  tier:'Medium'},
+    '3001-4000':   {plan:'FULL MEDIUM',  ars:FULL_BASE_ARS,   usd:85,  tier:'Medium'},
+    '4001-5000':   {plan:'FULL MEDIUM',  ars:FULL_BASE_ARS,   usd:85,  tier:'Medium'},
+    '5001-8000':   {plan:'FULL LARGE',   ars:FULL_BASE_ARS,   usd:135, tier:'Large'},
+    '8001-10000':  {plan:'FULL LARGE',   ars:FULL_BASE_ARS,   usd:135, tier:'Large'},
+    '10001-15000': {plan:'FULL LARGE',   ars:FULL_BASE_ARS,   usd:135, tier:'Large'},
+    '15001-20000': {plan:'FULL XL',      ars:FULL_BASE_ARS,   usd:210, tier:'XL'}
+  }
+};
+
+/* ── FORM STATE ── */
+let currentStep=1, orgValue='', selectedCountry='otro';
+
+function selectOrg(v){
+  orgValue=v;
+  ['empresa','sindicato','institucional'].forEach(k=>{
+    const el=document.getElementById('opt-'+k);
+    if(el){el.style.borderColor=k===v?'var(--gold)':'';el.style.background=k===v?'rgba(235,195,43,.08)':'#fff';}
+  });
+  document.getElementById('err-org').classList.remove('active');
+  updatePlanPreview();
+}
+
+function getPlanInfo(){
+  const q=document.getElementById('fqty').value;
+  if(!q||!orgValue)return null;
+  return PLANS[orgValue]?.[q]||null;
+}
+
+function updatePlanPreview(){
+  const info=getPlanInfo();
+  const box=document.getElementById('plan-preview-box');
+  if(info&&box){
+    box.classList.remove('hidden');
+    const price=getPriceLine(info);
+    document.getElementById('pp-plan').textContent=info.plan;
+    document.getElementById('pp-ars').textContent=price.main;
+    document.getElementById('pp-usd').textContent=price.sub;
+    const tb=document.getElementById('pp-tier');
+    if(tb){tb.textContent=info.tier?'Compute: '+info.tier:'';tb.style.display=info.tier?'':'none';}
+  } else if(box) box.classList.add('hidden');
+}
+
+function setDot(i,state){
+  const d=document.getElementById('dot'+i);if(!d)return;
+  d.classList.remove('active','done');
+  if(state==='active')d.classList.add('active');
+  else if(state==='done')d.classList.add('done');
+}
+function setLine(id,done){const l=document.getElementById(id);if(l)l.classList.toggle('done',done);}
+function updateProgress(step){
+  const pct=Math.round(step/4*100);
+  document.getElementById('pbfill').style.width=pct+'%';
+  document.getElementById('step-label').textContent='Paso '+step+' de 4';
+  document.getElementById('step-pct').textContent=pct+'%';
+  for(let i=1;i<=4;i++){
+    if(i<step)setDot(i,'done');
+    else if(i===step)setDot(i,'active');
+    else setDot(i,'');
+  }
+  setLine('line12',step>1);setLine('line23',step>2);setLine('line34',step>3);
+}
+
+function nextStep(from){
+  if(!validateStep(from))return;
+  if(from===3)buildSummary();
+  document.getElementById('step'+from).classList.remove('active');
+  currentStep=from+1;
+  document.getElementById('step'+currentStep).classList.add('active');
+  updateProgress(currentStep);
+  document.getElementById('form-section').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function prevStep(from){
+  document.getElementById('step'+from).classList.remove('active');
+  currentStep=from-1;
+  document.getElementById('step'+currentStep).classList.add('active');
+  updateProgress(currentStep);
+}
+
+function showErr(id,inp){const e=document.getElementById(id);if(e)e.classList.add('active');if(inp)inp.style.borderColor='var(--rd-600)'}
+function hideErr(id,inp){const e=document.getElementById(id);if(e)e.classList.remove('active');if(inp)inp.style.borderColor=''}
+
+function validateStep(step){
+  let ok=true;
+  if(step===1){if(!orgValue){document.getElementById('err-org').classList.add('active');ok=false;}}
+  if(step===2){
+    const nm=document.getElementById('fn'),em=document.getElementById('fe2'),ph=document.getElementById('ftel');
+    const re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!nm.value.trim()){showErr('err-fn',nm);ok=false;}else hideErr('err-fn',nm);
+    if(!em.value.trim()||!re.test(em.value)){showErr('err-fe',em);ok=false;}else hideErr('err-fe',em);
+    if(!ph.value.trim()){showErr('err-ftel',ph);ok=false;}else hideErr('err-ftel',ph);
+  }
+  if(step===3){
+    const org=document.getElementById('forg'),qty=document.getElementById('fqty');
+    if(!org.value.trim()){showErr('err-forg',org);ok=false;}else hideErr('err-forg',org);
+    if(!qty.value){showErr('err-fqty',qty);ok=false;}else hideErr('err-fqty',qty);
+  }
+  return ok;
+}
+
+function buildSummary(){
+  const info=getPlanInfo();
+  const ORG_LABEL={empresa:'Empresa',sindicato:'Sindicato',institucional:'Institución Sindical'};
+  const price=getPriceLine(info);
+  const rows=[
+    ['Tipo',ORG_LABEL[orgValue]||'-'],
+    ['Nombre',document.getElementById('fn').value],
+    ['Email',document.getElementById('fe2').value],
+    ['Teléfono',document.getElementById('ftel').value],
+    ['Organización',document.getElementById('forg').value],
+    ['Participantes',document.getElementById('fqty').selectedOptions?.[0]?.text||'-'],
+    ['Cuándo',document.getElementById('fwhn').selectedOptions?.[0]?.text||'-']
+  ];
+  document.getElementById('summary-box').innerHTML=rows.map(([k,v])=>`
+    <div class="flex items-center justify-between gap-4 py-1.5" style="border-bottom:1px dashed var(--cream-2)">
+      <span style="color:var(--ink-500);font-size:.8rem;flex-shrink:0">${k}</span>
+      <span style="font-size:.88rem;text-align:right;color:var(--ink-900);font-weight:500">${v}</span>
+    </div>`).join('');
+  if(info){
+    document.getElementById('fp-plan').textContent=info.plan;
+    document.getElementById('fp-ars').textContent=price.main;
+    document.getElementById('fp-usd').textContent=price.sub;
+  }
+}
+
+/* ── SUBMIT ── */
+const GAS='https://script.google.com/macros/s/AKfycbxLkU2auZ_q8eH97XN3RsO7MMY3cI6HjR2BkfBeqMTfu1KGUUnzwQmTc9en3EE9MRgbjw/exec';
+
+function doSubmit(){
+  const chk=document.getElementById('fchk');
+  if(!chk.checked){document.getElementById('err-chk').classList.add('active');return;}
+  document.getElementById('err-chk').classList.remove('active');
+
+  const info=getPlanInfo();
+  const ORG_LABEL={empresa:'Empresa',sindicato:'Sindicato',institucional:'Institución Sindical'};
+  const price=getPriceLine(info);
+
+  const displayData={
+    Nombre:       document.getElementById('fn').value.trim(),
+    Email:        document.getElementById('fe2').value.trim(),
+    Telefono:     document.getElementById('ftel').value.trim(),
+    Organizacion: document.getElementById('forg').value.trim(),
+    Tipo:         ORG_LABEL[orgValue]||orgValue,
+    Plan:         info?info.plan:'-',
+    Precio:       price.main,
+    Precio_sub:   price.sub,
+    Participantes:document.getElementById('fqty').selectedOptions?.[0]?.text||'-',
+    Cuando:       document.getElementById('fwhn').selectedOptions?.[0]?.text||'-',
+    Comentarios:  document.getElementById('fcmt').value.trim()
+  };
+
+  const fila=[
+    new Date().toLocaleString('es-AR',{timeZone:'America/Argentina/Buenos_Aires'}),
+    displayData.Nombre, displayData.Email, displayData.Telefono,
+    displayData.Organizacion, displayData.Tipo,
+    document.getElementById('fqty').value,
+    displayData.Plan, price.combined, price.sub,
+    displayData.Cuando, displayData.Comentarios, 'presupuesto-page'
+  ];
+
+  document.getElementById('submit-text').classList.add('hidden');
+  document.getElementById('submit-spin').classList.remove('hidden');
+  document.getElementById('submit-btn').disabled=true;
+
+  let done=false;
+  function finish(){if(done)return;done=true;showSuccess(displayData);}
+  fetch(GAS,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify({nombreHoja:'Hoja 1',fila:fila})}).then(finish).catch(finish);
+  setTimeout(finish,6000);
+}
+
+function showSuccess(data){
+  document.getElementById('step4').classList.remove('active');
+  document.getElementById('step-success').classList.add('active');
+  document.getElementById('pbfill').style.width='100%';
+  document.getElementById('step-label').textContent='✓ Solicitud enviada';
+  document.getElementById('step-pct').textContent='100%';
+  for(let i=1;i<=4;i++)setDot(i,'done');
+
+  document.getElementById('success-summary').innerHTML=`
+    <p class="mono-label mb-3" style="color:var(--navy)">Resumen</p>
+    <div class="grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
+      <span style="color:var(--ink-500)">Nombre</span><span style="color:var(--ink-900)">${data.Nombre}</span>
+      <span style="color:var(--ink-500)">Email</span><span style="color:var(--ink-900)">${data.Email}</span>
+      <span style="color:var(--ink-500)">Organización</span><span style="color:var(--ink-900)">${data.Organizacion}</span>
+      <span style="color:var(--ink-500)">Plan</span><span style="color:var(--navy);font-weight:700">${data.Plan}</span>
+      <span style="color:var(--ink-500)">Precio</span><span style="color:var(--ink-900);font-weight:600">${data.Precio}</span>
+      <span style="color:var(--ink-500)">Ref.</span><span style="color:var(--gold-dark)">${data.Precio_sub}</span>
+    </div>`;
+
+  const lines=[
+    '🏆 *PRODE TALENTO 2026 · Nuevo Presupuesto*',
+    '━━━━━━━━━━━━━━━━━━━━━━',
+    `👤 *Nombre:* ${data.Nombre}`,
+    `📧 *Email:* ${data.Email}`,
+    `📱 *Tel:* ${data.Telefono}`,
+    `🏢 *Organización:* ${data.Organizacion}`,
+    `📋 *Tipo:* ${data.Tipo}`,
+    `👥 *Participantes:* ${data.Participantes}`,
+    `📦 *Plan:* ${data.Plan}`,
+    `💰 *Precio:* ${data.Precio} (${data.Precio_sub})`,
+    `⏰ *Cuándo:* ${data.Cuando}`
+  ];
+  if(data.Comentarios)lines.push(`💬 *Comentarios:* ${data.Comentarios}`);
+  const waMsg=lines.join('\n');
+  const waUrl='https://wa.me/5491133588062?text='+encodeURIComponent(waMsg);
+  const qrUrl='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data='+encodeURIComponent(waUrl)+'&color=0c182b&bgcolor=ffffff&margin=10&qzone=1';
+  document.getElementById('success-wa-link').href=waUrl;
+  document.getElementById('success-qr').src=qrUrl;
+  document.getElementById('form-section').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>
