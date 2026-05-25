@@ -147,9 +147,9 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
 .price-card-featured{background:linear-gradient(170deg,var(--navy),var(--navy-deep));color:#fff;border:2px solid var(--gold);box-shadow:0 24px 60px rgba(12,24,43,.25)}
 .price-card-featured::before{background:var(--gold)}
 @media(min-width:768px){.price-card-featured:hover{transform:translateY(-4px);box-shadow:0 32px 72px rgba(12,24,43,.35)}}
-#pricing-empresa::-webkit-scrollbar{height:3px}
-#pricing-empresa::-webkit-scrollbar-track{background:var(--cream-2);border-radius:3px}
-#pricing-empresa::-webkit-scrollbar-thumb{background:var(--navy);border-radius:3px}
+#pricing-empresa-carousel::-webkit-scrollbar{height:3px}
+#pricing-empresa-carousel::-webkit-scrollbar-track{background:var(--cream-2);border-radius:3px}
+#pricing-empresa-carousel::-webkit-scrollbar-thumb{background:var(--navy);border-radius:3px}
 #pricing-sindicato::-webkit-scrollbar{height:3px}
 #pricing-sindicato::-webkit-scrollbar-track{background:var(--cream-2);border-radius:3px}
 #pricing-sindicato::-webkit-scrollbar-thumb{background:var(--navy);border-radius:3px}
@@ -760,9 +760,9 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
     </div>
 
     <!-- EMPRESA -->
-    <!-- hint mobile only -->
+    <div id="pricing-empresa" data-aos="fade-up">
     <p class="text-center text-xs mb-3 md:hidden" style="color:var(--ink-300)">← Deslizá para ver los planes →</p>
-    <div id="pricing-empresa" class="flex md:grid md:grid-cols-3 gap-5 max-w-5xl mx-auto overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-auto md:px-0 md:overflow-visible" data-aos="fade-up">
+    <div id="pricing-empresa-carousel" class="flex md:grid md:grid-cols-3 gap-5 max-w-5xl mx-auto overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-auto md:px-0 md:overflow-visible">
 
       <!-- Plan Básico -->
       <div class="price-card flex-shrink-0 w-[82vw] md:w-auto snap-start" id="pc-basic">
@@ -901,6 +901,7 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--ink-
         </ul>
         <a href="#contacto" onclick="preSelectPlan('empresa','61-200')" class="btn btn-outline-navy w-full">Elegir Full</a>
       </div>
+    </div>
     </div>
 
     <!-- SINDICATO — solo visible cuando país = argentina -->
